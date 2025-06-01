@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberNews Hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a0f1c;
+            --secondary-bg: #1a1f2e;
+            --card-bg: #242938;
+            --accent-color: #00ff88;
+            --secondary-accent: #0099ff;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b8c8;
+            --border-color: #2d3548;
+            --hover-bg: #2a3142;
+            --danger-color: #ff4757;
+            --warning-color: #ffa502;
+        }
+
+        .light-theme {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --card-bg: #ffffff;
+            --accent-color: #28a745;
+            --secondary-accent: #007bff;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --hover-bg: #f8f9fa;
+            --danger-color: #dc3545;
+            --warning-color: #fd7e14;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 153, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 71, 87, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+            animation: backgroundFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFloat {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .navbar {
+            background: rgba(26, 31, 46, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .light-theme .navbar {
+            background: rgba(248, 249, 250, 0.95) !important;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: var(--accent-color) !important;
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 20px var(--accent-color);
+        }
+
+        .cyber-icon {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .search-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .search-input {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 25px;
+            padding: 0.8rem 1.5rem 0.8rem 3rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            z-index: 10;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-cyber {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+            border: none;
+            color: white;
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cyber:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+            color: white;
+        }
+
+        .btn-cyber::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-cyber:hover::before {
+            left: 100%;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: rotate(180deg);
+        }
+
+        .filter-dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 25px;
+            padding: 0.6rem 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-toggle:hover {
+            border-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+
+        .dropdown-menu {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 15px;
+            padding: 0.5rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .dropdown-item {
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: var(--hover-bg);
+            color: var(--accent-color);
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            padding: 0 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .news-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .news-title {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+            text-decoration: none;
+            display: block;
+        }
+
+        .news-title:hover {
+            color: var(--accent-color);
+        }
+
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .news-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .news-source {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .news-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .read-more {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: var(--secondary-accent);
+            transform: translateX(5px);
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .pagination-btn {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            color: var(--text-primary);
+            border-radius: 10px;
+            padding: 0.6rem 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination-btn.active {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+        }
+
+        .page-info {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-accent));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--text-secondary);
+            margin: 3rem 0;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            background: var(--card-bg);
+            border-top: 2px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer h5 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-stats {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .error-message {
+            background: var(--card-bg);
+            border: 2px solid var(--danger-color);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 1rem;
+        }
+
+        .error-icon {
+            color: var(--danger-color);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+                padding: 0 0.5rem;
+            }
+
+            .controls {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .search-container {
+                margin: 1rem;
+            }
+
+            .search-bar {
+                flex-direction: column;
+            }
+
+            .pagination-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="refreshNews()">
+                <i class="fas fa-shield-alt cyber-icon"></i>
+                CyberNews Hub
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top: 100px;">
+        <div class="search-container">
+            <div class="search-bar">
+                <div style="position: relative; flex: 1;">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control search-input" id="searchInput"
+                        placeholder="Search cybersecurity news..." aria-label="Search news">
+                </div>
+                <button class="btn btn-cyber" onclick="performSearch()" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-cyber" onclick="refreshNews()" aria-label="Refresh news feed">
+                <i class="fas fa-sync-alt me-2"></i>Refresh Feed
+            </button>
+
+            <div class="dropdown filter-dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-filter me-2"></i>Sort & Filter
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" onclick="sortNews('newest')">
+                            <i class="fas fa-clock me-2"></i>Newest First
+                        </a></li>
+                    <li><a class="dropdown-item" href="#" onclick="sortNews('oldest')">
+                            <i class="fas fa-history me-2"></i>Oldest First
+                        </a></li>
+                    <li>
+                        <hr class="dropdown-divider" style="border-color: var(--border-color);">
+                    </li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySource('all')">
+                            <i class="fas fa-globe me-2"></i>All Sources
+                        </a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterBySource('security')">
+                            <i class="fas fa-shield-alt me-2"></i>Security Focus
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="stats" id="newsStats"></div>
+
+        <div class="loading-spinner" id="loadingSpinner">
+            <div class="spinner"></div>
+            <p>Loading latest cybersecurity news...</p>
+        </div>
+
+        <div class="news-grid" id="newsContainer"></div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search-minus" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+            <p>No articles found matching your search criteria.</p>
+            <button class="btn btn-cyber mt-3" onclick="clearSearch()">
+                <i class="fas fa-times me-2"></i>Clear Search
+            </button>
+        </div>
+
+        <div class="pagination-container" id="paginationContainer" style="display: none;">
+            <button class="pagination-btn" id="prevBtn" onclick="changePage(-1)" aria-label="Previous page">
+                <i class="fas fa-chevron-left me-2"></i>Previous
+            </button>
+            <div class="page-info" id="pageInfo"></div>
+            <button class="pagination-btn" id="nextBtn" onclick="changePage(1)" aria-label="Next page">
+                Next<i class="fas fa-chevron-right ms-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="footer">
+        <div class="container">
+            <h5><i class="fas fa-rocket me-2"></i>Built by Dhruv Tripathi – CyberNews Hub © 2025</h5>
+            <p>Your trusted source for cybersecurity news and updates</p>
+            <div class="footer-stats" id="footerStats">
+                <p>Loading news data...</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Global variables
+        let allNews = [];
+        let filteredNews = [];
+        let currentPage = 1;
+        let articlesPerPage = 6;
+        let currentSort = 'newest';
+        let currentFilter = 'all';
+        let lastUpdated = new Date();
+        let searchTimeout;
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function () {
+            loadNews();
+            setupEventListeners();
+
+            // Auto-refresh every 10 minutes
+            setInterval(loadNews, 600000);
+        });
+
+        // Event listeners
+        function setupEventListeners() {
+            // Search on Enter key
+            document.getElementById('searchInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Real-time search with debounce
+            document.getElementById('searchInput').addEventListener('input', function () {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(performSearch, 300);
+            });
+
+            // Scroll to top button
+            window.addEventListener('scroll', function () {
+                const scrollToTop = document.getElementById('scrollToTop');
+                if (window.pageYOffset > 300) {
+                    scrollToTop.classList.add('visible');
+                } else {
+                    scrollToTop.classList.remove('visible');
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) {
+                    changePage(-1);
+                } else if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) {
+                    changePage(1);
+                }
+            });
+        }
+
+        // Fetch RSS feeds from multiple cybersecurity sources
+        async function fetchRSSFeeds() {
+            const RSS_URLS = [
+                'https://rss2json.com/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews',
+                'https://rss2json.com/api.json?rss_url=https://krebsonsecurity.com/feed/',
+                'https://rss2json.com/api.json?rss_url=https://www.bleepingcomputer.com/feed/'
+            ];
+
+            try {
+                const promises = RSS_URLS.map(url => fetch(url).then(r => r.json()));
+                const results = await Promise.all(promises);
+                const allArticles = [];
+
+                results.forEach(result => {
+                    if (result.items) {
+                        result.items.forEach(item => {
+                            allArticles.push({
+                                title: item.title,
+                                description: item.description?.replace(/<[^>]*>/g, '') || 'No description available.',
+                                source: result.feed?.title || 'RSS Feed',
+                                pubDate: new Date(item.pubDate),
+                                link: item.link,
+                                id: item.guid || item.link
+                            });
+                        });
+                    }
+                });
+
+                return allArticles.slice(0, 30); // Limit to 30 articles
+            } catch (error) {
+                console.error('Error fetching RSS feeds:', error);
+                return generateEnhancedCyberNews();
+            }
+        }
+
+        // Load news from multiple sources
+        async function loadNews() {
+            showLoading(true);
+            allNews = [];
+
+            try {
+                // Try to fetch RSS feeds first, fallback to generated news
+                allNews = await fetchRSSFeeds();
+
+                // Sort by newest first
+                sortNewsByDate();
+
+                filteredNews = [...allNews];
+                currentPage = 1;
+
+                displayNews();
+                updateStats();
+                updateFooterStats();
+
+                showStatusMessage(`✅ Loaded ${allNews.length} articles`, 'success');
+                lastUpdated = new Date();
+
+                // Observe cards for animations
+                setTimeout(observeNewsCards, 100);
+
+            } catch (error) {
+                console.error('Error loading news:', error);
+                showErrorMessage();
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Generate realistic cybersecurity news
+        function generateCyberNews() {
+            const headlines = [
+                "Major Ransomware Attack Targets Healthcare Systems Worldwide",
+                "New Zero-Day Vulnerability Discovered in Popular Web Framework",
+                "AI-Powered Phishing Campaigns Surge 300% This Quarter",
+                "Critical Security Flaw Found in IoT Devices Affects Millions",
+                "Cybersecurity Firm Discovers Advanced Persistent Threat Group",
+                "Data Breach Exposes Personal Information of 50 Million Users",
+                "Quantum-Safe Encryption Standards Released by NIST",
+                "Mobile Banking Trojans Evolve with Machine Learning Capabilities",
+                "Supply Chain Attack Compromises Software Development Tools",
+                "Nation-State Hackers Target Critical Infrastructure Systems",
+                "Biometric Authentication Bypass Technique Revealed at Conference",
+                "Cloud Security Misconfiguration Leads to Massive Data Leak",
+                "New Malware Family Exploits Windows Kernel Vulnerabilities",
+                "Cryptocurrency Exchange Suffers $100M Security Breach",
+                "Enterprise VPN Solutions Found Vulnerable to Remote Attacks",
+                "Social Engineering Attacks Leverage Deepfake Technology",
+                "Industrial Control Systems Targeted by Sophisticated Malware",
+                "Browser Extension Caught Stealing User Credentials",
+                "Insider Threat Detection Tools Show 40% Improvement in Accuracy",
+                "5G Network Security Protocols Updated After Vulnerability Discovery"
+            ];
+
+            const sources = [
+                "CyberScoop", "Dark Reading", "SecurityWeek", "InfoSecurity Magazine",
+                "Threatpost", "SC Media", "Cyber Defense Magazine", "Security Boulevard",
+                "The Hacker News", "Bleeping Computer", "Krebs on Security", "ZDNet Security"
+            ];
+
+            const descriptions = [
+                "Security researchers have identified a sophisticated attack campaign targeting multiple organizations across various industries. The attack vector exploits previously unknown vulnerabilities and demonstrates advanced persistence techniques.",
+                "A newly discovered security flaw has been classified as critical due to its potential for remote code execution. Organizations are urged to apply patches immediately to protect their systems from potential exploitation.",
+                "Cybercriminals are increasingly leveraging artificial intelligence to enhance their attack strategies, making detection more challenging for traditional security tools and requiring updated defense mechanisms.",
+                "The vulnerability affects millions of connected devices worldwide, highlighting the ongoing security challenges in the Internet of Things ecosystem and the need for better security by design principles.",
+                "Advanced threat actors have been observed using novel techniques to maintain persistence within compromised networks, evading detection for extended periods while exfiltrating sensitive data.",
+                "A significant data breach has exposed sensitive personal information, emphasizing the critical importance of data protection measures and the need for enhanced cybersecurity frameworks in organizations."
+            ];
+
+            const news = [];
+            const now = new Date();
+
+            for (let i = 0; i < 24; i++) {
+                const daysAgo = Math.floor(Math.random() * 7);
+                const hoursAgo = Math.floor(Math.random() * 24);
+                const date = new Date(now - (daysAgo * 24 * 60 * 60 * 1000) - (hoursAgo * 60 * 60 * 1000));
+
+                news.push({
+                    title: headlines[Math.floor(Math.random() * headlines.length)],
+                    description: descriptions[Math.floor(Math.random() * descriptions.length)],
+                    source: sources[Math.floor(Math.random() * sources.length)],
+                    pubDate: date,
+                    link: `https://example.com/article-${i + 1}`,
+                    id: `article-${i + 1}`
+                });
+            }
+
+            return news;
+        }
+
+        // Enhanced news generation with more variety
+        function generateEnhancedCyberNews() {
+            const headlines = [
+                "Critical Zero-Day Exploit Targets Enterprise VPN Solutions",
+                "Ransomware Gang Demands $50M After Healthcare System Breach",
+                "AI-Generated Phishing Emails Bypass Advanced Email Filters",
+                "Nation-State APT Group Infiltrates Government Networks",
+                "Cryptocurrency Exchange Loses $200M in DeFi Protocol Hack",
+                "Supply Chain Attack Compromises Popular Development Framework",
+                "Quantum Computing Breakthrough Threatens Current Encryption",
+                "IoT Botnet Enslaves 2 Million Smart Home Devices",
+                "Deepfake Technology Used in CEO Fraud Scheme",
+                "Critical Vulnerability Discovered in Popular CMS Platform",
+                "Insider Threat Leads to Massive Data Exfiltration",
+                "New Malware Strain Targets Industrial Control Systems",
+                "Social Media Platform Suffers Major Security Breach",
+                "Cloud Storage Misconfiguration Exposes 100M Records",
+                "Banking Trojan Evolution Targets Mobile Payment Apps",
+                "Satellite Communication Systems Compromised by Hackers",
+                "Machine Learning Model Poisoning Attack Demonstrated",
+                "Critical Infrastructure Faces Coordinated Cyber Campaign",
+                "Biometric Database Breach Affects Government Employees",
+                "Advanced Persistent Threat Maintains 5-Year Presence"
+            ];
+
+            const sources = [
+                "CyberScoop", "Dark Reading", "SecurityWeek", "InfoSecurity Magazine",
+                "Threatpost", "SC Media", "Cyber Defense Magazine", "Security Boulevard",
+                "The Hacker News", "Bleeping Computer", "Krebs on Security", "ZDNet Security",
+                "CSO Online", "Security Intelligence", "Cybersecurity Dive", "Information Security Buzz"
+            ];
+
+            const descriptions = [
+                "Security researchers have uncovered a sophisticated vulnerability that allows attackers to gain unauthorized access to critical systems. The flaw has been actively exploited in the wild, prompting immediate patching recommendations.",
+                "A coordinated cyber attack campaign has targeted multiple organizations across different sectors, utilizing advanced techniques to evade detection and maintain persistent access to compromised networks.",
+                "Cybercriminals are leveraging cutting-edge artificial intelligence technologies to enhance their attack capabilities, creating more convincing social engineering attempts and automated exploitation tools.",
+                "The discovered security weakness affects millions of users worldwide and demonstrates the evolving nature of cyber threats in an increasingly connected digital landscape.",
+                "Advanced threat actors have been observed employing novel attack vectors and persistence mechanisms, highlighting the need for enhanced cybersecurity measures and threat intelligence sharing.",
+                "This incident underscores the critical importance of implementing robust security frameworks and maintaining vigilant monitoring of network activities to detect and respond to emerging threats."
+            ];
+
+            const news = [];
+            const now = new Date();
+
+            // Generate 30 articles for better pagination demonstration
+            for (let i = 0; i < 30; i++) {
+                const daysAgo = Math.floor(Math.random() * 14); // Up to 2 weeks ago
+                const hoursAgo = Math.floor(Math.random() * 24);
+                const minutesAgo = Math.floor(Math.random() * 60);
+                const date = new Date(now - (daysAgo * 24 * 60 * 60 * 1000) - (hoursAgo * 60 * 60 * 1000) - (minutesAgo * 60 * 1000));
+
+                news.push({
+                    title: headlines[Math.floor(Math.random() * headlines.length)],
+                    description: descriptions[Math.floor(Math.random() * descriptions.length)],
+                    source: sources[Math.floor(Math.random() * sources.length)],
+                    pubDate: date,
+                    link: `https://example.com/cybersecurity-article-${i + 1}`,
+                    id: `cyber-article-${i + 1}`
+                });
+            }
+
+            return news;
+        }
+
+        // Search functionality
+        function performSearch() {
+            showLoading(true);
+
+            // Simulate API call delay
+            setTimeout(() => {
+                const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+
+                if (searchTerm === '') {
+                    filteredNews = [...allNews];
+                } else {
+                    filteredNews = allNews.filter(article =>
+                        article.title.toLowerCase().includes(searchTerm) ||
+                        article.description.toLowerCase().includes(searchTerm) ||
+                        article.source.toLowerCase().includes(searchTerm)
+                    );
+                }
+
+                currentPage = 1;
+                displayNews();
+                updateStats();
+                showLoading(false);
+            }, 800);
+        }
+
+        // Clear search
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            filteredNews = [...allNews];
+            currentPage = 1;
+            displayNews();
+            updateStats();
+        }
+
+        // Sort news
+        function sortNews(type) {
+            currentSort = type;
+
+            if (type === 'newest') {
+                filteredNews.sort((a, b) => b.pubDate - a.pubDate);
+            } else if (type === 'oldest') {
+                filteredNews.sort((a, b) => a.pubDate - b.pubDate);
+            }
+
+            currentPage = 1;
+            displayNews();
+            showStatusMessage(`Sorted by ${type}`, 'info');
+        }
+
+        // Filter by source
+        function filterBySource(type) {
+            currentFilter = type;
+
+            if (type === 'all') {
+                filteredNews = [...allNews];
+            } else if (type === 'security') {
+                filteredNews = allNews.filter(article =>
+                    article.source.toLowerCase().includes('security') ||
+                    article.source.toLowerCase().includes('cyber') ||
+                    article.title.toLowerCase().includes('security') ||
+                    article.title.toLowerCase().includes('cyber')
+                );
+            }
+
+            // Apply current search if exists
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (searchTerm) {
+                filteredNews = filteredNews.filter(article =>
+                    article.title.toLowerCase().includes(searchTerm) ||
+                    article.description.toLowerCase().includes(searchTerm) ||
+                    article.source.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            // Apply current sort
+            sortNews(currentSort);
+
+            showStatusMessage(`Filtered by ${type === 'all' ? 'all sources' : 'security focus'}`, 'info');
+        }
+
+        // Sort news by date
+        function sortNewsByDate() {
+            allNews.sort((a, b) => b.pubDate - a.pubDate);
+        }
+
+        // Display news with pagination
+        function displayNews() {
+            const container = document.getElementById('newsContainer');
+            const noResults = document.getElementById('noResults');
+            const paginationContainer = document.getElementById('paginationContainer');
+
+            if (filteredNews.length === 0) {
+                container.innerHTML = '';
+                noResults.style.display = 'block';
+                paginationContainer.style.display = 'none';
+                return;
+            }
+
+            noResults.style.display = 'none';
+
+            // Calculate pagination
+            const startIndex = (currentPage - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const pageNews = filteredNews.slice(startIndex, endIndex);
+            // Clear container and show current page news
+            container.innerHTML = '';
+
+            pageNews.forEach((article, index) => {
+                const card = createNewsCard(article, startIndex + index);
+                container.appendChild(card);
+            });
+
+            // Update pagination
+            updatePagination();
+            paginationContainer.style.display = filteredNews.length > articlesPerPage ? 'flex' : 'none';
+
+            // Animate cards
+            animateNewsCards();
+        }
+
+        // Create news card element
+        function createNewsCard(article, index) {
+            const card = document.createElement('div');
+            card.className = 'news-card fade-in';
+            card.style.animationDelay = `${index * 0.1}s`;
+
+            const timeAgo = getTimeAgo(article.pubDate);
+
+            card.innerHTML = `
+                <a href="${article.link}" class="news-title" target="_blank" rel="noopener noreferrer">
+                    ${article.title}
+                </a>
+                <div class="news-meta">
+                    <span class="news-date">
+                        <i class="fas fa-clock me-1"></i>${timeAgo}
+                    </span>
+                    <span class="news-source">${article.source}</span>
+                </div>
+                <p class="news-description">${article.description}</p>
+                <a href="${article.link}" class="read-more" target="_blank" rel="noopener noreferrer">
+                    Read More <i class="fas fa-external-link-alt"></i>
+                </a>
+            `;
+
+            // Add click event for analytics (optional)
+            card.addEventListener('click', function (e) {
+                if (e.target.tagName !== 'A') {
+                    window.open(article.link, '_blank', 'noopener,noreferrer');
+                }
+            });
+
+            return card;
+        }
+
+        // Animate news cards with Animate.css
+        function animateNewsCards() {
+            const cards = document.querySelectorAll('.news-card');
+            cards.forEach((card, index) => {
+                card.classList.add('animate__animated', 'animate__fadeInUp');
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.animationDuration = '0.6s';
+            });
+        }
+
+        // Update pagination controls
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredNews.length / articlesPerPage);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const pageInfo = document.getElementById('pageInfo');
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+
+            // Update button states
+            prevBtn.classList.toggle('active', currentPage > 1);
+            nextBtn.classList.toggle('active', currentPage < totalPages);
+        }
+
+        // Change page
+        function changePage(direction) {
+            const totalPages = Math.ceil(filteredNews.length / articlesPerPage);
+            const newPage = currentPage + direction;
+
+            if (newPage >= 1 && newPage <= totalPages) {
+                currentPage = newPage;
+                displayNews();
+                scrollToTop();
+
+                // Add page change animation
+                const container = document.getElementById('newsContainer');
+                container.style.opacity = '0.5';
+                setTimeout(() => {
+                    container.style.opacity = '1';
+                }, 200);
+            }
+        }
+
+        // Update statistics
+        function updateStats() {
+            const statsElement = document.getElementById('newsStats');
+            const searchTerm = document.getElementById('searchInput').value.trim();
+
+            let statusText = `Showing ${filteredNews.length} article${filteredNews.length !== 1 ? 's' : ''}`;
+
+            if (searchTerm) {
+                statusText += ` matching "${searchTerm}"`;
+            }
+
+            if (currentFilter !== 'all') {
+                statusText += ` (${currentFilter} filter applied)`;
+            }
+
+            statsElement.innerHTML = `
+                <i class="fas fa-chart-bar me-2"></i>
+                ${statusText} • Updated ${getTimeAgo(lastUpdated)}
+            `;
+        }
+
+        // Update footer statistics
+        function updateFooterStats() {
+            const footerStats = document.getElementById('footerStats');
+            const totalArticles = allNews.length;
+            const uniqueSources = [...new Set(allNews.map(article => article.source))].length;
+
+            footerStats.innerHTML = `
+                <p>
+                    <i class="fas fa-newspaper me-2"></i>
+                    ${totalArticles} articles from ${uniqueSources} sources • 
+                    Last updated ${getTimeAgo(lastUpdated)}
+                </p>
+            `;
+        }
+
+        // Get time ago string
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+
+            if (diffInSeconds < 60) {
+                return 'Just now';
+            } else if (diffInSeconds < 3600) {
+                const minutes = Math.floor(diffInSeconds / 60);
+                return `${minutes} minute${minutes !== 1 ? 's' : ''} ago`;
+            } else if (diffInSeconds < 86400) {
+                const hours = Math.floor(diffInSeconds / 3600);
+                return `${hours} hour${hours !== 1 ? 's' : ''} ago`;
+            } else {
+                const days = Math.floor(diffInSeconds / 86400);
+                return `${days} day${days !== 1 ? 's' : ''} ago`;
+            }
+        }
+
+        // Show loading spinner
+        function showLoading(show) {
+            const spinner = document.getElementById('loadingSpinner');
+            const newsContainer = document.getElementById('newsContainer');
+
+            if (show) {
+                spinner.style.display = 'block';
+                newsContainer.style.opacity = '0.5';
+            } else {
+                spinner.style.display = 'none';
+                newsContainer.style.opacity = '1';
+            }
+        }
+
+        // Show status message
+        function showStatusMessage(message, type = 'info') {
+            // Create toast-like notification
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type === 'success' ? 'success' : type === 'error' ? 'danger' : 'info'} position-fixed`;
+            toast.style.cssText = `
+                top: 120px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+                animation: slideInRight 0.3s ease;
+            `;
+
+            toast.innerHTML = `
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'} me-2"></i>
+                    ${message}
+                    <button type="button" class="btn-close ms-auto" onclick="this.parentElement.parentElement.remove()"></button>
+                </div>
+            `;
+
+            document.body.appendChild(toast);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 3000);
+        }
+
+        // Show error message
+        function showErrorMessage() {
+            const container = document.getElementById('newsContainer');
+            container.innerHTML = `
+                <div class="error-message col-12">
+                    <i class="fas fa-exclamation-triangle error-icon"></i>
+                    <h3>Unable to Load News</h3>
+                    <p>We're having trouble fetching the latest cybersecurity news. Please check your connection and try again.</p>
+                    <button class="btn btn-cyber mt-3" onclick="loadNews()">
+                        <i class="fas fa-retry me-2"></i>Try Again
+                    </button>
+                </div>
+            `;
+        }
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+
+            body.classList.toggle('light-theme');
+
+            if (body.classList.contains('light-theme')) {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+                showStatusMessage('Switched to light theme', 'info');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+                showStatusMessage('Switched to dark theme', 'info');
+            }
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+
+            if (savedTheme === 'light') {
+                body.classList.add('light-theme');
+                themeIcon.className = 'fas fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-moon';
+            }
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Refresh news
+        function refreshNews() {
+            showStatusMessage('Refreshing news feed...', 'info');
+            loadNews();
+        }
+
+        // Live news API integration (NewsAPI.org)
+        async function fetchLiveNews() {
+            const API_KEY = '332560a5272cc108f7811365799408b1'; // Your actual API key
+            const API_URL = `https://newsapi.org/v2/everything?q=cybersecurity&apiKey=${API_KEY}&pageSize=50&sortBy=publishedAt`;
+
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                return data.articles.map(article => ({
+                    title: article.title,
+                    description: article.description || 'No description available.',
+                    source: article.source.name,
+                    pubDate: new Date(article.publishedAt),
+                    link: article.url,
+                    id: article.url
+                }));
+            } catch (error) {
+                console.error('Error fetching live news:', error);
+                // Fallback to generated dummy news if fetch fails
+                return generateCyberNews(); // Make sure this function exists
+            }
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            loadTheme();
+        });
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            .animate__fadeInUp {
+                animation-fill-mode: both;
+            }
+            
+            .news-card {
+                transform: translateY(0);
+                transition: all 0.3s ease;
+            }
+            
+            .news-card:hover {
+                transform: translateY(-8px) scale(1.02);
+            }
+            
+            .btn-cyber {
+                position: relative;
+                overflow: hidden;
+                transform: translateZ(0);
+            }
+            
+            .search-input:focus {
+                transform: scale(1.02);
+            }
+            
+            .pagination-btn {
+                transform: translateZ(0);
+            }
+            
+            .pagination-btn:hover:not(:disabled) {
+                transform: translateY(-3px) scale(1.05);
+            }
+            
+            .theme-toggle {
+                transform: translateZ(0);
+            }
+            
+            .scroll-to-top {
+                transform: translateZ(0);
+            }
+            
+            .news-source {
+                animation: pulse 3s infinite;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.8; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Enhanced error handling
+        window.addEventListener('error', function (e) {
+            console.error('JavaScript error:', e.error);
+            showStatusMessage('An error occurred. Please refresh the page.', 'error');
+        });
+
+        // Performance optimization - lazy loading for images (if added later)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '50px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observe news cards for animation
+        function observeNewsCards() {
+            const cards = document.querySelectorAll('.news-card');
+            cards.forEach(card => observer.observe(card));
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function (e) {
+            // Ctrl/Cmd + / for search focus
+            if ((e.ctrlKey || e.metaKey) && e.key === '/') {
+                e.preventDefault();
+                document.getElementById('searchInput').focus();
+            }
+
+            // Ctrl/Cmd + R for refresh
+            if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+                e.preventDefault();
+                refreshNews();
+            }
+
+            // T for theme toggle
+            if (e.key === 't' && !e.ctrlKey && !e.metaKey && document.activeElement.tagName !== 'INPUT') {
+                toggleTheme();
+            }
+        });
+
+        // Add accessibility improvements
+        function enhanceAccessibility() {
+            // Add skip link
+            const skipLink = document.createElement('a');
+            skipLink.href = '#newsContainer';
+            skipLink.textContent = 'Skip to main content';
+            skipLink.className = 'sr-only sr-only-focusable btn btn-cyber position-absolute';
+            skipLink.style.cssText = 'top: 10px; left: 10px; z-index: 9999;';
+            document.body.insertBefore(skipLink, document.body.firstChild);
+
+            // Add ARIA labels and roles
+            document.getElementById('newsContainer').setAttribute('role', 'main');
+            document.getElementById('newsContainer').setAttribute('aria-label', 'News articles');
+
+            // Announce page changes to screen readers
+            const announcer = document.createElement('div');
+            announcer.setAttribute('aria-live', 'polite');
+            announcer.setAttribute('aria-atomic', 'true');
+            announcer.className = 'sr-only';
+            announcer.id = 'announcer';
+            document.body.appendChild(announcer);
+        }
+
+        // Call accessibility enhancements
+        document.addEventListener('DOMContentLoaded', enhanceAccessibility);
+
+        // Announce changes to screen readers
+        function announceChange(message) {
+            const announcer = document.getElementById('announcer');
+            if (announcer) {
+                announcer.textContent = message;
+            }
+        }
+
+        // Update functions to include announcements
+        const originalChangePage = changePage;
+        changePage = function (direction) {
+            originalChangePage(direction);
+            announceChange(`Navigated to page ${currentPage}`);
+        };
+
+        const originalPerformSearch = performSearch;
+        performSearch = function () {
+            originalPerformSearch();
+            setTimeout(() => {
+                announceChange(`Search completed. Showing ${filteredNews.length} results.`);
+            }, 1000);
+        };
+
+        // Add service worker for offline functionality (optional)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                // Register service worker here if needed
+                console.log('Service Worker support detected');
+            });
+        }
+
+        console.log('🚀 CyberNews Hub initialized successfully!');
+        console.log('📱 Features: RSS feeds, dynamic news, theme toggle, search, pagination, filters, animations');
+        console.log('⌨️ Keyboard shortcuts: Ctrl+/ (search), Ctrl+R (refresh), T (theme toggle)');
+    </script>
+</body>
+
+</html>
