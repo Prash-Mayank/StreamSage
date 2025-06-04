@@ -4,308 +4,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberNews Hub - Latest Cybersecurity News</title>
+    <title>StreamSage - Watch, Rate & Download Movies</title>
+
     <meta name="description"
-        content="Stay updated with the latest cybersecurity news, threats, and breakthroughs. CyberNews Hub brings you curated cyber security news from around the world.">
+        content="Discover trending, popular, top-rated, and upcoming movies. Watch trailers, read overviews, and download in HD, FHD, or 4K quality. All in one app by Dhruv.">
+
     <meta name="keywords"
-        content="cybersecurity news, cyber security, hacking news, data breach, malware, ransomware, cyber threats, security updates">
+        content="movies, movie app, download movies, watch trailers, HD movies, FHD movies, 4K movies, trending movies, StreamSage, Dhruv Tripathi">
+
     <meta name="author" content="Dhruv Tripathi">
 
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="fav.png" type="image/x-icon">
+    <!-- Open Graph (for social sharing) -->
+    <meta property="og:title" content="StreamSage - Your Ultimate Movie Hub">
+    <meta property="og:description"
+        content="Stream, explore, and download the latest trending, popular, and top-rated movies in HD, FHD, or 4K. Built by Mayank Shahi & Dhruv Tripathi.">
+    <meta property="og:image" content="https://yourdomain.com/preview-image.jpg">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="StreamSage">
+    <meta name="twitter:description"
+        content="Watch trailers, explore top movies, and download in high quality. Project by Mayank & Dhruv.">
+    <meta name="twitter:image" content="https://yourdomain.com/preview-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo.png" type="image/x-icon">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yourdomain.com">
+
 
     <style>
         * {
-            margin: 0;
+            margin: 0 0px;
             padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a35 25%, #2d1b69 50%, #1e3c72 75%, #2a5298 100%);
+            background-attachment: fixed;
+            color: #ffffff;
             min-height: 100vh;
+            transition: all 0.3s ease;
             overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
+        /* Animated background particles */
+        body::before {
             content: '';
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            opacity: 0.1;
-            animation: float 20s ease-in-out infinite;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+            animation: backgroundFloat 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        @keyframes float {
+        @keyframes backgroundFloat {
 
             0%,
             100% {
-                transform: translateY(0px);
+                transform: translateY(0px) rotate(0deg);
             }
 
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-20px) rotate(180deg);
             }
         }
 
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            /* background: linear-gradient(45deg, #00d4ff, #ff6b6b); */
-            /* -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text; */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease;
             position: relative;
             z-index: 1;
-            animation: glow 3s ease-in-out infinite alternate;
         }
 
-        @keyframes glow {
-            from {
-                filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3));
-            }
-
-            to {
-                filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
-            }
+        .header::before,
+        .header::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
         }
 
-        .logo i {
-            margin-right: 10px;
-            color: #00d4ff;
-            animation: pulse 2s infinite;
+        .header::before {
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.3) 0%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .header::after {
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, transparent 80%);
+            animation: pulse 4s ease-in-out infinite reverse;
+        }
+
+        .header h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+            animation: gradientShift 6s ease-in-out infinite;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .header h1 .logo {
+            height: 80px;
+            width: auto;
+            animation: flicker 4s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #b8c6db;
+            opacity: 0.9;
+            margin-top: 12px;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
+
+            0%,
+            100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.4;
             }
 
             50% {
-                transform: scale(1.1);
-            }
-
-            100% {
-                transform: scale(1);
+                transform: translateX(-50%) scale(1.2);
+                opacity: 0.7;
             }
         }
 
-        .tagline {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 1rem;
+        .controls-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             position: relative;
-            z-index: 1;
         }
 
-        /* Filter Section */
-        .filter-section {
+        .categories-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .search-input {
+            padding: 18px 25px;
+            font-size: 16px;
+            border: 2px solid transparent;
+            border-radius: 30px;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            backdrop-filter: blur(25px) saturate(180%);
+            width: 360px;
+            transition: all 0.5s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25), inset 0 0 10px rgba(255, 255, 255, 0.05);
+            position: relative;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border: 2px solid #00e6e6;
+            box-shadow: 0 0 35px rgba(0, 230, 230, 0.5), 0 8px 40px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            font-size: 14px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.4s ease-in-out;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(12px);
+            font-family: 'Poppins', sans-serif;
         }
 
-        .filter-section::before {
+        .btn::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-            animation: shimmer 3s infinite;
+            top: 0;
+            left: -120%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.8s ease-in-out;
         }
 
-        @keyframes shimmer {
+        .btn:hover::before {
+            left: 120%;
+        }
+
+        .btn-search {
+            background: linear-gradient(135deg, #ff416c, #ff4b2b, #ffcb05, #00c9ff, #92fe9d);
+            background-size: 400% 400%;
+            color: #fff;
+            padding: 18px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(255, 65, 108, 0.4);
+            transition: all 0.4s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            backdrop-filter: blur(12px);
+            isolation: isolate;
+            animation: move-bg 6s ease infinite;
+        }
+
+        .btn-search::before,
+        .btn-search::after {
+            content: '';
+            position: absolute;
+            width: 250%;
+            height: 250%;
+            top: -75%;
+            left: -75%;
+            z-index: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 80%);
+            transform: rotate(45deg);
+            animation: pulse-glow 4s infinite ease-in-out;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .btn-search::after {
+            animation-delay: 2s;
+        }
+
+        .btn-search:hover {
+            transform: translateY(-6px) scale(1.06);
+            box-shadow:
+                0 25px 55px rgba(255, 65, 108, 0.6),
+                0 0 35px rgba(255, 255, 255, 0.3),
+                0 0 15px rgba(255, 75, 43, 0.5);
+            background-position: right center;
+        }
+
+        .btn-search:active {
+            transform: scale(0.96);
+            box-shadow: 0 4px 15px rgba(255, 65, 108, 0.2);
+        }
+
+        .btn-search span {
+            position: relative;
+            z-index: 1;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            font-family: 'Poppins', sans-serif;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Background animation */
+        @keyframes move-bg {
             0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
             }
 
             100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
+                background-position: 0% 50%;
             }
         }
 
-        .filters {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
+        /* Glowing pulse animation */
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                transform: scale(1) rotate(45deg);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.4) rotate(45deg);
+                opacity: 0.1;
+            }
         }
 
-        .filter-btn {
-            background: linear-gradient(45deg, #667eea, #764ba2);
+        .btn-trending {
+            background: linear-gradient(135deg, #00c9ff 0%, #92fe9d 100%);
             color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            padding: 18px 30px;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0, 201, 255, 0.4);
+        }
+
+        .btn-category {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            border: 2px solid rgba(0, 230, 230, 0.3);
+            backdrop-filter: blur(20px);
+            padding: 12px 20px;
+            font-size: 13px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-category.active {
+            background: linear-gradient(135deg, #00e6e6 0%, #0088ff 100%);
+            border-color: transparent;
+            color: white;
+            transform: scale(1.08);
+            box-shadow: 0 8px 25px rgba(0, 230, 230, 0.5);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-category:hover:not(.active) {
+            transform: translateY(-3px);
+            border-color: #00e6e6;
+            background: rgba(0, 230, 230, 0.1);
+            box-shadow: 0 8px 25px rgba(0, 230, 230, 0.25);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .section-title-container {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title {
+            color: #4ecdc4;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            animation: fadeIn 0.6s ease;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-divider {
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            margin: 0 auto;
+            border-radius: 2px;
             position: relative;
             overflow: hidden;
         }
 
-        .filter-btn::before {
+        .section-divider::after {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 2s infinite;
         }
 
-        .filter-btn:hover::before {
-            left: 100%;
-        }
-
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-            animation: activeGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes activeGlow {
-            from {
-                box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        @keyframes shimmer {
+            0% {
+                left: -100%;
             }
 
-            to {
-                box-shadow: 0 8px 25px rgba(255, 107, 107, 0.6);
+            100% {
+                left: 100%;
             }
-        }
-
-        .search-box {
-            display: flex;
-            max-width: 400px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            z-index: 1;
-        }
-
-        .search-input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: none;
-            background: transparent;
-            color: white;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .search-input:focus {
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .search-btn {
-            background: linear-gradient(45deg, #00d4ff, #0099cc);
-            color: white;
-            border: none;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .search-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%);
-        }
-
-        .search-btn:hover::before {
-            width: 100px;
-            height: 100px;
-        }
-
-        .search-btn:hover {
-            background: linear-gradient(45deg, #0099cc, #007399);
-        }
-
-        /* Loading Animation */
-        .loading-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-            flex-direction: column;
-            gap: 1rem;
         }
 
         .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid #00d4ff;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+            display: none;
+            text-align: center;
+            margin: 50px 0;
         }
 
-        .loading-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
-            animation: fadeInOut 2s infinite;
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4ecdc4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
         }
 
         @keyframes spin {
@@ -318,319 +483,638 @@
             }
         }
 
-        @keyframes fadeInOut {
-
-            0%,
-            100% {
-                opacity: 0.5;
-            }
-
-            50% {
-                opacity: 1;
-            }
-        }
-
-        /* News Grid */
-        .news-grid {
+        .movies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+            animation: fadeIn 1.2s ease;
         }
 
-        .news-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+        .movie-card {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
-            animation: slideInUp 0.6s ease-out;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .news-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .news-card::before {
+        .movie-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(255, 107, 107, 0.1) 100%);
             opacity: 0;
             transition: opacity 0.3s ease;
-            pointer-events: none;
+            border-radius: 20px;
+            z-index: 1;
         }
 
-        .news-card:hover::before {
+        .movie-card:hover::before {
             opacity: 1;
         }
 
-        .news-image {
+        .movie-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(78, 205, 196, 0.3);
+            border-color: rgba(78, 205, 196, 0.4);
+        }
+
+        .movie-poster {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
             position: relative;
-            height: 200px;
+            z-index: 2;
+        }
+
+        .movie-card:hover .movie-poster {
+            transform: scale(1.08);
+        }
+
+        .movie-info {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .movie-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #4ecdc4;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.3;
+        }
+
+        .movie-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .star {
+            color: #ffd700;
+            margin-right: 6px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .movie-overview {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.85;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
             overflow: hidden;
         }
 
-        .news-image img {
+        .movie-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 10px 18px;
+            font-size: 12px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            flex: 1;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.5);
+        }
+
+        .btn-download:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: #888;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-info {
+            background: rgba(255, 255, 255, 0.08);
+            color: #4ecdc4;
+            padding: 10px 18px;
+            font-size: 12px;
+            border-radius: 25px;
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            flex: 1;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-info:hover {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: #4ecdc4;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+        }
+
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .pagination-btn {
+            padding: 14px 22px;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 2px solid rgba(78, 205, 196, 0.25);
+            color: #ffffff;
+            font-size: 0.95rem;
+            border-radius: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.35s ease-in-out;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pagination-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .pagination-btn:hover:not(:disabled)::before {
+            left: 100%;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background: rgba(78, 205, 196, 0.2);
+            border-color: #4ecdc4;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.4);
+        }
+
+        .pagination-btn.active {
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+            border-color: transparent;
+            color: #fff;
+            box-shadow: 0 6px 25px rgba(78, 205, 196, 0.5);
+            transform: scale(1.05);
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .page-info {
+            color: #4ecdc4;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0 0 6px rgba(78, 205, 196, 0.1);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            position: relative;
+            background: linear-gradient(135deg, #1a1a35 0%, #2d1b69 50%, #1e3c72 100%);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(78, 205, 196, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            color: #00ffff;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 2001;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 10px #00ffff;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+        }
+
+        .close:hover {
+            color: #ff00ff;
+            border-color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.6), 0 0 50px rgba(255, 0, 255, 0.3);
+            transform: scale(1.2);
+        }
+
+
+        .modal-header {
+            position: relative;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-backdrop {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-            filter: brightness(0.9);
+            filter: blur(2px);
         }
 
-        .news-card:hover .news-image img {
-            transform: scale(1.05);
-            filter: brightness(1);
-        }
-
-        .news-category {
+        .modal-header::after {
+            content: '';
             position: absolute;
-            top: 1rem;
-            left: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            text-transform: uppercase;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, rgba(26, 26, 53, 0.8));
+        }
+
+        .modal-title {
+            position: absolute;
+            bottom: 30px;
+            left: 40px;
+            font-size: 2.8rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            z-index: 10;
+        }
+
+        .modal-body {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+        }
+
+        .modal-poster {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-poster:hover {
+            transform: scale(1.02);
+        }
+
+        .modal-details h3 {
+            color: #4ecdc4;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .modal-details p {
+            margin-bottom: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(78, 205, 196, 0.12);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+            font-weight: 500;
             backdrop-filter: blur(10px);
-            animation: bounceIn 0.8s ease-out;
         }
 
-        @keyframes bounceIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.3);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
-
-            70% {
-                transform: scale(0.9);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+        .modal-download-section {
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            backdrop-filter: blur(20px);
         }
 
-        .category-threats {
-            background: linear-gradient(45deg, #ff4757, #ff3838);
-            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+        .quality-options {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
-        .category-breaches {
-            background: linear-gradient(45deg, #ff6b6b, #ffa500);
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
-
-        .category-malware {
-            background: linear-gradient(45deg, #a55eea, #8b5cf6);
-            box-shadow: 0 4px 15px rgba(165, 94, 234, 0.4);
-        }
-
-        .category-privacy {
-            background: linear-gradient(45deg, #26de81, #20bf6b);
-            box-shadow: 0 4px 15px rgba(38, 222, 129, 0.4);
-        }
-
-        .category-tools {
-            background: linear-gradient(45deg, #3742fa, #2f3542);
-            box-shadow: 0 4px 15px rgba(55, 66, 250, 0.4);
-        }
-
-        .category-general {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .news-content {
-            padding: 1.5rem;
+        .quality-btn {
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(78, 205, 196, 0.3);
             color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .news-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            line-height: 1.4;
+        .quality-btn.active {
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(78, 205, 196, 0.4);
         }
 
-        .news-title a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            background: linear-gradient(45deg, #00d4ff, #00d4ff) no-repeat;
-            background-size: 0% 2px;
-            background-position: 0% 100%;
+        .quality-btn:hover:not(.active) {
+            border-color: #4ecdc4;
+            background: rgba(78, 205, 196, 0.2);
+            transform: translateY(-2px);
         }
 
-        .news-title a:hover {
-            color: #00d4ff;
-            background-size: 100% 2px;
-        }
-
-        .news-excerpt {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 1rem;
-            line-height: 1.6;
-            position: relative;
-        }
-
-        .news-meta {
+        .download-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #ccc;
         }
 
-        .news-meta i {
-            margin-right: 0.5rem;
-            color: #00d4ff;
-            animation: iconGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes iconGlow {
-            from {
-                filter: drop-shadow(0 0 2px rgba(0, 212, 255, 0.3));
-            }
-
-            to {
-                filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.6));
-            }
-        }
-
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            color: #00d4ff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            background: rgba(0, 212, 255, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(0, 212, 255, 0.3);
-        }
-
-        .read-more:hover {
+        .btn-modal-download {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
             color: white;
-            background: rgba(0, 212, 255, 0.2);
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-        }
-
-        .read-more i {
-            margin-left: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .read-more:hover i {
-            transform: translateX(3px);
-        }
-
-        /* Trending Topics */
-        .trending-topics {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin: 1rem 0;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            animation: slideInDown 0.8s ease-out;
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .trending-topics h3 {
-            color: #00d4ff;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .trending-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .trending-tag {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            white-space: nowrap;
+            padding: 18px 35px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: popIn 0.6s ease-out;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            width: 100%;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
         }
 
-        @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
+        .btn-modal-download:hover {
+            background: linear-gradient(135deg, #218838 0%, #1ea085 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(40, 167, 69, 0.5);
+        }
 
+        .btn-modal-download:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            color: #888;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 12px;
+            font-size: 14px;
+            color: #4ecdc4;
+            font-weight: 500;
+        }
+
+        .trailer-container {
+            grid-column: 1 / -1;
+            margin-top: 30px;
+        }
+
+        .trailer-iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .no-trailer {
+            text-align: center;
+            padding: 50px;
+            color: #888;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .error-message {
+            text-align: center;
+            color: #ff6b6b;
+            margin: 50px 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        /* Download Status */
+        .download-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .download-status.downloading {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .download-status.completed {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        @keyframes pulse {
+
+            0%,
             100% {
                 opacity: 1;
                 transform: scale(1);
             }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(1.05);
+            }
         }
 
-        .trending-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            background: linear-gradient(45deg, #764ba2, #667eea);
+        /* Downloads Panel */
+        .downloads-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a35 0%, #2d1b69 100%);
+            border-left: 2px solid rgba(78, 205, 196, 0.3);
+            padding: 25px;
+            overflow-y: auto;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1500;
+            backdrop-filter: blur(20px);
+            box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* Error and No Results */
-        .error-message,
-        .no-results {
-            text-align: center;
-            padding: 3rem 2rem;
+        .downloads-panel.open {
+            right: 0;
+        }
+
+        .downloads-toggle {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
             color: white;
-            animation: fadeIn 0.8s ease-out;
+            border: none;
+            padding: 18px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 1600;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+            backdrop-filter: blur(10px);
+        }
+
+        .downloads-toggle:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(78, 205, 196, 0.5);
+        }
+
+        .download-item {
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+        }
+
+        .download-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateX(-5px);
+        }
+
+        .download-item-title {
+            font-weight: 700;
+            color: #4ecdc4;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .download-item-info {
+            font-size: 13px;
+            color: #ccc;
+            margin-bottom: 12px;
+            opacity: 0.8;
         }
 
         @keyframes fadeIn {
@@ -643,51 +1127,159 @@
             }
         }
 
-        .error-message {
-            background: rgba(255, 75, 87, 0.1);
-            border: 1px solid rgba(255, 75, 87, 0.3);
-            border-radius: 15px;
-            margin: 2rem 0;
-            backdrop-filter: blur(10px);
-        }
-
-        .error-message i {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #ff4757;
-            animation: shake 0.5s ease-in-out;
-        }
-
-        @keyframes shake {
-
-            0%,
-            100% {
-                transform: translateX(0);
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
             }
 
-            25% {
-                transform: translateX(-5px);
-            }
-
-            75% {
-                transform: translateX(5px);
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .no-results img {
-            max-width: 200px;
-            margin-bottom: 1rem;
-            opacity: 0.7;
-            animation: float 3s ease-in-out infinite;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Footer */
+        @keyframes slideIn {
+            from {
+                transform: scale(0.8) translateY(-50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .controls-section {
+                gap: 15px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-input {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .categories-container {
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .btn-category {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .movies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+
+            .modal-body {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .modal-title {
+                font-size: 1.8rem;
+                left: 20px;
+            }
+
+            .trailer-iframe {
+                height: 250px;
+            }
+
+            .pagination-container {
+                gap: 5px;
+            }
+
+            .pagination-btn {
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+
+            .downloads-panel {
+                width: 100%;
+                right: -100%;
+            }
+
+            .downloads-toggle {
+                top: 15px;
+                right: 15px;
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
+
+            .movies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-header {
+                height: 200px;
+            }
+
+            .modal-title {
+                font-size: 1.5rem;
+            }
+
+            .categories-container {
+                gap: 5px;
+            }
+
+            .btn-category {
+                padding: 6px 10px;
+                font-size: 11px;
+            }
+
+            .movie-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .quality-options {
+                justify-content: center;
+            }
+        }
+
         .footer {
-            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 4rem;
+            margin-top: 80px;
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a1a35 25%, #2d1b69 50%, #1e3c72 75%, #2a5298 100%);
+            border-top: 2px solid rgba(78, 205, 196, 0.3);
+            backdrop-filter: blur(20px);
             position: relative;
             overflow: hidden;
         }
@@ -698,1076 +1290,1889 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
-            animation: lineGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes lineGlow {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 1;
-            }
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+            animation: backgroundFloat 15s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .footer-content {
-            margin-bottom: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 50px 20px 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
             position: relative;
             z-index: 1;
         }
 
-        .footer-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #00d4ff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        .footer-section h4 {
+            color: #4ecdc4;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
-        .footer-description {
-            opacity: 0.8;
-            margin-bottom: 1rem;
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: #4ecdc4;
+        }
+
+        .footer-logo i {
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .footer-tagline {
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-links a::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            opacity: 0;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+            font-size: 0.7rem;
+        }
+
+        .footer-links a:hover {
+            color: #4ecdc4;
+            transform: translateX(8px);
+        }
+
+        .footer-links a:hover::before {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .social-links {
             display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 15px;
         }
 
         .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .social-link:hover {
-            background: #00d4ff;
-            transform: translateY(-2px) scale(1.1);
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
-        }
-
-        .copyright {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            opacity: 0.7;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Scroll to top button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #00d4ff, #0099cc);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
+            background: rgba(255, 255, 255, 0.08);
+            border: 2px solid rgba(78, 205, 196, 0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            color: #4ecdc4;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
             font-size: 1.2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
         }
 
-        .scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
+        /* Hover effect base */
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
+            background: transparent;
         }
 
-        .scroll-to-top:hover {
-            transform: translateY(-3px) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+        /* Brand-specific hover colors */
+        .social-link.facebook:hover {
+            color: #1877f2;
+            /* Facebook Blue */
+            border-color: #1877f2;
         }
 
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .social-link.instagram:hover {
+            color: #e1306c;
+            /* Instagram Pink */
+            border-color: #e1306c;
         }
 
-        ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+        .social-link.twitter:hover {
+            color: #1da1f2;
+            /* Twitter Blue */
+            border-color: #1da1f2;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #00d4ff, #0099cc);
-            border-radius: 4px;
+        .social-link.linkedin:hover {
+            color: #0077b5;
+            /* LinkedIn Blue */
+            border-color: #0077b5;
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(45deg, #0099cc, #007399);
+        .social-link.github:hover {
+            color: #333;
+            /* GitHub Dark Gray */
+            border-color: #333;
         }
 
-        /* Enhanced focus states for accessibility */
-        .filter-btn:focus,
-        .search-btn:focus,
-        .search-input:focus {
-            outline: 2px solid #00d4ff;
-            outline-offset: 2px;
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* Responsive Design */
+        .footer-divider {
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            margin: 0 auto 20px;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            line-height: 1.6;
+        }
+
+        .pulse-heart {
+            color: #ff6b6b;
+            animation: heartbeat 1.6s ease-in-out infinite;
+        }
+
+        .creator-name {
+            color: #4ecdc4;
+            font-weight: 600;
+            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease-in-out infinite;
+            text-shadow: 0 2px 4px rgba(78, 205, 196, 0.3);
+            cursor: pointer;
+        }
+
+        .brand-name {
+            color: #ff6b6b;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .brand-name:hover {
+            color: #ffffff;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .logo {
-                font-size: 2rem;
-            }
-
-            .tagline {
-                font-size: 1rem;
-            }
-
-            .filter-section {
-                padding: 1.5rem;
-            }
-
-            .filters {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 1rem;
-                scrollbar-width: none;
-                -ms-overflow-style: none;
-            }
-
-            .filters::-webkit-scrollbar {
-                display: none;
-            }
-
-            .filter-btn {
-                white-space: nowrap;
-                flex-shrink: 0;
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .search-box {
-                max-width: 100%;
-                margin: 1rem 0 0 0;
-            }
-
-            .news-grid {
+            .footer-content {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 30px;
+                text-align: center;
             }
 
-            .news-meta {
+            .footer-links {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-bottom p {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .trending-list {
-                justify-content: flex-start;
-                overflow-x: auto;
-                padding-bottom: 0.5rem;
-            }
-
-            .scroll-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 1.5rem 0;
-            }
-
-            .logo {
-                font-size: 1.8rem;
-            }
-
-            .filter-section {
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .news-card {
-                margin: 0 -5px;
-            }
-
-            .news-content {
-                padding: 1rem;
-            }
-
-            .footer {
-                padding: 1.5rem 0;
-                margin-top: 2rem;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-
-            .header,
-            .filter-section,
-            .footer,
-            .scroll-to-top {
-                display: none !important;
-            }
-
-            .news-card {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #ccc;
-            }
-
-            .news-image {
-                height: 150px;
-            }
-
-            body {
-                background: white !important;
-                color: black !important;
-            }
-
-            .news-content,
-            .news-title a,
-            .news-excerpt {
-                color: black !important;
-            }
-        }
-
-        /* Dark mode improvements */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --text-primary: #ffffff;
-                --text-secondary: rgba(255, 255, 255, 0.8);
-                --bg-primary: #0c0c0c;
-                --bg-secondary: #1a1a2e;
-            }
-        }
-
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* High contrast mode */
-        @media (prefers-contrast: high) {
-            .news-card {
-                border: 2px solid #ffffff;
-            }
-
-            .filter-btn {
-                border: 1px solid #ffffff;
-            }
-
-            .search-box {
-                border: 1px solid #ffffff;
+                gap: 4px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <h1 class="logo">
-                <i class="fa-solid fa-shield-halved"></i>
-                CyberNews Hub
-            </h1>
-            <p class="tagline">Your trusted source for cybersecurity news and insights</p>
-        </div>
-    </header>
-
-    <!-- Main Content -->
     <div class="container">
-        <!-- Filter Section -->
-        <section class="filter-section">
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All News</button>
-                <button class="filter-btn" data-filter="threats">Cyber Threats</button>
-                <button class="filter-btn" data-filter="breaches">Data Breaches</button>
-                <button class="filter-btn" data-filter="malware">Malware</button>
-                <button class="filter-btn" data-filter="privacy">Privacy</button>
-                <button class="filter-btn" data-filter="tools">Security Tools</button>
-            </div>
-            <div class="search-box">
-                <input type="text" id="search-input" class="search-input" placeholder="Search cybersecurity news...">
-                <button id="search-btn" class="search-btn">
-                    <i class="fas fa-search"></i>
+        <div class="header">
+            <h1>
+                <img src="logo.png" alt="StreamSage Logo" class="logo">
+                StreamSage
+            </h1>
+            <p>Watch, Rate & Download Movies in HD, FHD & 4K</p>
+        </div>
+
+
+        <div class="controls-section">
+            <div class="categories-container">
+                <button class="btn btn-category active" data-category="trending">
+                    <i class="fas fa-fire"></i> Trending
+                </button>
+                <button class="btn btn-category" data-category="popular">
+                    <i class="fas fa-star"></i> Popular
+                </button>
+                <button class="btn btn-category" data-category="top_rated">
+                    <i class="fas fa-trophy"></i> Top Rated
+                </button>
+                <button class="btn btn-category" data-category="now_playing">
+                    <i class="fas fa-clapperboard"></i> Now Playing
+                </button>
+                <button class="btn btn-category" data-category="upcoming">
+                    <i class="fas fa-forward"></i> Upcoming
+                </button>
+                <button class="btn btn-category" data-category="action">
+                    <i class="fas fa-bolt"></i> Action
+                </button>
+                <button class="btn btn-category" data-category="comedy">
+                    <i class="fas fa-face-grin-squint-tears"></i> Comedy
+                </button>
+                <button class="btn btn-category" data-category="horror">
+                    <i class="fas fa-ghost"></i> Horror
+                </button>
+                <button class="btn btn-category" data-category="romance">
+                    <i class="fas fa-heart"></i> Romance
+                </button>
+                <button class="btn btn-category" data-category="sci-fi">
+                    <i class="fas fa-rocket"></i> Sci-Fi
                 </button>
             </div>
-        </section>
 
-        <!-- Loading State -->
-        <div id="loading-container" class="loading-container">
-            <div class="loading-spinner"></div>
-        </div>
-
-        <!-- Error State -->
-        <div id="error-message" class="error-message" style="display: none;">
-            <i class="fas fa-exclamation-triangle"></i>
-            <strong>Error loading news:</strong> <span id="error-text"></span>
-        </div>
-
-        <!-- News Grid -->
-        <section id="news-grid" class="news-grid" style="display: none;">
-            <!-- News cards will be dynamically inserted here -->
-        </section>
-
-        <!-- No Results State -->
-        <div id="no-results" class="no-results" style="display: none;">
-            <img src="https://via.placeholder.com/200x150/667eea/ffffff?text=No+Results" alt="No Results Found">
-            <h2>No articles found</h2>
-            <p>Try adjusting your search terms or browse different categories to find the latest cybersecurity news.</p>
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Search for movies...">
+                <button class="btn btn-search" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
+
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Loading movies...</p>
+    </div>
+
+    <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+    <div class="section-title-container" id="sectionTitleContainer" style="display: none;">
+        <h2 class="section-title" id="sectionTitle"></h2>
+        <div class="section-divider"></div>
+    </div>
+
+    <div class="movies-grid" id="moviesGrid"></div>
+
+    <div class="pagination-container" id="paginationContainer" style="display: none;">
+        <button class="pagination-btn" id="prevBtn">« Previous</button>
+        <div class="page-info">
+            <span>Page <span id="currentPage">1</span> of <span id="totalPages">1</span></span>
+        </div>
+        <button class="pagination-btn" id="nextBtn">Next »</button>
+    </div>
+    </div>
+
+    <!-- Downloads Toggle Button -->
+    <button class="downloads-toggle" id="downloadsToggle">
+        <i class="fas fa-download"></i>
+    </button>
+
+
+    <!-- Downloads Panel -->
+    <div class="downloads-panel" id="downloadsPanel">
+        <h3 style="color: #4ecdc4; margin-bottom: 20px;">
+            <i class="fas fa-download"></i> Downloads
+        </h3>
+        <div id="downloadsList">
+            <p style="text-align: center; color: #888; font-style: italic;">
+                No downloads yet
+            </p>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">
+                <i class="fas fa-xmark"></i>
+            </span>
+            <div class="modal-header">
+                <img class="modal-backdrop" id="modalBackdrop" src="" alt="">
+                <h2 class="modal-title" id="modalTitle"></h2>
+            </div>
+            <div class="modal-body">
+                <img class="modal-poster" id="modalPoster" src="" alt="">
+                <div class="modal-details">
+                    <div class="movie-meta">
+                        <div class="meta-item">
+                            <strong><i class="fas fa-star"></i>
+                                <span id="modalRating"></span></strong>
+                        </div>
+                        <div class="meta-item">
+                            <strong><i class="fa-solid fa-calendar-days"></i>
+                                <span id="modalDate"></span></strong>
+                        </div>
+                        <div class="meta-item">
+                            <strong><i class="fa-solid fa-users"></i>
+                                <span id="modalVotes"></span> votes</strong>
+                        </div>
+                    </div>
+                    <h3><i class="fa-solid fa-file-lines"></i>
+                        Overview</h3>
+                    <p id="modalOverview"></p>
+
+                    <div class="modal-download-section">
+                        <h3><i class="fas fa-download"></i>Download Movie</h3>
+                        <div class="quality-options">
+                            <button class="quality-btn active" data-quality="720p">720p HD (1.2GB)</button>
+                            <button class="quality-btn" data-quality="1080p">1080p FHD (2.8GB)</button>
+                            <button class="quality-btn" data-quality="4k">4K UHD (8.5GB)</button>
+                        </div>
+                        <div class="download-info">
+                            <span>Quality: <span id="selectedQuality">720p HD</span></span>
+                            <span>Size: <span id="selectedSize">1.2GB</span></span>
+                        </div>
+                        <button class="btn-modal-download" id="modalDownloadBtn">
+                            <i class="fas fa-download"></i>Start Download
+                        </button>
+                        <div class="progress-container" id="progressContainer">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                            <div class="progress-text" id="progressText">Downloading... 0%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trailer-container" id="trailerContainer">
+                    <h3><i class="fa-solid fa-clapperboard"></i>
+                        Trailer</h3>
+                    <div id="trailerContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <h3 class="footer-title">CyberNews Hub</h3>
-                <p class="footer-description">Curated cybersecurity news and insights by Dhruv Tripathi</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-film"></i>
+                    <span>StreamSage</span>
+                </div>
+                <p class="footer-tagline">Your gateway to cinematic excellence</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#trending">Trending</a>
+                    <a href="#popular">Popular</a>
+                    <a href="#top-rated">Top Rated</a>
+                    <a href="#upcoming">Upcoming</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Connect</h4>
                 <div class="social-links">
-                    <a href="#" class="social-link" aria-label="Twitter">
+                    <a href="https://facebook.com" class="social-link facebook" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com" class="social-link instagram" target="_blank"
+                        rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://twitter.com" class="social-link twitter" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="social-link" aria-label="LinkedIn">
+                    <a href="https://linkedin.com" class="social-link linkedin" target="_blank"
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com" class="social-link github" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 CyberNews Hub by Dhruv Tripathi. All rights reserved.</p>
-            </div>
         </div>
+
+        <div class="footer-bottom">
+            <div class="footer-divider"></div>
+            <p>
+                &copy; 2025 <span class="brand-name">StreamSage</span>. Crafted with
+                <i class="fas fa-heart pulse-heart"></i> for movie lovers by
+                <span class="creator-name">Dhruv Tripathi</span>
+            </p>
+        </div>
+
     </footer>
 
     <script>
-        class CyberNewsManager {
-            constructor() {
-                this.allNews = [];
-                this.filteredNews = [];
-                this.currentFilter = 'all';
-                this.currentSearch = '';
-                this.initializeElements();
-                this.bindEvents();
-                this.loadNews();
-            }
-
-            initializeElements() {
-                this.loadingContainer = document.getElementById('loading-container');
-                this.errorMessage = document.getElementById('error-message');
-                this.errorText = document.getElementById('error-text');
-                this.newsGrid = document.getElementById('news-grid');
-                this.noResults = document.getElementById('no-results');
-                this.filterBtns = document.querySelectorAll('.filter-btn');
-                this.searchInput = document.getElementById('search-input');
-                this.searchBtn = document.getElementById('search-btn');
-            }
-
-            bindEvents() {
-                // Filter buttons
-                this.filterBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        this.setActiveFilter(e.target);
-                        this.currentFilter = e.target.getAttribute('data-filter');
-                        this.filterAndDisplayNews();
-                    });
-                });
-
-                // Search functionality
-                this.searchBtn.addEventListener('click', () => this.performSearch());
-                this.searchInput.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        this.performSearch();
-                    }
-                });
-
-                // Real-time search
-                let searchTimeout;
-                this.searchInput.addEventListener('input', (e) => {
-                    clearTimeout(searchTimeout);
-                    searchTimeout = setTimeout(() => {
-                        this.currentSearch = e.target.value.toLowerCase().trim();
-                        this.filterAndDisplayNews();
-                    }, 300);
-                });
-            }
-
-            setActiveFilter(activeBtn) {
-                this.filterBtns.forEach(btn => btn.classList.remove('active'));
-                activeBtn.classList.add('active');
-            }
-
-            async loadNews() {
-                try {
-                    this.showLoading();
-
-                    // Cybersecurity-focused RSS feeds
-                    const feeds = [
-                        'https://rss2json.com/api.json?rss_url=https://feeds.feedburner.com/TheHackersNews',
-                        'https://rss2json.com/api.json?rss_url=https://www.darkreading.com/rss_simple.asp',
-                        'https://rss2json.com/api.json?rss_url=https://krebsonsecurity.com/feed/',
-                        'https://rss2json.com/api.json?rss_url=https://www.bleepingcomputer.com/feed/',
-                        'https://rss2json.com/api.json?rss_url=https://www.securityweek.com/feed/'
-                    ];
-
-                    const promises = feeds.map(feed =>
-                        fetch(feed)
-                            .then(response => response.json())
-                            .catch(error => {
-                                console.warn('Feed failed:', feed, error);
-                                return { items: [] };
-                            })
-                    );
-
-                    const results = await Promise.all(promises);
-
-                    // Combine all news items
-                    this.allNews = [];
-                    results.forEach(result => {
-                        if (result.items && Array.isArray(result.items)) {
-                            result.items.forEach(item => {
-                                if (item.title && item.link) {
-                                    this.allNews.push({
-                                        ...item,
-                                        category: this.categorizeNews(item.title + ' ' + (item.description || '')),
-                                        publishedDate: new Date(item.pubDate || Date.now()),
-                                        source: this.extractSource(item.link)
-                                    });
-                                }
-                            });
-                        }
-                    });
-
-                    // Sort by date (newest first) and remove duplicates
-                    this.allNews = this.removeDuplicates(this.allNews)
-                        .sort((a, b) => b.publishedDate - a.publishedDate)
-                        .slice(0, 40); // Limit to 40 most recent articles
-
-                    this.filterAndDisplayNews();
-                    this.hideLoading();
-
-                } catch (error) {
-                    console.error('Error loading news:', error);
-                    this.showError('Failed to load cybersecurity news feeds. Please try again later.');
-                }
-            }
-
-            removeDuplicates(news) {
-                const seen = new Set();
-                return news.filter(item => {
-                    const key = item.title.toLowerCase().substring(0, 50);
-                    if (seen.has(key)) {
-                        return false;
-                    }
-                    seen.add(key);
-                    return true;
-                });
-            }
-
-            categorizeNews(content) {
-                const text = content.toLowerCase();
-
-                // Cybersecurity-specific categorization
-                const categoryPatterns = {
-                    'threats': [
-                        'cyber attack', 'cyberattack', 'threat', 'exploit', 'vulnerability', 'zero-day',
-                        'attack', 'hacker', 'hacking', 'phishing', 'social engineering', 'apt',
-                        'advanced persistent threat', 'botnet', 'ddos', 'denial of service'
-                    ],
-                    'breaches': [
-                        'data breach', 'breach', 'leaked', 'exposed', 'stolen data', 'compromised',
-                        'personal information', 'customer data', 'database', 'confidential',
-                        'unauthorized access', 'data theft', 'identity theft'
-                    ],
-                    'malware': [
-                        'malware', 'virus', 'trojan', 'ransomware', 'spyware', 'adware',
-                        'rootkit', 'worm', 'backdoor', 'keylogger', 'banking trojan',
-                        'cryptojacking', 'mining malware', 'payload'
-                    ],
-                    'privacy': [
-                        'privacy', 'gdpr', 'surveillance', 'tracking', 'personal data',
-                        'encryption', 'anonymity', 'vpn', 'tor', 'digital rights',
-                        'data protection', 'consent', 'cookies', 'fingerprinting'
-                    ],
-                    'tools': [
-                        'security tool', 'antivirus', 'firewall', 'penetration testing',
-                        'pentest', 'vulnerability scanner', 'security software',
-                        'patch', 'update', 'fix', 'mitigation', 'defense'
-                    ]
-                };
-
-                // Score each category based on keyword matches
-                const categoryScores = {};
-
-                for (const [category, keywords] of Object.entries(categoryPatterns)) {
-                    let score = 0;
-                    for (const keyword of keywords) {
-                        const regex = new RegExp('\\b' + keyword.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b', 'gi');
-                        const matches = text.match(regex);
-                        if (matches) {
-                            score += matches.length * (keyword.length > 8 ? 3 : keyword.length > 5 ? 2 : 1);
-                        }
-                    }
-                    if (score > 0) {
-                        categoryScores[category] = score;
-                    }
-                }
-
-                // Return the category with the highest score, or 'general' as default
-                if (Object.keys(categoryScores).length === 0) {
-                    return 'general';
-                }
-
-                const bestCategory = Object.keys(categoryScores).reduce((a, b) =>
-                    categoryScores[a] > categoryScores[b] ? a : b
-                );
-
-                return bestCategory;
-            }
-
-            extractSource(url) {
-                try {
-                    const domain = new URL(url).hostname;
-                    return domain.replace('www.', '').split('.')[0];
-                } catch {
-                    return 'Unknown';
-                }
-            }
-
-            performSearch() {
-                this.currentSearch = this.searchInput.value.toLowerCase().trim();
-                this.filterAndDisplayNews();
-            }
-
-            filterAndDisplayNews() {
-                this.filteredNews = this.allNews.filter(item => {
-                    // Filter by category
-                    const categoryMatch = this.currentFilter === 'all' || item.category === this.currentFilter;
-
-                    // Filter by search term
-                    const searchMatch = !this.currentSearch ||
-                        item.title.toLowerCase().includes(this.currentSearch) ||
-                        (item.description && item.description.toLowerCase().includes(this.currentSearch));
-
-                    return categoryMatch && searchMatch;
-                });
-
-                this.displayNews();
-            }
-
-            displayNews() {
-                if (this.filteredNews.length === 0) {
-                    this.showNoResults();
-                    return;
-                }
-
-                this.hideNoResults();
-                this.hideError();
-
-                const newsHTML = this.filteredNews.map(item => this.createNewsCard(item)).join('');
-                this.newsGrid.innerHTML = newsHTML;
-                this.newsGrid.style.display = 'grid';
-            }
-
-            createNewsCard(item) {
-                const publishedDate = this.formatDate(item.publishedDate);
-                const excerpt = this.createExcerpt(item.description || '');
-                const categoryClass = `category-${item.category}`;
-                const categoryName = this.getCategoryDisplayName(item.category);
-                const imageUrl = this.getImageUrl(item);
-
-                return `
-                    <article class="news-card" data-category="${item.category}">
-                        <div class="news-image">
-                            <img src="${imageUrl}" alt="${this.escapeHtml(item.title)}" 
-                                 onerror="this.src='https://via.placeholder.com/400x200/16213e/ffffff?text=🔒+CyberNews'">
-                            <span class="news-category ${categoryClass}">${categoryName}</span>
-                        </div>
-                        <div class="news-content">
-                            <h3 class="news-title">
-                                <a href="${item.link}" target="_blank" rel="noopener noreferrer">
-                                    ${this.escapeHtml(item.title)}
-                                </a>
-                            </h3>
-                            <p class="news-excerpt">${excerpt}</p>
-                            <div class="news-meta">
-                                <div>
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>${publishedDate}</span>
-                                </div>
-                                <div>
-                                    <i class="far fa-newspaper"></i>
-                                    <span>${this.capitalizeFirst(item.source)}</span>
-                                </div>
-                            </div>
-                            <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="read-more">
-                                Read Full Article <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                `;
-            }
-
-            getImageUrl(item) {
-                // Category-specific cybersecurity placeholder images
-                const placeholders = {
-                    'threats': 'https://via.placeholder.com/400x200/ff4757/ffffff?text=⚠️+Cyber+Threats',
-                    'breaches': 'https://via.placeholder.com/400x200/ff6b6b/ffffff?text=💥+Data+Breaches',
-                    'malware': 'https://via.placeholder.com/400x200/a55eea/ffffff?text=🦠+Malware',
-                    'privacy': 'https://via.placeholder.com/400x200/26de81/ffffff?text=🔐+Privacy',
-                    'tools': 'https://via.placeholder.com/400x200/3742fa/ffffff?text=🛠️+Security+Tools',
-                    'general': 'https://via.placeholder.com/400x200/667eea/ffffff?text=🔒+CyberNews'
-                };
-
-                if (item.thumbnail) return item.thumbnail;
-                if (item.enclosure && item.enclosure.link) return item.enclosure.link;
-
-                // Look for images in content
-                if (item.content) {
-                    const imgMatch = item.content.match(/<img[^>]+src="([^">]+)"/);
-                    if (imgMatch) return imgMatch[1];
-                }
-
-                if (item.description) {
-                    const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
-                    if (imgMatch) return imgMatch[1];
-                }
-
-                return placeholders[item.category] || placeholders['general'];
-            }
-
-            createExcerpt(description) {
-                if (!description) return 'Click to read the full cybersecurity article...';
-
-                const text = description.replace(/<[^>]*>/g, '');
-                if (text.length <= 150) return text;
-                return text.substring(0, 150).trim() + '...';
-            }
-
-            getCategoryDisplayName(category) {
-                const categoryNames = {
-                    'threats': 'Cyber Threats',
-                    'breaches': 'Data Breaches',
-                    'malware': 'Malware',
-                    'privacy': 'Privacy',
-                    'tools': 'Security Tools',
-                    'general': 'General'
-                };
-                return categoryNames[category] || 'General';
-            }
-
-            formatDate(date) {
-                const now = new Date();
-                const diffTime = Math.abs(now - date);
-                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-                const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
-                const diffMinutes = Math.floor(diffTime / (1000 * 60));
-
-                if (diffMinutes < 60) {
-                    return `${diffMinutes} min ago`;
-                } else if (diffHours < 24) {
-                    return `${diffHours}h ago`;
-                } else if (diffDays < 7) {
-                    return `${diffDays}d ago`;
-                } else {
-                    return date.toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric'
-                    });
-                }
-            }
-
-            escapeHtml(text) {
-                const div = document.createElement('div');
-                div.textContent = text;
-                return div.innerHTML;
-            }
-
-            capitalizeFirst(str) {
-                return str.charAt(0).toUpperCase() + str.slice(1);
-            }
-
-            showLoading() {
-                this.loadingContainer.style.display = 'flex';
-                this.newsGrid.style.display = 'none';
-                this.errorMessage.style.display = 'none';
-                this.noResults.style.display = 'none';
-            }
-
-            hideLoading() {
-                this.loadingContainer.style.display = 'none';
-            }
-
-            showError(message) {
-                this.errorText.textContent = message;
-                this.errorMessage.style.display = 'block';
-                this.newsGrid.style.display = 'none';
-                this.noResults.style.display = 'none';
-                this.hideLoading();
-            }
-
-            hideError() {
-                this.errorMessage.style.display = 'none';
-            }
-
-            showNoResults() {
-                this.noResults.style.display = 'block';
-                this.newsGrid.style.display = 'none';
-                this.errorMessage.style.display = 'none';
-                this.hideLoading();
-            }
-
-            hideNoResults() {
-                this.noResults.style.display = 'none';
-            }
-
-            // Method to refresh news manually
-            refreshNews() {
-                this.allNews = [];
-                this.filteredNews = [];
-                this.loadNews();
-            }
-
-            // Method to get news count by category
-            getCategoryCount(category) {
-                if (category === 'all') {
-                    return this.allNews.length;
-                }
-                return this.allNews.filter(item => item.category === category).length;
-            }
-
-            // Method to export filtered news data
-            exportNews() {
-                const dataStr = JSON.stringify(this.filteredNews, null, 2);
-                const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr);
-
-                const exportFileDefaultName = 'cybersecurity_news.json';
-
-                const linkElement = document.createElement('a');
-                linkElement.setAttribute('href', dataUri);
-                linkElement.setAttribute('download', exportFileDefaultName);
-                linkElement.click();
-            }
-
-            // Method to get trending topics
-            getTrendingTopics() {
-                const wordFreq = {};
-
-                this.allNews.forEach(item => {
-                    const text = (item.title + ' ' + (item.description || '')).toLowerCase();
-                    const words = text.match(/\b[a-z]{4,}\b/g) || [];
-
-                    words.forEach(word => {
-                        if (!['this', 'that', 'with', 'have', 'will', 'been', 'from', 'they', 'know', 'want', 'been', 'good', 'much', 'some', 'time', 'very', 'when', 'come', 'here', 'just', 'like', 'long', 'make', 'many', 'over', 'such', 'take', 'than', 'them', 'well', 'were'].includes(word)) {
-                            wordFreq[word] = (wordFreq[word] || 0) + 1;
-                        }
-                    });
-                });
-
-                return Object.entries(wordFreq)
-                    .sort(([, a], [, b]) => b - a)
-                    .slice(0, 10)
-                    .map(([word, count]) => ({ word, count }));
-            }
-
-            // Method to add keyboard shortcuts
-            addKeyboardShortcuts() {
-                document.addEventListener('keydown', (e) => {
-                    // Ctrl+R or F5 to refresh
-                    if ((e.ctrlKey && e.key === 'r') || e.key === 'F5') {
-                        e.preventDefault();
-                        this.refreshNews();
-                    }
-
-                    // Number keys 1-6 for category filters
-                    if (e.key >= '1' && e.key <= '6') {
-                        const filterIndex = parseInt(e.key) - 1;
-                        const filterBtn = this.filterBtns[filterIndex];
-                        if (filterBtn) {
-                            filterBtn.click();
-                        }
-                    }
-
-                    // Ctrl+S to export
-                    if (e.ctrlKey && e.key === 's') {
-                        e.preventDefault();
-                        this.exportNews();
-                    }
-
-                    // / key to focus search
-                    if (e.key === '/' && e.target !== this.searchInput) {
-                        e.preventDefault();
-                        this.searchInput.focus();
-                    }
-
-                    // Escape to clear search
-                    if (e.key === 'Escape' && e.target === this.searchInput) {
-                        this.searchInput.value = '';
-                        this.currentSearch = '';
-                        this.filterAndDisplayNews();
-                        this.searchInput.blur();
-                    }
-                });
-            }
-
-            // Method to implement infinite scroll (for future enhancement)
-            implementInfiniteScroll() {
-                let isLoading = false;
-                const loadMoreThreshold = 200;
-
-                window.addEventListener('scroll', () => {
-                    if (isLoading) return;
-
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    const windowHeight = window.innerHeight;
-                    const documentHeight = document.documentElement.scrollHeight;
-
-                    if (scrollTop + windowHeight >= documentHeight - loadMoreThreshold) {
-                        // Could implement loading more news here
-                        // For now, just log the event
-                        console.log('Near bottom of page - could load more news');
-                    }
-                });
-            }
-
-            // Method to add analytics tracking
-            trackAnalytics(action, category = 'CyberNews', label = '') {
-                // Simple analytics tracking
-                if (window.gtag) {
-                    window.gtag('event', action, {
-                        event_category: category,
-                        event_label: label
-                    });
-                }
-
-                // Log to console for debugging
-                console.log('Analytics:', { action, category, label });
-            }
-
-            // Enhanced initialization with additional features
-            enhancedInit() {
-                this.addKeyboardShortcuts();
-                this.implementInfiniteScroll();
-
-                // Track page load
-                this.trackAnalytics('page_load', 'CyberNews', 'Hub');
-
-                // Add click tracking to news cards
-                document.addEventListener('click', (e) => {
-                    const newsCard = e.target.closest('.news-card');
-                    const readMoreLink = e.target.closest('.read-more');
-
-                    if (readMoreLink && newsCard) {
-                        const category = newsCard.getAttribute('data-category');
-                        const title = newsCard.querySelector('.news-title a').textContent;
-                        this.trackAnalytics('article_click', 'CyberNews', `${category}: ${title.substring(0, 50)}`);
-                    }
-                });
-
-                // Add filter tracking
-                this.filterBtns.forEach(btn => {
-                    btn.addEventListener('click', () => {
-                        const filter = btn.getAttribute('data-filter');
-                        this.trackAnalytics('filter_used', 'CyberNews', filter);
-                    });
-                });
-
-                // Add search tracking
-                let searchTimeout;
-                this.searchInput.addEventListener('input', () => {
-                    clearTimeout(searchTimeout);
-                    searchTimeout = setTimeout(() => {
-                        if (this.searchInput.value.trim()) {
-                            this.trackAnalytics('search_performed', 'CyberNews', this.searchInput.value.trim());
-                        }
-                    }, 1000);
-                });
-            }
-        }
-
-        // Initialize the application when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            const newsManager = new CyberNewsManager();
-
-            // Add enhanced features
-            newsManager.enhancedInit();
-
-            // Add refresh button functionality (if you want to add a refresh button)
-            const addRefreshButton = () => {
-                const refreshBtn = document.createElement('button');
-                refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh News';
-                refreshBtn.className = 'filter-btn';
-                refreshBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
-                refreshBtn.addEventListener('click', () => {
-                    refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Refreshing...';
-                    newsManager.refreshNews();
-                    setTimeout(() => {
-                        refreshBtn.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh News';
-                    }, 2000);
-                });
-
-                document.querySelector('.filters').appendChild(refreshBtn);
-            };
-
-            // Add export button functionality
-            const addExportButton = () => {
-                const exportBtn = document.createElement('button');
-                exportBtn.innerHTML = '<i class="fas fa-download"></i> Export';
-                exportBtn.className = 'filter-btn';
-                exportBtn.style.background = 'linear-gradient(45deg, #6f42c1, #e83e8c)';
-                exportBtn.addEventListener('click', () => {
-                    newsManager.exportNews();
-                    newsManager.trackAnalytics('export_news', 'CyberNews', 'JSON');
-                });
-
-                document.querySelector('.filters').appendChild(exportBtn);
-            };
-
-            // Uncomment these lines if you want to add refresh and export buttons
-            // addRefreshButton();
-            // addExportButton();
-
-            // Add trending topics display (optional feature)
-            const addTrendingTopics = () => {
-                setTimeout(() => {
-                    if (newsManager.allNews.length > 0) {
-                        const trending = newsManager.getTrendingTopics();
-                        console.log('Trending cybersecurity topics:', trending);
-
-                        // You could display these in the UI if desired
-                        const trendingContainer = document.createElement('div');
-                        trendingContainer.className = 'trending-topics';
-                        trendingContainer.innerHTML = `
-                            <h3>Trending Topics</h3>
-                            <div class="trending-list">
-                                ${trending.map(topic =>
-                            `<span class="trending-tag">${topic.word} (${topic.count})</span>`
-                        ).join('')}
-                            </div>
-                        `;
-
-                        // Add some CSS for trending topics
-                        const style = document.createElement('style');
-                        style.textContent = `
-                            .trending-topics {
-                                background: rgba(255, 255, 255, 0.1);
-                                backdrop-filter: blur(10px);
-                                border-radius: 15px;
-                                padding: 1.5rem;
-                                margin: 1rem 0;
-                                text-align: center;
-                            }
-                            .trending-topics h3 {
-                                color: #00d4ff;
-                                margin-bottom: 1rem;
-                            }
-                            .trending-list {
-                                display: flex;
-                                flex-wrap: wrap;
-                                gap: 0.5rem;
-                                justify-content: center;
-                            }
-                            .trending-tag {
-                                background: linear-gradient(45deg, #667eea, #764ba2);
-                                color: white;
-                                padding: 0.4rem 0.8rem;
-                                border-radius: 20px;
-                                font-size: 0.8rem;
-                                white-space: nowrap;
-                                cursor: pointer;
-                                transition: transform 0.2s ease;
-                            }
-                            .trending-tag:hover {
-                                transform: scale(1.05);
-                            }
-                        `;
-                        document.head.appendChild(style);
-
-                        // Add click functionality to trending tags
-                        trendingContainer.addEventListener('click', (e) => {
-                            if (e.target.classList.contains('trending-tag')) {
-                                const word = e.target.textContent.split(' (')[0];
-                                newsManager.searchInput.value = word;
-                                newsManager.currentSearch = word.toLowerCase();
-                                newsManager.filterAndDisplayNews();
-                                newsManager.trackAnalytics('trending_topic_clicked', 'CyberNews', word);
-                            }
-                        });
-
-                        // Insert trending topics after filter section
-                        document.querySelector('.filter-section').after(trendingContainer);
-                    }
-                }, 3000); // Wait for news to load
-            };
-
-            // Uncomment to enable trending topics
-            // addTrendingTopics();
-
-            // Global error handler
-            window.addEventListener('error', (e) => {
-                console.error('Global error:', e.error);
-                newsManager.trackAnalytics('javascript_error', 'CyberNews', e.error.message);
-            });
-
-            // Handle network status
-            window.addEventListener('online', () => {
-                console.log('Connection restored');
-                newsManager.refreshNews();
-            });
-
-            window.addEventListener('offline', () => {
-                console.log('Connection lost');
+        const API_KEY = '2f4f31012b0fd04c0893666bcd782e4b';
+        const BASE_URL = 'https://api.themoviedb.org/3';
+        const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
+        const BACKDROP_BASE_URL = 'https://image.tmdb.org/t/p/w1280';
+
+        // Genre IDs mapping
+        const GENRE_IDS = {
+            'action': 28,
+            'comedy': 35,
+            'horror': 27,
+            'romance': 10749,
+            'sci-fi': 878
+        };
+
+        // App State
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentCategory = 'trending';
+        let currentQuery = '';
+        let isSearchMode = false;
+        let infiniteScrollEnabled = false; // NEW: Control infinite scroll
+        let isLoadingMore = false;
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+        const moviesGrid = document.getElementById('moviesGrid');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const errorMessage = document.getElementById('errorMessage');
+        const modal = document.getElementById('movieModal');
+        const closeModal = document.getElementById('closeModal');
+        const categoryBtns = document.querySelectorAll('.btn-category');
+        const paginationContainer = document.getElementById('paginationContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const currentPageSpan = document.getElementById('currentPage');
+        const totalPagesSpan = document.getElementById('totalPages');
+        const sectionTitleContainer = document.getElementById('sectionTitleContainer');
+        const sectionTitle = document.getElementById('sectionTitle');
+
+        // NEW: Add infinite scroll toggle
+        const infiniteScrollToggle = document.createElement('button');
+        infiniteScrollToggle.id = 'infiniteScrollToggle';
+        infiniteScrollToggle.className = 'btn btn-secondary';
+        infiniteScrollToggle.textContent = '🔄 Enable Auto-Load';
+
+        infiniteScrollToggle.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    padding: 12px 20px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #ff6b6b);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(5px);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+`;
+
+        infiniteScrollToggle.title = "Toggle Infinite Scroll";
+
+        // Hover animation
+        infiniteScrollToggle.addEventListener('mouseenter', () => {
+            infiniteScrollToggle.style.transform = 'scale(1.07)';
+            infiniteScrollToggle.style.boxShadow = '0 10px 30px rgba(0,0,0,0.4)';
+        });
+        infiniteScrollToggle.addEventListener('mouseleave', () => {
+            infiniteScrollToggle.style.transform = 'scale(1)';
+            infiniteScrollToggle.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+        });
+
+        // Append to body
+        document.body.appendChild(infiniteScrollToggle);
+
+        // Existing event listeners (keep unchanged)
+        searchBtn.addEventListener('click', handleSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleSearch();
+        });
+        closeModal.addEventListener('click', closeMovieModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) closeMovieModal();
+        });
+
+        // Toggle Infinite Scroll (keep this logic)
+        infiniteScrollToggle.addEventListener('click', toggleInfiniteScroll);
+
+
+        // Category buttons
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                selectCategory(category);
+                loadCategoryMovies(category, 1);
             });
         });
 
-        // Service Worker registration for PWA functionality (optional)
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then(registration => {
-                        console.log('SW registered: ', registration);
-                    })
-                    .catch(registrationError => {
-                        console.log('SW registration failed: ', registrationError);
+        // Pagination buttons
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                loadCurrentContent();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                loadCurrentContent();
+            }
+        });
+
+        // Initialize app
+        loadCategoryMovies('trending', 1);
+
+        // NEW: Toggle infinite scroll function
+        function toggleInfiniteScroll() {
+            infiniteScrollEnabled = !infiniteScrollEnabled;
+
+            if (infiniteScrollEnabled) {
+                infiniteScrollToggle.textContent = '⏸️ Disable Auto-Load';
+                infiniteScrollToggle.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+                showSuccessMessage('Auto-load enabled! Scroll down to load more movies automatically.');
+            } else {
+                infiniteScrollToggle.textContent = '🔄 Enable Auto-Load';
+                infiniteScrollToggle.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
+                showSuccessMessage('Auto-load disabled. Use pagination buttons to navigate.');
+            }
+        }
+
+        // API Functions
+        async function fetchMovies(url) {
+            try {
+                showLoading(true);
+                hideError();
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error('Error fetching movies:', error);
+                showError('Failed to fetch movies. Please try again.');
+                return null;
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        async function searchMovies(query, page = 1) {
+            if (!query.trim()) {
+                showError('Please enter a movie name to search.');
+                return;
+            }
+
+            isSearchMode = true;
+            currentQuery = query;
+            currentPage = page;
+
+            const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&page=${page}`;
+            const data = await fetchMovies(url);
+            if (data && data.results) {
+                totalPages = Math.min(data.total_pages, 500); // API limit
+                displayMovies(data.results, `🔍 Search results for "${query}"`);
+                updatePagination();
+            }
+        }
+
+        async function loadCategoryMovies(category, page = 1) {
+            isSearchMode = false;
+            currentCategory = category;
+            currentPage = page;
+
+            let url;
+            let categoryTitle;
+
+            switch (category) {
+                case 'trending':
+                    url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '🔥 Trending Movies This Week';
+                    break;
+                case 'popular':
+                    url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '⭐ Popular Movies';
+                    break;
+                case 'top_rated':
+                    url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '🏆 Top Rated Movies';
+                    break;
+                case 'now_playing':
+                    url = `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '🎬 Now Playing';
+                    break;
+                case 'upcoming':
+                    url = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '🔜 Upcoming Movies';
+                    break;
+                case 'action':
+                case 'comedy':
+                case 'horror':
+                case 'romance':
+                case 'sci-fi':
+                    const genreId = GENRE_IDS[category];
+                    url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${page}&sort_by=popularity.desc`;
+                    categoryTitle = `${getCategoryEmoji(category)} ${category.charAt(0).toUpperCase() + category.slice(1)} Movies`;
+                    break;
+                default:
+                    url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`;
+                    categoryTitle = '🔥 Trending Movies This Week';
+            }
+
+            const data = await fetchMovies(url);
+            if (data && data.results) {
+                totalPages = Math.min(data.total_pages, 500); // API limit
+                displayMovies(data.results, categoryTitle);
+                updatePagination();
+            }
+        }
+
+        async function getMovieTrailer(movieId) {
+            try {
+                const url = `${BASE_URL}/movie/${movieId}/videos?api_key=${API_KEY}`;
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.results) {
+                    const trailer = data.results.find(video =>
+                        video.site === 'YouTube' &&
+                        (video.type === 'Trailer' || video.type === 'Teaser')
+                    );
+                    return trailer ? trailer.key : null;
+                }
+                return null;
+            } catch (error) {
+                console.error('Error fetching trailer:', error);
+                return null;
+            }
+        }
+
+        // Display Functions
+        function displayMovies(movies, title) {
+            if (!movies || movies.length === 0) {
+                showError('No movies found. Try a different search term or category.');
+                hidePagination();
+                return;
+            }
+
+            // Show section title
+            sectionTitle.textContent = title;
+            sectionTitleContainer.style.display = 'block';
+
+            // Clear and populate movies grid (FIXED: Only clear when not appending)
+            if (!infiniteScrollEnabled || currentPage === 1) {
+                moviesGrid.innerHTML = '';
+            }
+
+            movies.forEach((movie, index) => {
+                const movieCard = createMovieCard(movie);
+                movieCard.style.animationDelay = `${index * 0.1}s`;
+                movieCard.style.animation = 'fadeInUp 0.6s ease forwards';
+                moviesGrid.appendChild(movieCard);
+            });
+
+            // Scroll to top smoothly only for new searches/categories
+            if (!infiniteScrollEnabled || currentPage === 1) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function createMovieCard(movie) {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+
+            const posterUrl = movie.poster_path
+                ? `${IMAGE_BASE_URL}${movie.poster_path}`
+                : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
+
+            const overview = movie.overview
+                ? (movie.overview.length > 100 ? movie.overview.substring(0, 100) + '...' : movie.overview)
+                : 'No overview available.';
+
+            card.innerHTML = `
+                <img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
+                <div class="movie-info">
+                    <h3 class="movie-title">${movie.title}</h3>
+                    <div class="movie-rating">
+                        <span class="star"><i class="fa-solid fa-star"></i></span>
+                        <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
+                    </div>
+                    <p class="movie-overview">${overview}</p>
+                </div>
+            `;
+
+            card.addEventListener('click', () => openMovieModal(movie));
+            return card;
+        }
+
+        async function openMovieModal(movie) {
+            const modalTitle = document.getElementById('modalTitle');
+            const modalPoster = document.getElementById('modalPoster');
+            const modalBackdrop = document.getElementById('modalBackdrop');
+            const modalRating = document.getElementById('modalRating');
+            const modalDate = document.getElementById('modalDate');
+            const modalVotes = document.getElementById('modalVotes');
+            const modalOverview = document.getElementById('modalOverview');
+            const trailerContent = document.getElementById('trailerContent');
+
+            // Set modal content
+            modalTitle.textContent = movie.title;
+            modalPoster.src = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
+            modalBackdrop.src = movie.backdrop_path ? `${BACKDROP_BASE_URL}${movie.backdrop_path}` : modalPoster.src;
+            modalRating.textContent = movie.vote_average ? movie.vote_average.toFixed(1) + '/10' : 'N/A';
+            modalDate.textContent = movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown';
+            modalVotes.textContent = movie.vote_count ? movie.vote_count.toLocaleString() : '0';
+            modalOverview.textContent = movie.overview || 'No overview available.';
+
+            // Load trailer
+            trailerContent.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading trailer...</p></div>';
+
+            const trailerKey = await getMovieTrailer(movie.id);
+            if (trailerKey) {
+                trailerContent.innerHTML = `
+                    <iframe class="trailer-iframe" 
+                            src="https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&rel=0" 
+                            allowfullscreen>
+                    </iframe>
+                `;
+            } else {
+                trailerContent.innerHTML = '<div class="no-trailer"><i class="fa-solid fa-clapperboard">Trailer not available.</div>';
+            }
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMovieModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+
+            // Stop any playing videos
+            const trailerContent = document.getElementById('trailerContent');
+            trailerContent.innerHTML = '';
+        }
+
+        // Event Handlers
+        function handleSearch() {
+            const query = searchInput.value.trim();
+            if (query) {
+                searchMovies(query, 1);
+                // Clear active category
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+            }
+        }
+
+        function selectCategory(category) {
+            // Update active category button
+            categoryBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === category);
+            });
+
+            // Clear search input
+            searchInput.value = '';
+        }
+
+        function loadCurrentContent() {
+            if (isSearchMode) {
+                searchMovies(currentQuery, currentPage);
+            } else {
+                loadCategoryMovies(currentCategory, currentPage);
+            }
+        }
+
+        // Pagination Functions
+        function updatePagination() {
+            currentPageSpan.textContent = currentPage;
+            totalPagesSpan.textContent = totalPages;
+
+            prevBtn.disabled = currentPage <= 1;
+            nextBtn.disabled = currentPage >= totalPages;
+
+            paginationContainer.style.display = totalPages > 1 ? 'flex' : 'none';
+        }
+
+        function hidePagination() {
+            paginationContainer.style.display = 'none';
+        }
+
+        // Utility Functions
+        function showLoading(show) {
+            loadingSpinner.style.display = show ? 'block' : 'none';
+            if (show) {
+                if (!infiniteScrollEnabled || currentPage === 1) {
+                    moviesGrid.innerHTML = '';
+                }
+                sectionTitleContainer.style.display = 'none';
+                hidePagination();
+            }
+        }
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            moviesGrid.innerHTML = '';
+            sectionTitleContainer.style.display = 'none';
+            hidePagination();
+            setTimeout(() => {
+                errorMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        function hideError() {
+            errorMessage.style.display = 'none';
+        }
+
+        function getCategoryEmoji(category) {
+            const emojis = {
+                'action': '💥',
+                'comedy': '😂',
+                'horror': '😱',
+                'romance': '💕',
+                'sci-fi': '🚀'
+            };
+            return emojis[category] || '🎬';
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'block') {
+                closeMovieModal();
+            }
+
+            // Pagination shortcuts (only when infinite scroll is disabled)
+            if (!infiniteScrollEnabled) {
+                if (e.key === 'ArrowLeft' && currentPage > 1) {
+                    currentPage--;
+                    loadCurrentContent();
+                }
+
+                if (e.key === 'ArrowRight' && currentPage < totalPages) {
+                    currentPage++;
+                    loadCurrentContent();
+                }
+            }
+
+            // Toggle infinite scroll with Ctrl/Cmd + I
+            if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
+                e.preventDefault();
+                toggleInfiniteScroll();
+            }
+        });
+
+        // FIXED: Improved infinite scroll with proper control
+        window.addEventListener('scroll', () => {
+            // Only proceed if infinite scroll is enabled
+            if (!infiniteScrollEnabled || isLoadingMore) return;
+
+            const scrollHeight = document.documentElement.scrollHeight;
+            const scrollTop = document.documentElement.scrollTop;
+            const clientHeight = document.documentElement.clientHeight;
+
+            // Load more when user is near bottom and there are more pages
+            if (scrollTop + clientHeight >= scrollHeight - 1000 && currentPage < totalPages) {
+                isLoadingMore = true;
+                currentPage++;
+                loadMoreMovies();
+            }
+        });
+
+        async function loadMoreMovies() {
+            let url;
+
+            if (isSearchMode) {
+                url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(currentQuery)}&page=${currentPage}`;
+            } else {
+                switch (currentCategory) {
+                    case 'trending':
+                        url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${currentPage}`;
+                        break;
+                    case 'popular':
+                        url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${currentPage}`;
+                        break;
+                    case 'top_rated':
+                        url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&page=${currentPage}`;
+                        break;
+                    case 'now_playing':
+                        url = `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&page=${currentPage}`;
+                        break;
+                    case 'upcoming':
+                        url = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${currentPage}`;
+                        break;
+                    default:
+                        if (GENRE_IDS[currentCategory]) {
+                            const genreId = GENRE_IDS[currentCategory];
+                            url = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${currentPage}&sort_by=popularity.desc`;
+                        } else {
+                            url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${currentPage}`;
+                        }
+                }
+            }
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data && data.results && data.results.length > 0) {
+                    // Append new movies to existing grid
+                    data.results.forEach((movie, index) => {
+                        const movieCard = createMovieCard(movie);
+                        movieCard.style.animationDelay = `${index * 0.05}s`;
+                        movieCard.style.animation = 'fadeInUp 0.4s ease forwards';
+                        moviesGrid.appendChild(movieCard);
                     });
+
+                    updatePagination();
+                }
+            } catch (error) {
+                console.error('Error loading more movies:', error);
+            } finally {
+                isLoadingMore = false;
+            }
+        }
+
+        // Add some visual feedback for loading states
+        function addShimmerEffect() {
+            const shimmerCards = Array.from({ length: 8 }, (_, i) => {
+                const shimmer = document.createElement('div');
+                shimmer.className = 'movie-card';
+                shimmer.innerHTML = `
+                    <div style="background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%); animation: shimmer 1.5s infinite; height: 400px;"></div>
+                    <div style="padding: 20px;">
+                        <div style="height: 20px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px;"></div>
+                        <div style="height: 14px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px; width: 60%;"></div>
+                        <div style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+                    </div>
+                `;
+                return shimmer;
+            });
+
+            return shimmerCards;
+        }
+
+        // Add shimmer animation CSS
+        const shimmerStyle = document.createElement('style');
+        shimmerStyle.textContent = `
+            @keyframes shimmer {
+                0% { background-position: -200px 0; }
+                100% { background-position: calc(200px + 100%) 0; }
+            }
+        `;
+        document.head.appendChild(shimmerStyle);
+
+        // Downloads Management
+        const downloadsToggle = document.getElementById('downloadsToggle');
+        const downloadsPanel = document.getElementById('downloadsPanel');
+        const downloadsList = document.getElementById('downloadsList');
+        const modalDownloadBtn = document.getElementById('modalDownloadBtn');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+
+        // Quality selection elements
+        const qualityBtns = document.querySelectorAll('.quality-btn');
+        const selectedQualitySpan = document.getElementById('selectedQuality');
+        const selectedSizeSpan = document.getElementById('selectedSize');
+
+        // Downloads state
+        let downloads = [];
+        let downloadCounter = 0;
+
+        // Quality data
+        const qualityData = {
+            '720p': { label: '720p HD', size: '1.2GB' },
+            '1080p': { label: '1080p FHD', size: '2.8GB' },
+            '4k': { label: '4K UHD', size: '8.5GB' }
+        };
+
+        let selectedQuality = '720p';
+
+        // Downloads Panel Event Listeners
+        if (downloadsToggle) {
+            downloadsToggle.addEventListener('click', toggleDownloadsPanel);
+        }
+
+        // Quality selection event listeners
+        if (qualityBtns) {
+            qualityBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const quality = btn.dataset.quality;
+                    selectQuality(quality);
+                });
             });
         }
+
+        // Modal download button event listener
+        if (modalDownloadBtn) {
+            modalDownloadBtn.addEventListener('click', startDownload);
+        }
+
+        // Downloads Panel Functions
+        function toggleDownloadsPanel() {
+            if (!downloadsPanel) return;
+
+            downloadsPanel.classList.toggle('open');
+
+            const isOpen = downloadsPanel.classList.contains('open');
+
+            if (downloadsToggle) {
+                downloadsToggle.innerHTML = isOpen
+                    ? '<i class="fas fa-times"></i>'       // ✕ icon
+                    : '<i class="fas fa-download"></i>';   // 📥 icon
+            }
+        }
+
+
+        function updateDownloadsList() {
+            if (!downloadsList) return;
+
+            if (downloads.length === 0) {
+                downloadsList.innerHTML = '<p style="text-align: center; color: #888; font-style: italic;">No downloads yet</p>';
+                return;
+            }
+
+            downloadsList.innerHTML = downloads.map(download => `
+        <div class="download-item">
+            <div class="download-item-title">${download.title}</div>
+            <div class="download-item-info">
+                ${download.quality} • ${download.size} • ${download.status}
+            </div>
+            <div class="progress-bar" style="margin-top: 10px;">
+                <div class="progress-fill" style="width: ${download.progress}%; transition: width 0.3s ease;"></div>
+            </div>
+            <div style="text-align: center; margin-top: 5px; font-size: 12px; color: #4ecdc4;">
+                ${download.progress}% Complete
+            </div>
+        </div>
+    `).join('');
+        }
+
+        // Quality Selection Functions
+        function selectQuality(quality) {
+            selectedQuality = quality;
+
+            // Update active quality button
+            if (qualityBtns) {
+                qualityBtns.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.quality === quality);
+                });
+            }
+
+            // Update quality display
+            const qualityInfo = qualityData[quality];
+            if (selectedQualitySpan) selectedQualitySpan.textContent = qualityInfo.label;
+            if (selectedSizeSpan) selectedSizeSpan.textContent = qualityInfo.size;
+        }
+
+        // Download Functions
+        function startDownload() {
+            const modalTitle = document.getElementById('modalTitle');
+            const movieTitle = modalTitle ? modalTitle.textContent : '';
+
+            if (!movieTitle) {
+                showError('Movie information not available');
+                return;
+            }
+
+            // Check if movie is already downloading
+            const existingDownload = downloads.find(d => d.title === movieTitle && d.quality === selectedQuality);
+            if (existingDownload && existingDownload.status === 'Downloading') {
+                showError('This movie is already being downloaded');
+                return;
+            }
+
+            // Create download object
+            const download = {
+                id: ++downloadCounter,
+                title: movieTitle,
+                quality: qualityData[selectedQuality].label,
+                size: qualityData[selectedQuality].size,
+                progress: 0,
+                status: 'Starting...'
+            };
+
+            downloads.unshift(download);
+            updateDownloadsList();
+
+            // Show progress container
+            if (progressContainer) {
+                progressContainer.style.display = 'block';
+                if (progressFill) progressFill.style.width = '0%';
+                if (progressText) progressText.textContent = 'Starting download...';
+            }
+
+            // Disable download button
+            if (modalDownloadBtn) {
+                modalDownloadBtn.disabled = true;
+                modalDownloadBtn.textContent = '📥 Downloading...';
+            }
+
+            // Start download simulation
+            simulateDownload(download);
+
+            // Show downloads panel
+            if (downloadsPanel && !downloadsPanel.classList.contains('open')) {
+                toggleDownloadsPanel();
+            }
+
+            // Show success message
+            showSuccessMessage(`Started downloading ${movieTitle} in ${qualityData[selectedQuality].label}`);
+        }
+
+        function simulateDownload(download) {
+            let progress = 0;
+            const downloadSpeed = Math.random() * 3 + 1; // Random speed between 1-4% per interval
+            const interval = 500; // Update every 500ms
+
+            download.status = 'Downloading';
+
+            const downloadInterval = setInterval(() => {
+                progress += downloadSpeed;
+
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(downloadInterval);
+                    completeDownload(download);
+                }
+
+                // Update download progress
+                download.progress = Math.round(progress);
+                updateDownloadsList();
+
+                // Update modal progress if it's for the same movie
+                const modalTitle = document.getElementById('modalTitle');
+                if (modalTitle && modalTitle.textContent === download.title) {
+                    updateModalProgress(progress);
+                }
+
+            }, interval);
+        }
+
+        function completeDownload(download) {
+            download.status = 'Completed';
+            download.progress = 100;
+
+            // Update downloads list
+            updateDownloadsList();
+
+            // Update modal if it's for the same movie
+            const modalTitle = document.getElementById('modalTitle');
+            if (modalTitle && modalTitle.textContent === download.title) {
+                // Reset modal download button
+                if (modalDownloadBtn) {
+                    modalDownloadBtn.disabled = false;
+                    modalDownloadBtn.textContent = '📥 Download Complete';
+                    modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                }
+
+                // Hide progress container after a delay
+                if (progressContainer) {
+                    setTimeout(() => {
+                        progressContainer.style.display = 'none';
+                    }, 2000);
+                }
+            }
+
+            // Show completion notification
+            showSuccessMessage(`✅ ${download.title} download completed!`);
+
+            // Add download status to movie cards
+            updateMovieCardStatus(download.title, 'completed');
+        }
+
+        function updateModalProgress(progress) {
+            const roundedProgress = Math.round(progress);
+            if (progressFill) progressFill.style.width = `${roundedProgress}%`;
+            if (progressText) {
+                progressText.textContent = `Downloading... ${roundedProgress}%`;
+
+                if (progress >= 100) {
+                    progressText.textContent = 'Download Complete!';
+                    progressText.style.color = '#28a745';
+                }
+            }
+        }
+
+        function updateMovieCardStatus(movieTitle, status) {
+            const movieCards = document.querySelectorAll('.movie-card');
+            movieCards.forEach(card => {
+                const titleElement = card.querySelector('.movie-title');
+                if (titleElement && titleElement.textContent === movieTitle) {
+                    // Remove existing status
+                    const existingStatus = card.querySelector('.download-status');
+                    if (existingStatus) {
+                        existingStatus.remove();
+                    }
+
+                    // Add new status
+                    const statusElement = document.createElement('div');
+                    statusElement.className = `download-status ${status}`;
+                    statusElement.textContent = status === 'downloading' ? 'Downloading' : 'Downloaded';
+                    card.style.position = 'relative';
+                    card.appendChild(statusElement);
+                }
+            });
+        }
+
+        // Utility Functions
+        function showSuccessMessage(message) {
+            // Create success toast
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #28a745, #20c997);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-weight: bold;
+        z-index: 2000;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        animation: slideInRight 0.3s ease;
+        max-width: 300px;
+        word-wrap: break-word;
+    `;
+
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            // Auto remove after 4 seconds
+            setTimeout(() => {
+                toast.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            }, 4000);
+        }
+
+        // Add toast animations
+        const toastStyle = document.createElement('style');
+        toastStyle.textContent = `
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes slideOutRight {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+`;
+        document.head.appendChild(toastStyle);
+
+        // Enhanced Movie Card Creation (Override existing function)
+        function createMovieCard(movie) {
+            const card = document.createElement('div');
+            card.className = 'movie-card';
+
+            const posterUrl = movie.poster_path
+                ? `${IMAGE_BASE_URL}${movie.poster_path}`
+                : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
+
+            const overview = movie.overview
+                ? (movie.overview.length > 100 ? movie.overview.substring(0, 100) + '...' : movie.overview)
+                : 'No overview available.';
+
+            // Check if movie is downloaded
+            const downloadStatus = downloads.find(d => d.title === movie.title);
+            const statusElement = downloadStatus ?
+                `<div class="download-status ${downloadStatus.status.toLowerCase()}">${downloadStatus.status}</div>` : '';
+
+            card.innerHTML = `
+        ${statusElement}
+        <img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
+        <div class="movie-info">
+            <h3 class="movie-title">${movie.title}</h3>
+            <div class="movie-rating">
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
+            </div>
+            <p class="movie-overview">${overview}</p>
+            <div class="movie-actions">
+                <button class="btn-download" onclick="quickDownload('${movie.title}', event)">
+                    <i class="fas fa-download"></i>  Download
+                </button>
+                <button class="btn-info" onclick="openMovieModal(${JSON.stringify(movie).replace(/"/g, '&quot;')}, event)">
+                    <i class="fa-solid fa-circle-info"></i> Info
+                </button>
+            </div>
+        </div>
+    `;
+
+            return card;
+        }
+
+        // Quick download function for movie cards
+        function quickDownload(movieTitle, event) {
+            event.stopPropagation();
+
+            // Check if already downloading
+            const existingDownload = downloads.find(d => d.title === movieTitle);
+            if (existingDownload) {
+                if (existingDownload.status === 'Downloading') {
+                    showError('This movie is already being downloaded');
+                    return;
+                } else if (existingDownload.status === 'Completed') {
+                    showSuccessMessage('Movie already downloaded!');
+                    return;
+                }
+            }
+
+            // Start download with default quality (720p)
+            const download = {
+                id: ++downloadCounter,
+                title: movieTitle,
+                quality: qualityData['720p'].label,
+                size: qualityData['720p'].size,
+                progress: 0,
+                status: 'Starting...'
+            };
+
+            downloads.unshift(download);
+            updateDownloadsList();
+            simulateDownload(download);
+
+            // Update movie card status
+            updateMovieCardStatus(movieTitle, 'downloading');
+
+            showSuccessMessage(`Started downloading ${movieTitle} in 720p HD`);
+
+            // Show downloads panel
+            if (!downloadsPanel.classList.contains('open')) {
+                toggleDownloadsPanel();
+            }
+        }
+
+        // Enhanced modal opening (Override existing function)
+        async function openMovieModal(movie, event) {
+            if (event) {
+                event.stopPropagation();
+            }
+
+            const modalTitle = document.getElementById('modalTitle');
+            const modalPoster = document.getElementById('modalPoster');
+            const modalBackdrop = document.getElementById('modalBackdrop');
+            const modalRating = document.getElementById('modalRating');
+            const modalDate = document.getElementById('modalDate');
+            const modalVotes = document.getElementById('modalVotes');
+            const modalOverview = document.getElementById('modalOverview');
+            const trailerContent = document.getElementById('trailerContent');
+
+            // Set modal content
+            modalTitle.textContent = movie.title;
+            modalPoster.src = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
+            modalBackdrop.src = movie.backdrop_path ? `${BACKDROP_BASE_URL}${movie.backdrop_path}` : modalPoster.src;
+            modalRating.textContent = movie.vote_average ? movie.vote_average.toFixed(1) + '/10' : 'N/A';
+            modalDate.textContent = movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown';
+            modalVotes.textContent = movie.vote_count ? movie.vote_count.toLocaleString() : '0';
+            modalOverview.textContent = movie.overview || 'No overview available.';
+
+            // Reset download button state
+            const existingDownload = downloads.find(d => d.title === movie.title);
+            if (existingDownload) {
+                if (existingDownload.status === 'Completed') {
+                    modalDownloadBtn.textContent = '✅ Already Downloaded';
+                    modalDownloadBtn.disabled = true;
+                    modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                } else if (existingDownload.status === 'Downloading') {
+                    modalDownloadBtn.textContent = '📥 Downloading...';
+                    modalDownloadBtn.disabled = true;
+                    progressContainer.style.display = 'block';
+                    updateModalProgress(existingDownload.progress);
+                }
+            } else {
+                modalDownloadBtn.textContent = '📥 Start Download';
+                modalDownloadBtn.disabled = false;
+                modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+                progressContainer.style.display = 'none';
+            }
+
+            // Reset quality selection
+            selectQuality('720p');
+
+            // Load trailer
+            trailerContent.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading trailer...</p></div>';
+
+            const trailerKey = await getMovieTrailer(movie.id);
+            if (trailerKey) {
+                trailerContent.innerHTML = `
+            <iframe class="trailer-iframe" 
+                    src="https://www.youtube.com/embed/${trailerKey}?autoplay=0&mute=1&rel=0" 
+                    allowfullscreen>
+            </iframe>
+        `;
+            } else {
+                trailerContent.innerHTML = '<div class="no-trailer">🎬 Trailer not available.</div>';
+            }
+
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close downloads panel when clicking outside
+        document.addEventListener('click', (e) => {
+            if (downloadsPanel.classList.contains('open') &&
+                !downloadsPanel.contains(e.target) &&
+                !downloadsToggle.contains(e.target)) {
+                toggleDownloadsPanel();
+            }
+        });
+
+        // Enhanced keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modal.style.display === 'block') {
+                    closeMovieModal();
+                } else if (downloadsPanel.classList.contains('open')) {
+                    toggleDownloadsPanel();
+                }
+            }
+
+            // Downloads panel shortcut (Ctrl/Cmd + D)
+            if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                e.preventDefault();
+                toggleDownloadsPanel();
+            }
+        });
+
+        // Auto-save downloads to localStorage (if available)
+        function saveDownloads() {
+            try {
+                // Note: localStorage is not available in Claude artifacts
+                // This is just for reference if the code is used elsewhere
+                localStorage.setItem('movieAppDownloads', JSON.stringify(downloads));
+            } catch (error) {
+                console.log('localStorage not available');
+            }
+        }
+
+        function loadDownloads() {
+            try {
+                // Note: localStorage is not available in Claude artifacts
+                const saved = localStorage.getItem('movieAppDownloads');
+                if (saved) {
+                    downloads = JSON.parse(saved);
+                    updateDownloadsList();
+                }
+            } catch (error) {
+                console.log('localStorage not available');
+            }
+        }
+
+        // Initialize downloads on page load
+        // loadDownloads(); // Commented out as localStorage is not available in artifacts
+
+        // Performance optimization: Debounce search
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Apply debounce to search
+        const debouncedSearch = debounce((query) => {
+            if (query.trim()) {
+                searchMovies(query, 1);
+            }
+        }, 300);
+
+        // Update search input to use debounced search
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value;
+            if (query.length > 2) {
+                debouncedSearch(query);
+            }
+        });
+
+        // Add loading state to download buttons
+        function setDownloadButtonState(button, state) {
+            const states = {
+                default: { text: '📥 Download', disabled: false },
+                downloading: { text: '📥 Downloading...', disabled: true },
+                completed: { text: '✅ Downloaded', disabled: true }
+            };
+
+            const config = states[state] || states.default;
+            button.textContent = config.text;
+            button.disabled = config.disabled;
+        }
+
+        console.log('StreamSage fully loaded and ready!');
+        console.log('Features available:');
+        console.log('- Search movies');
+        console.log('- Browse categories');
+        console.log('- View movie details with trailers');
+        console.log('- Download movies (simulated)');
+        console.log('- Download management panel');
+        console.log('- Keyboard shortcuts (Esc, Arrows, Ctrl+D)');
+        console.log('- Infinite scroll');
+        console.log('- Responsive design');
+
+        // Footer Quick Links Functionality
+        // Add this code to your existing JavaScript file
+
+        // Footer Quick Links Event Handlers
+        function initializeFooterQuickLinks() {
+            // Get all footer quick links
+            const footerLinks = document.querySelectorAll('.footer-links a');
+
+            if (footerLinks.length === 0) {
+                console.log('Footer links not found, trying again in 1 second...');
+                setTimeout(initializeFooterQuickLinks, 1000);
+                return;
+            }
+
+            // Map of footer link text to corresponding category
+            const linkCategoryMap = {
+                'trending': 'trending',
+                'popular': 'popular',
+                'top rated': 'top_rated',
+                'top-rated': 'top_rated',
+                'upcoming': 'upcoming',
+                'now playing': 'now_playing',
+                'action': 'action',
+                'comedy': 'comedy',
+                'horror': 'horror',
+                'romance': 'romance',
+                'sci-fi': 'sci-fi'
+            };
+
+            footerLinks.forEach(link => {
+                const linkText = link.textContent.toLowerCase().trim();
+                const category = linkCategoryMap[linkText];
+
+                if (category) {
+                    // Update the href to make it more semantic
+                    link.href = `#${category}`;
+
+                    // Add click event listener
+                    link.addEventListener('click', function (e) {
+                        e.preventDefault();
+
+                        // Add loading state to the clicked link
+                        const originalText = this.textContent;
+                        this.style.color = '#4ecdc4';
+                        this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${originalText}`;
+
+                        // Reset link after a short delay
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.style.color = '';
+                        }, 1500);
+
+                        // Clear search input
+                        if (searchInput) {
+                            searchInput.value = '';
+                        }
+
+                        // Select the appropriate category
+                        selectCategory(category);
+
+                        // Load the category movies
+                        loadCategoryMovies(category, 1);
+
+                        // Smooth scroll to the top of the page
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+
+                        // Show success message
+                        showFooterNavigationMessage(originalText);
+
+                        // Close downloads panel if open
+                        if (downloadsPanel && downloadsPanel.classList.contains('open')) {
+                            toggleDownloadsPanel();
+                        }
+
+                        // Close modal if open
+                        if (modal && modal.style.display === 'block') {
+                            closeMovieModal();
+                        }
+                    });
+                }
+            });
+
+            console.log('Footer quick links initialized successfully!');
+        }
+
+        // Show navigation message for footer links
+        function showFooterNavigationMessage(categoryName) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 25px;
+        font-weight: 600;
+        z-index: 2000;
+        box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
+        animation: footerToastSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    `;
+
+            toast.innerHTML = `
+        <i class="fas fa-film" style="margin-right: 8px;"></i>
+        Loading ${categoryName} movies...
+    `;
+
+            document.body.appendChild(toast);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                toast.style.animation = 'footerToastSlideOut 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 500);
+            }, 3000);
+        }
+
+        // Add CSS animations for footer toast
+        const footerToastStyle = document.createElement('style');
+        footerToastStyle.textContent = `
+    @keyframes footerToastSlide {
+        from {
+            transform: translateX(-50%) translateY(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes footerToastSlideOut {
+        from {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(-50%) translateY(-100px);
+            opacity: 0;
+        }
+    }
+
+    /* Enhanced footer link hover effects */
+    .footer-links a:hover {
+        color: #4ecdc4 !important;
+        transform: translateX(8px);
+        text-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
+    }
+
+    .footer-links a:active {
+        transform: translateX(8px) scale(0.98);
+    }
+
+    /* Loading state for footer links */
+    .footer-links a .fa-spinner {
+        margin-right: 5px;
+    }
+`;
+        document.head.appendChild(footerToastStyle);
+
+        // Enhanced footer functionality with section navigation
+        function addFooterSectionNavigation() {
+            // Add smooth scrolling for any anchor links in the footer
+            const allFooterLinks = document.querySelectorAll('.footer a[href^="#"]');
+
+            allFooterLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+
+                    // If it's a regular anchor link (not handled by quick links)
+                    if (href !== '#' && !href.match(/#(trending|popular|top_rated|upcoming)/)) {
+                        e.preventDefault();
+
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // Add keyboard navigation for footer
+        function addFooterKeyboardNavigation() {
+            document.addEventListener('keydown', (e) => {
+                // Quick category navigation with number keys (1-4)
+                if (e.altKey) {
+                    switch (e.key) {
+                        case '1':
+                            e.preventDefault();
+                            selectCategory('trending');
+                            loadCategoryMovies('trending', 1);
+                            showFooterNavigationMessage('Trending');
+                            break;
+                        case '2':
+                            e.preventDefault();
+                            selectCategory('popular');
+                            loadCategoryMovies('popular', 1);
+                            showFooterNavigationMessage('Popular');
+                            break;
+                        case '3':
+                            e.preventDefault();
+                            selectCategory('top_rated');
+                            loadCategoryMovies('top_rated', 1);
+                            showFooterNavigationMessage('Top Rated');
+                            break;
+                        case '4':
+                            e.preventDefault();
+                            selectCategory('upcoming');
+                            loadCategoryMovies('upcoming', 1);
+                            showFooterNavigationMessage('Upcoming');
+                            break;
+                    }
+                }
+            });
+        }
+
+        // Initialize all footer functionality
+        function initializeFooter() {
+            // Wait for DOM to be ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', () => {
+                    setTimeout(() => {
+                        initializeFooterQuickLinks();
+                        addFooterSectionNavigation();
+                        addFooterKeyboardNavigation();
+                    }, 500);
+                });
+            } else {
+                // DOM is already ready
+                setTimeout(() => {
+                    initializeFooterQuickLinks();
+                    addFooterSectionNavigation();
+                    addFooterKeyboardNavigation();
+                }, 500);
+            }
+        }
+
+        // Call initialization
+        initializeFooter();
+
+        // Add to existing console.log at the end of your main script
+        console.log('Footer functionality initialized:');
+        console.log('- Quick links for category navigation');
+        console.log('- Keyboard shortcuts (Alt + 1-4 for categories)');
+        console.log('- Smooth scrolling and toast notifications');
+
+        // Export functions for potential external use
+        window.StreamSageFooter = {
+            initializeFooterQuickLinks,
+            showFooterNavigationMessage,
+            addFooterSectionNavigation,
+            addFooterKeyboardNavigation
+        };
     </script>
 </body>
 
