@@ -4,43 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamSage - Watch, Rate & Download Movies</title>
+    <title>StreamSage - Watch Movies Online, Download HD Films & Movie Trailers</title>
 
     <meta name="description"
-        content="Discover trending, popular, top-rated, and upcoming movies. Watch trailers, read overviews, and download in HD, FHD, or 4K quality. All in one app by Dhruv.">
+        content="StreamSage is your ultimate movie platform - watch movie trailers online, discover trending films, download movies in HD/4K quality, and explore top-rated cinema. Stream movies free with our comprehensive movie database.">
 
     <meta name="keywords"
-        content="movies, movie app, download movies, watch trailers, HD movies, FHD movies, 4K movies, trending movies, StreamSage, Dhruv Tripathi">
+        content="watch movies online, download movies HD, movie trailers, streaming movies, free movies, movie database, cinema online, film streaming, movie download, HD movies, 4K movies, trending movies, popular movies, top rated movies, upcoming movies, StreamSage, movie app, film app, movie website">
 
     <meta name="author" content="Dhruv Tripathi">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="language" content="en-US">
 
-    <!-- Open Graph (for social sharing) -->
-    <meta property="og:title" content="StreamSage - Your Ultimate Movie Hub">
+    <!-- Enhanced Open Graph (for social sharing) -->
+    <meta property="og:title" content="StreamSage - Watch Movies Online & Download HD Films">
     <meta property="og:description"
-        content="Stream, explore, and download the latest trending, popular, and top-rated movies in HD, FHD, or 4K. Built by Mayank Shahi & Dhruv Tripathi.">
-    <meta property="og:image" content="https://yourdomain.com/preview-image.jpg">
-    <meta property="og:url" content="https://yourdomain.com">
+        content="Discover and stream the latest movies, watch trailers, and download films in HD/4K quality. Your ultimate movie destination with trending, popular, and top-rated cinema.">
+    <meta property="og:image" content="https://streamsage.netlify.app/logo.png">
+    <meta property="og:image:alt" content="StreamSage - Movie Streaming Platform">
+    <meta property="og:url" content="https://streamsage.netlify.app">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="StreamSage">
+    <meta property="og:locale" content="en_US">
 
-    <!-- Twitter Card -->
+    <!-- Enhanced Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="StreamSage">
+    <meta name="twitter:site" content="@StreamSage">
+    <meta name="twitter:title" content="StreamSage - Watch Movies Online & Download HD Films">
     <meta name="twitter:description"
-        content="Watch trailers, explore top movies, and download in high quality. Project by Mayank & Dhruv.">
-    <meta name="twitter:image" content="https://yourdomain.com/preview-image.jpg">
+        content="Stream movies, watch trailers, and download films in HD/4K. Discover trending, popular, and top-rated movies all in one place.">
+    <meta name="twitter:image" content="https://streamsage.netlify.app/logo.png">
+    <meta name="twitter:image:alt" content="StreamSage Movie Platform">
 
-    <!-- Favicon -->
-    <link rel="icon" href="logo.png" type="image/x-icon">
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#1a1a1a">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="StreamSage">
+    <meta name="application-name" content="StreamSage">
+    <meta name="msapplication-TileColor" content="#1a1a1a">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Structured Data for Rich Snippets -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "StreamSage",
+  "url": "https://streamsage.netlify.app",
+  "description": "Watch movies online, download HD films, and discover trending cinema with StreamSage - your ultimate movie streaming platform.",
+  "applicationCategory": "Entertainment",
+  "operatingSystem": "Web Browser",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "creator": {
+    "@type": "Person",
+    "name": "Dhruv Tripathi"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Dhruv Tripathi"
+  },
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "softwareVersion": "1.0"
+}
+</script>
+
+    <!-- Favicon and App Icons -->
+    <link rel="icon" href="logo.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="shortcut icon" href="logo.png">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://yourdomain.com">
+    <link rel="canonical" href="https://streamsage.netlify.app">
 
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+        as="style">
+    <link rel="dns-prefetch" href="//api.themoviedb.org">
 
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+    <!-- <link rel="stylesheet" href="test.css"> -->
     <style>
         * {
             margin: 0 0px;
@@ -57,6 +116,7 @@
             transition: all 0.3s ease;
             overflow-x: hidden;
         }
+
 
         /* Animated background particles */
         body::before {
@@ -129,28 +189,24 @@
         }
 
         .header h1 {
-            font-size: 3.8rem;
-            font-weight: 900;
+            font-size: 3rem;
+            font-weight: 800;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-            background-size: 300% 300%;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
+            animation: shimmer 5s ease-in-out infinite;
             margin-bottom: 20px;
-            text-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
-            animation: gradientShift 6s ease-in-out infinite;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
+            text-align: center;
+            text-shadow: none;
+            display: block;
         }
 
-        .header h1 .logo {
-            height: 80px;
-            width: auto;
-            animation: flicker 4s infinite;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        .logo {
+            height: 40px;
+            margin-top: 10px;
+            margin-left: 10px;
         }
 
         .header p {
@@ -162,15 +218,13 @@
         }
 
         /* Animations */
-        @keyframes gradientShift {
-
-            0%,
-            100% {
-                background-position: 0% 50%;
+        @keyframes shimmer {
+            0% {
+                background-position: 0% center;
             }
 
-            50% {
-                background-position: 100% 50%;
+            100% {
+                background-position: 100% center;
             }
         }
 
@@ -338,7 +392,7 @@
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
-        /* Background animation */
+        /* Keyframes */
         @keyframes move-bg {
             0% {
                 background-position: 0% 50%;
@@ -353,18 +407,17 @@
             }
         }
 
-        /* Glowing pulse animation */
         @keyframes pulse-glow {
 
             0%,
             100% {
-                transform: scale(1) rotate(45deg);
-                opacity: 0.5;
+                transform: scale(1);
+                opacity: 0.4;
             }
 
             50% {
-                transform: scale(1.4) rotate(45deg);
-                opacity: 0.1;
+                transform: scale(1.15);
+                opacity: 0.6;
             }
         }
 
@@ -466,7 +519,7 @@
             width: 60px;
             height: 60px;
             border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #4ecdc4;
+            /* border-left: 4px solid #4ecdc4; */
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto;
@@ -539,6 +592,33 @@
         .movie-card:hover .movie-poster {
             transform: scale(1.08);
         }
+
+        /* Medium Devices (Tablets, 768px and down) */
+        @media (max-width: 768px) {
+            .movie-poster {
+                height: 320px;
+            }
+        }
+
+        /* Small Devices (Large phones, 576px and down) */
+        @media (max-width: 576px) {
+            .movie-poster {
+                height: 250px;
+            }
+
+            .movie-card:hover .movie-poster {
+                transform: scale(1.04);
+                /* less aggressive zoom on small screens */
+            }
+        }
+
+        /* Extra Small Devices (like very small phones) */
+        @media (max-width: 400px) {
+            .movie-poster {
+                height: 200px;
+            }
+        }
+
 
         .movie-info {
             padding: 25px;
@@ -805,14 +885,14 @@
             position: absolute;
             bottom: 30px;
             left: 40px;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            background: linear-gradient(135deg, #1fafed 0%, #6ffafc 50%, #45b7d1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             z-index: 10;
+            transition: all 0.3s ease;
         }
 
         .modal-body {
@@ -1000,48 +1080,64 @@
             text-align: center;
             color: #ff6b6b;
             margin: 50px 0;
-            font-size: 1.2rem;
+            font-size: 1 rem;
             font-weight: 500;
+            background-color: transparent;
         }
 
         /* Download Status */
         .download-status {
             position: absolute;
             top: 15px;
-            right: 15px;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 700;
+            left: 15px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 9px;
+            font-weight: 600;
             text-transform: uppercase;
             backdrop-filter: blur(10px);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #00f0ff;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            box-shadow: 0 0 6px rgba(0, 240, 255, 0.1);
             z-index: 10;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease-in-out;
         }
 
         .download-status.downloading {
-            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-            color: white;
-            animation: pulse 2s ease-in-out infinite;
-            box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+            background: linear-gradient(135deg, #ffdd00, #ff6a00);
+            color: #fff;
+            animation: pulse-download 1.8s infinite ease-in-out;
+            box-shadow:
+                0 0 8px rgba(255, 221, 0, 0.5),
+                0 0 25px rgba(255, 106, 0, 0.4);
         }
 
         .download-status.completed {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            background: linear-gradient(135deg, #00ff95, #00c9ff);
+            color: #ffffff;
+            box-shadow:
+                0 0 8px rgba(0, 255, 149, 0.3),
+                0 0 25px rgba(0, 201, 255, 0.25);
         }
 
-        @keyframes pulse {
+        /* Optional animated glow for downloading */
+        @keyframes pulse-download {
 
             0%,
             100% {
-                opacity: 1;
                 transform: scale(1);
+                box-shadow:
+                    0 0 10px rgba(255, 221, 0, 0.5),
+                    0 0 25px rgba(255, 106, 0, 0.3);
             }
 
             50% {
-                opacity: 0.8;
                 transform: scale(1.05);
+                box-shadow:
+                    0 0 15px rgba(255, 221, 0, 0.8),
+                    0 0 35px rgba(255, 106, 0, 0.6);
             }
         }
 
@@ -1073,7 +1169,7 @@
             background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
             color: white;
             border: none;
-            padding: 18px;
+            padding: 15px;
             border-radius: 50%;
             cursor: pointer;
             font-size: 15px;
@@ -1084,37 +1180,41 @@
         }
 
         .downloads-toggle:hover {
-            transform: scale(1.15);
+            transform: scale(1);
             box-shadow: 0 12px 35px rgba(78, 205, 196, 0.5);
         }
 
         .download-item {
-            background: rgba(255, 255, 255, 0.06);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
+            background: rgba(31, 175, 237, 0.05);
+            border-radius: 16px;
+            padding: 18px 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(31, 175, 237, 0.15);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
             transition: all 0.3s ease;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
         }
 
         .download-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateX(-5px);
+            background: rgba(31, 175, 237, 0.1);
+            transform: translateX(-4px) scale(1.01);
+            box-shadow: 0 6px 20px rgba(31, 175, 237, 0.25);
         }
 
         .download-item-title {
             font-weight: 700;
-            color: #4ecdc4;
-            margin-bottom: 8px;
-            font-size: 1.1rem;
+            color: #1fafed;
+            margin-bottom: 6px;
+            font-size: 1.15rem;
+            letter-spacing: 0.3px;
         }
 
         .download-item-info {
             font-size: 13px;
-            color: #ccc;
-            margin-bottom: 12px;
-            opacity: 0.8;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 10px;
+            line-height: 1.4;
         }
 
         @keyframes fadeIn {
@@ -1330,7 +1430,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            animation: pulse 3s ease-in-out infinite;
         }
 
         .footer-tagline {
@@ -1378,62 +1477,65 @@
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-link {
-            width: 45px;
-            height: 45px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
-            border: 2px solid rgba(78, 205, 196, 0.3);
+            background: rgba(31, 175, 237, 0.05);
+            border: 2px solid rgba(31, 175, 237, 0.15);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #4ecdc4;
+            color: #1fafed;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s ease;
             backdrop-filter: blur(10px);
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            box-shadow: 0 0 8px rgba(31, 175, 237, 0.1);
         }
 
-        /* Hover effect base */
         .social-link:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(78, 205, 196, 0.3);
-            background: transparent;
+            transform: translateY(-6px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(31, 175, 237, 0.4);
+            background: rgba(31, 175, 237, 0.1);
         }
 
-        /* Brand-specific hover colors */
+        /* Brand-specific hover effects */
         .social-link.facebook:hover {
             color: #1877f2;
-            /* Facebook Blue */
             border-color: #1877f2;
+            box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4);
         }
 
         .social-link.instagram:hover {
             color: #e1306c;
-            /* Instagram Pink */
             border-color: #e1306c;
+            box-shadow: 0 8px 25px rgba(225, 48, 108, 0.4);
         }
 
         .social-link.twitter:hover {
             color: #1da1f2;
-            /* Twitter Blue */
             border-color: #1da1f2;
+            box-shadow: 0 8px 25px rgba(29, 161, 242, 0.4);
         }
 
         .social-link.linkedin:hover {
             color: #0077b5;
-            /* LinkedIn Blue */
             border-color: #0077b5;
+            box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
         }
 
         .social-link.github:hover {
             color: #333;
-            /* GitHub Dark Gray */
             border-color: #333;
+            box-shadow: 0 8px 25px rgba(51, 51, 51, 0.4);
         }
+
 
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1447,11 +1549,13 @@
         .footer-divider {
             width: 120px;
             height: 3px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+            background: linear-gradient(135deg, #1fafed 0%, #6ffafc 50%, #1c87d4 100%);
             margin: 0 auto 20px;
             border-radius: 2px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 0 8px rgba(31, 175, 237, 0.2);
+            backdrop-filter: blur(3px);
         }
 
         .footer-divider::after {
@@ -1461,12 +1565,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-            animation: shimmer 3s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2.5s linear infinite;
+            opacity: 0.8;
+            pointer-events: none;
         }
 
         .footer-bottom p {
-            color: rgba(255, 255, 255, 0.65);
+            color: rgba(255, 255, 255, 0.7);
             font-size: 0.95rem;
             display: flex;
             align-items: center;
@@ -1474,34 +1580,45 @@
             flex-wrap: wrap;
             gap: 8px;
             line-height: 1.6;
+            text-align: center;
         }
 
         .pulse-heart {
             color: #ff6b6b;
-            animation: heartbeat 1.6s ease-in-out infinite;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            font-size: 1rem;
         }
 
         .creator-name {
-            color: #4ecdc4;
-            font-weight: 600;
-            background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            font-size: 1rem;
+            background: linear-gradient(135deg, #1fafed 0%, #6ffafc 100%);
+            background-size: 200% 200%;
             background-clip: text;
-            animation: gradientShift 5s ease-in-out infinite;
-            text-shadow: 0 2px 4px rgba(78, 205, 196, 0.3);
+            -webkit-background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 6s ease-in-out infinite;
+            text-shadow: 0 2px 5px rgba(31, 175, 237, 0.35);
             cursor: pointer;
+            transition: text-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .creator-name:hover {
+            text-shadow: 0 4px 10px rgba(31, 175, 237, 0.6);
+            transform: scale(1.05);
         }
 
         .brand-name {
-            color: #ff6b6b;
+            color: #1fafed;
             font-weight: 700;
             letter-spacing: 0.5px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .brand-name:hover {
             color: #ffffff;
+            text-shadow: 0 2px 6px rgba(31, 175, 237, 0.4);
         }
 
         @keyframes heartbeat {
@@ -1568,23 +1685,24 @@
             position: fixed;
             bottom: 90px;
             left: 25px;
-            background: linear-gradient(135deg, #6e00ff 0%, #29006b 100%);
-            color: white;
+            background: linear-gradient(135deg, #1c87d4 0%, #1fafed 100%);
+            color: #ffffff;
             border: none;
-            padding: 15px;
+            padding: 16px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 20px;
+            font-size: 17px;
             z-index: 1600;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 25px rgba(110, 0, 255, 0.6);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(31, 175, 237, 0.4);
+            backdrop-filter: blur(12px);
         }
 
         .wishlist-toggle:hover {
-            transform: scale(1.15);
-            box-shadow: 0 10px 30px rgba(110, 0, 255, 0.8);
+            transform: scale(1.08);
+            box-shadow: 0 12px 35px rgba(31, 175, 237, 0.5);
         }
+
 
         /* Wishlist Panel */
         .wishlist-panel {
@@ -1593,7 +1711,7 @@
             left: -450px;
             width: 450px;
             height: 100vh;
-            background: linear-gradient(135deg, #29006b 0%, #6e00ff 100%);
+            background: linear-gradient(135deg, #1a1a35 0%, #2d1b69 100%);
             border-right: 2px solid rgba(110, 0, 255, 0.3);
             padding: 25px;
             overflow-y: auto;
@@ -1643,7 +1761,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(255, 177, 153, 0.1));
+            background: linear-gradient(135deg, rgba(31, 175, 237, 0.1), rgba(31, 38, 237, 0.1));
             opacity: 0;
             transition: opacity 0.3s ease;
             border-radius: 15px;
@@ -1657,8 +1775,8 @@
         .wishlist-item:hover {
             background: rgba(255, 255, 255, 0.08);
             transform: translateX(-5px);
-            border-color: rgba(255, 107, 107, 0.3);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.2);
+            border-color: rgba(31, 175, 237, 0.3);
+            box-shadow: 0 8px 25px rgba(31, 175, 237, 0.2);
         }
 
         /* Poster */
@@ -1673,6 +1791,30 @@
             z-index: 2;
         }
 
+        /* Tablets and below (768px) */
+        @media (max-width: 768px) {
+            .wishlist-item-poster {
+                width: 50px;
+                height: 75px;
+            }
+        }
+
+        /* Mobile phones (576px and below) */
+        @media (max-width: 576px) {
+            .wishlist-item-poster {
+                width: 45px;
+                height: 68px;
+            }
+        }
+
+        /* Very small devices (400px and below) */
+        @media (max-width: 400px) {
+            .wishlist-item-poster {
+                width: 40px;
+                height: 60px;
+            }
+        }
+
         .wishlist-item:hover .wishlist-item-poster {
             transform: scale(1.05);
         }
@@ -1685,12 +1827,12 @@
         }
 
         .wishlist-item-title {
-            font-weight: 700;
-            color: #03136e;
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            line-height: 1.3;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 6px;
+            font-size: 1rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+            line-height: 1.4;
         }
 
         .wishlist-item-meta {
@@ -1711,9 +1853,9 @@
 
         /* Remove Button */
         .wishlist-remove-btn {
-            background: rgba(255, 107, 107, 0.15);
-            border: 2px solid rgba(255, 107, 107, 0.3);
-            color: #ff6b6b;
+            background: rgba(237, 31, 31, 0.15);
+            border: 2px solid rgba(237, 31, 31, 0.3);
+            color: #ed1f1f;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -1729,10 +1871,10 @@
 
         .wishlist-remove-btn:hover {
             color: #fff;
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
+            background: linear-gradient(135deg, #ed1f1f, #a70000);
             border-color: transparent;
             transform: scale(1.1);
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 4px 15px rgba(237, 31, 31, 0.4);
         }
 
         /* Heart Bookmark */
@@ -1741,37 +1883,26 @@
             top: 18px;
             right: 18px;
             font-size: 1.5rem;
-            color: #ff6b6b;
-            background: rgba(255, 255, 255, 0.12);
+            color: #1f26ed;
+            background: rgba(255, 255, 255, 0.06);
             border-radius: 50%;
             padding: 8px;
             z-index: 3;
             cursor: pointer;
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 2px solid transparent;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 10px rgba(31, 38, 237, 0.12);
+            border: 1px solid rgba(31, 38, 237, 0.15);
         }
 
         .movie-card .wishlist-icon.filled {
-            background: rgba(255, 107, 107, 0.2);
-            border-color: rgba(255, 107, 107, 0.4);
-            animation: heartPulse 1.5s ease-in-out;
-            box-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
-        }
-
-        .movie-card .wishlist-icon.outline {
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(31, 175, 237, 0.12);
+            color: #1f26ed;
         }
 
         .movie-card .wishlist-icon:hover {
-            color: #fff;
-            background: linear-gradient(135deg, #ff6b6b, #ff4757);
-            transform: scale(1.15);
-            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
-            border-color: transparent;
+            color: #1f26ed;
+            background: rgba(31, 175, 237, 0.18);
+            box-shadow: 0 5px 14px rgba(31, 175, 237, 0.25);
         }
 
         /* Heart Pulse */
@@ -1861,10 +1992,10 @@
             }
 
             .wishlist-toggle {
-                top: 80px;
+                bottom: 60px;
                 left: 15px;
-                padding: 14px;
-                font-size: 18px;
+                padding: 12px;
+                font-size: 15px;
             }
 
             .wishlist-item {
@@ -1884,17 +2015,24 @@
             .movie-card .wishlist-icon {
                 top: 12px;
                 right: 12px;
-                padding: 6px;
-                font-size: 1.2rem;
+                padding: 15px;
+                font-size: 1.5rem;
+            }
+
+            .wishlist-icon {
+                top: 12px;
+                right: 12px;
+                padding: 15px;
+                font-size: 1.5rem;
             }
         }
 
         @media (max-width: 480px) {
             .wishlist-toggle {
-                top: 70px;
+                bottom: 40px;
                 left: 10px;
-                padding: 12px;
-                font-size: 16px;
+                padding: 10px;
+                font-size: 13px;
             }
 
             .wishlist-panel {
@@ -1914,412 +2052,322 @@
 
             .wishlist-remove-btn {
                 position: absolute;
-                top: 15px;
-                right: 15px;
+                top: 25px;
+                left: 25px;
+                width: 20px;
+                height: 20px;
+                font-size: 10px;
             }
         }
 
-        `;
-        document.head.appendChild(wishlistPanelStyle);
-
-        // Wishlist Panel Toggle
-        if (wishlistToggle) {
-            wishlistToggle.addEventListener('click', toggleWishlistPanel);
+        /* Notification System Styles */
+        .notification-container {
+            position: fixed;
+            top: 40px;
+            right: 110px;
+            z-index: 9999;
         }
 
-        function toggleWishlistPanel() {
-            if ( !wishlistPanel) return;
-            wishlistPanel.classList.toggle('open');
-            const isOpen=wishlistPanel.classList.contains('open');
+        .notification-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid #1fafed;
+            color: #1fafed;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
 
-            if (wishlistToggle) {
-                wishlistToggle.innerHTML=isOpen ? '<i class="fas fa-times"></i>'
-                : '<i class="fas fa-bookmark"></i>';
+        .notification-toggle:hover {
+            background-color: #1fafed;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .notification-panel {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 320px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            transform: translateY(-20px) scale(0.95);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .notification-panel.active {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+        .notification-header {
+            padding: 14px 16px;
+            border-bottom: 1px solid #1fafed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-header h3 {
+            margin: 0;
+            font-size: 1rem;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+        }
+
+        .notification-close {
+            background: rgba(31, 175, 237, 0.1);
+            border: 1px solid rgba(31, 175, 237, 0.2);
+            color: #1fafed;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 8px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .notification-close:hover {
+            background-color: rgba(31, 175, 237, 0.3);
+            color: white;
+            border-color: rgba(31, 175, 237, 0.4);
+        }
+
+
+        .notification-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #1fafed transparent;
+        }
+
+        .notification-item {
+            padding: 12px 14px;
+            background: transparent;
+            border: 1px solid rgba(31, 175, 237, 0.15);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .notification-item:hover {
+            background-color: rgba(10, 173, 243, 0.12) !important;
+            border-color: rgba(31, 175, 237, 0.25) !important;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-item p {
+            margin: 0 0 4px 0;
+            color: #e9f9ff;
+            font-size: 0.94rem;
+            line-height: 1.4;
+        }
+
+        .notification-item .time {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Shortcut key style */
+        kbd {
+            background: #1fafed;
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            padding: 2px 6px;
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+        }
+
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .notification-container {
+                top: 80px;
+                right: 20px;
+            }
+
+            .notification-panel {
+                width: calc(100vw - 20px);
+                max-width: 320px;
+                right: 0;
             }
         }
 
-        // Close wishlist panel when clicking outside
-        document.addEventListener('click', (e)=> {
-                if (wishlistPanel.classList.contains('open') && !wishlistPanel.contains(e.target) && !wishlistToggle.contains(e.target)) {
-                    toggleWishlistPanel();
-                }
-            });
-
-        // Keyboard shortcut: Ctrl/Cmd + W
-        document.addEventListener('keydown', (e)=> {
-                if ((e.ctrlKey || e.metaKey) && e.key==='w') {
-                    e.preventDefault();
-                    toggleWishlistPanel();
-                }
-            });
-
-        // Wishlist Local Storage
-        function saveWishlist() {
-            try {
-                localStorage.setItem('movieAppWishlist', JSON.stringify(wishlist));
-            }
-
-            catch (error) {
-                // ignore
-            }
+        /* Toggle Buttons Base Styles */
+        .notification-toggle,
+        .downloads-toggle,
+        .wishlist-toggle,
+        .infinite-scroll-toggle {
+            position: fixed;
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+            will-change: transform, opacity;
         }
 
-        function loadWishlist() {
-            try {
-                const saved=localStorage.getItem('movieAppWishlist');
+        /* Notification Toggle */
+        .notification-toggle {
+            top: 80px;
+            right: 40px;
+        }
 
-                if (saved) {
-                    wishlist=JSON.parse(saved);
-                }
+        /* Downloads Toggle */
+        .downloads-toggle {
+            top: 140px;
+            right: 40px;
+        }
+
+        /* Wishlist Toggle */
+        .wishlist-toggle {
+            bottom: 80px;
+            left: 40px;
+        }
+
+        /* Infinite Scroll Toggle */
+        .infinite-scroll-toggle {
+            bottom: 20px;
+            left: 40px;
+        }
+
+        /* Hide toggles when scrolling */
+        .scrolling .notification-toggle,
+        .scrolling .downloads-toggle,
+        .scrolling .wishlist-toggle,
+        .scrolling .infinite-scroll-toggle {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        /* Show toggles when not scrolling */
+        .notification-toggle,
+        .downloads-toggle,
+        .wishlist-toggle,
+        .infinite-scroll-toggle {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Hover effects */
+        .notification-toggle:hover,
+        .downloads-toggle:hover,
+        .wishlist-toggle:hover,
+        .infinite-scroll-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Active state */
+        .notification-toggle:active,
+        .downloads-toggle:active,
+        .wishlist-toggle:active,
+        .infinite-scroll-toggle:active {
+            transform: scale(0.95);
+        }
+
+        /* Panel transitions */
+        .notification-panel,
+        .downloads-panel,
+        .wishlist-panel {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Ensure panels are above other content */
+        .notification-panel,
+        .downloads-panel,
+        .wishlist-panel {
+            z-index: 999;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+
+            .notification-toggle,
+            .downloads-toggle {
+                right: 20px;
             }
 
-            catch (error) {
-                // ignore
-            }
-        }
-
-        // Call on page load
-        loadWishlist();
-
-        // Wishlist helpers
-        function isWishlisted(movie) {
-            return wishlist.some(w=> w.id===movie.id);
-        }
-
-        function toggleWishlist(movie) {
-            const index=wishlist.findIndex(w=> w.id===movie.id);
-
-            if (index > -1) {
-                wishlist.splice(index, 1);
-
-                showSuccessMessage(`Removed from wishlist: $ {
-                        movie.title
-                    }
-
-                    `);
+            .wishlist-toggle,
+            .infinite-scroll-toggle {
+                left: 20px;
             }
 
-            else {
-                wishlist.unshift({
-                    id: movie.id,
-                    title: movie.title,
-                    poster_path: movie.poster_path,
-                    release_date: movie.release_date,
-                    vote_average: movie.vote_average
-                });
-
-            showSuccessMessage(`Added to wishlist: $ {
-                    movie.title
-                }
-
-                `);
-        }
-
-        saveWishlist();
-        updateWishlistList();
-        // Update all movie cards
-        updateAllMovieCardWishlistIcons();
-        }
-
-        function updateWishlistList() {
-            if ( !wishlistList) return;
-
-            if (wishlist.length===0) {
-                wishlistList.innerHTML=`<p style="text-align: center; color: #888; font-style: italic;">No movies in wishlist</p>`;
-                return;
+            .notification-toggle {
+                top: 60px;
             }
 
-            wishlistList.innerHTML=wishlist.map(movie=> {
-                    const posterUrl=movie.poster_path ? `$ {
-                        IMAGE_BASE_URL
-                    }
+            .downloads-toggle {
+                top: 120px;
+            }
 
-                    $ {
-                        movie.poster_path
-                    }
+            .wishlist-toggle {
+                bottom: 70px;
+            }
 
-                    ` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
-
-                    return ` <div class="wishlist-item" data-id="${movie.id}" > <img class="wishlist-item-poster" src="${posterUrl}" alt="${movie.title}" > <div class="wishlist-item-info" > <div class="wishlist-item-title" >$ {
-                        movie.title
-                    }
-
-                    </div> <div class="wishlist-item-meta" >$ {
-                        movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown'
-                    }
-
-                    • $ {
-                        movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'
-                    }
-
-                    /10</div> </div> <button class="wishlist-remove-btn" title="Remove from wishlist" onclick="removeFromWishlist(${movie.id})" ><i class="fas fa-trash" ></i></button> </div> `;
-                }).join('');
-        }
-
-        // Remove from wishlist (for panel button)
-        window.removeFromWishlist=function(movieId) {
-            const idx=wishlist.findIndex(w=> w.id===movieId);
-
-            if (idx > -1) {
-                const title=wishlist[idx].title;
-                wishlist.splice(idx, 1);
-                saveWishlist();
-                updateWishlistList();
-                updateAllMovieCardWishlistIcons();
-
-                showSuccessMessage(`Removed from wishlist: $ {
-                        title
-                    }
-
-                    `);
+            .infinite-scroll-toggle {
+                bottom: 20px;
             }
         }
 
-        ;
-
-        // Update all movie card wishlist icons
-        function updateAllMovieCardWishlistIcons() {
-            document.querySelectorAll('.movie-card').forEach(card=> {
-                    const titleElem=card.querySelector('.movie-title');
-                    const icon=card.querySelector('.wishlist-icon');
-                    if ( !titleElem || !icon) return;
-                    const movie=getMovieByTitle(titleElem.textContent);
-
-                    if (movie && isWishlisted(movie)) {
-                        icon.classList.add('filled');
-                        icon.classList.remove('outline');
-                        icon.title='Remove from wishlist';
-                    }
-
-                    else {
-                        icon.classList.remove('filled');
-                        icon.classList.add('outline');
-                        icon.title='Add to wishlist';
-                    }
-                });
+        /* Add this CSS near the other .downloads-toggle styles */
+        .downloads-toggle-bottom {
+            top: auto !important;
+            bottom: 80px !important;
+            right: 50px !important;
+            transition: all 0.4s ease;
         }
 
-        // Helper to get movie object by title from last loaded movies
-        let lastLoadedMovies=[];
-
-        function getMovieByTitle(title) {
-            return lastLoadedMovies.find(m=> m.title===title);
-        }
-
-        // Patch displayMovies to store last loaded movies
-        const originalDisplayMovies=displayMovies;
-
-        displayMovies=function(movies, title) {
-            lastLoadedMovies=movies;
-            originalDisplayMovies(movies, title);
-            setTimeout(updateAllMovieCardWishlistIcons, 0);
-        }
-
-        ;
-        // Patch loadMoreMovies to update lastLoadedMovies
-        const originalLoadMoreMovies=loadMoreMovies;
-
-        loadMoreMovies=async function() {
-            let url;
-
-            if (isSearchMode) {
-                url=`$ {
-                    BASE_URL
-                }
-
-                /search/movie?api_key=$ {
-                    API_KEY
-                }
-
-                &query=$ {
-                    encodeURIComponent(currentQuery)
-                }
-
-                &page=$ {
-                    currentPage
-                }
-
-                `;
-            }
-
-            else {
-                switch (currentCategory) {
-                    case 'trending': url=`$ {
-                        BASE_URL
-                    }
-
-                    /trending/movie/week?api_key=$ {
-                        API_KEY
-                    }
-
-                    &page=$ {
-                        currentPage
-                    }
-
-                    `;
-                    break;
-
-                    case 'popular': url=`$ {
-                        BASE_URL
-                    }
-
-                    /movie/popular?api_key=$ {
-                        API_KEY
-                    }
-
-                    &page=$ {
-                        currentPage
-                    }
-
-                    `;
-                    break;
-
-                    case 'top_rated': url=`$ {
-                        BASE_URL
-                    }
-
-                    /movie/top_rated?api_key=$ {
-                        API_KEY
-                    }
-
-                    &page=$ {
-                        currentPage
-                    }
-
-                    `;
-                    break;
-
-                    case 'now_playing': url=`$ {
-                        BASE_URL
-                    }
-
-                    /movie/now_playing?api_key=$ {
-                        API_KEY
-                    }
-
-                    &page=$ {
-                        currentPage
-                    }
-
-                    `;
-                    break;
-
-                    case 'upcoming': url=`$ {
-                        BASE_URL
-                    }
-
-                    /movie/upcoming?api_key=$ {
-                        API_KEY
-                    }
-
-                    &page=$ {
-                        currentPage
-                    }
-
-                    `;
-                    break;
-
-                    default: if (GENRE_IDS[currentCategory]) {
-                        const genreId=GENRE_IDS[currentCategory];
-
-                        url=`$ {
-                            BASE_URL
-                        }
-
-                        /discover/movie?api_key=$ {
-                            API_KEY
-                        }
-
-                        &with_genres=$ {
-                            genreId
-                        }
-
-                        &page=$ {
-                            currentPage
-                        }
-
-                        &sort_by=popularity.desc`;
-                    }
-
-                    else {
-                        url=`$ {
-                            BASE_URL
-                        }
-
-                        /trending/movie/week?api_key=$ {
-                            API_KEY
-                        }
-
-                        &page=$ {
-                            currentPage
-                        }
-
-                        `;
-                    }
-                }
-            }
-
-            try {
-                const response=await fetch(url);
-                const data=await response.json();
-
-                if (data && data.results && data.results.length > 0) {
-                    lastLoadedMovies=lastLoadedMovies.concat(data.results);
-
-                    data.results.forEach((movie, index)=> {
-                            const movieCard=createMovieCard(movie);
-
-                            movieCard.style.animationDelay=`$ {
-                                index * 0.05
-                            }
-
-                            s`;
-                            movieCard.style.animation='fadeInUp 0.4s ease forwards';
-                            moviesGrid.appendChild(movieCard);
-                        });
-                    updatePagination();
-                    setTimeout(updateAllMovieCardWishlistIcons, 0);
-                }
-            }
-
-            catch (error) {
-                console.error('Error loading more movies:', error);
-            }
-
-            finally {
-                isLoadingMore=false;
+        @media (max-width: 768px) {
+            .downloads-toggle-bottom {
+                bottom: 35px !important;
+                right: 25px !important;
             }
         }
-
-        ;
-        // Patch createMovieCard to add wishlist icon
-        const originalCreateMovieCard=createMovieCard;
-
-        createMovieCard=function(movie) {
-            const card=originalCreateMovieCard(movie);
-            // Add wishlist icon
-            const icon=document.createElement('span');
-            icon.className='wishlist-icon fa-solid';
-            icon.innerHTML=isWishlisted(movie) ? '<i class="fas fa-bookmark"></i>': '<i class="far fa-bookmark"></i>';
-            icon.classList.add(isWishlisted(movie) ? 'filled' : 'outline');
-            icon.title=isWishlisted(movie) ? 'Remove from wishlist': 'Add to wishlist';
-
-            icon.addEventListener('click', (e)=> {
-                    e.stopPropagation();
-                    toggleWishlist(movie);
-                    icon.innerHTML=isWishlisted(movie) ? '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';
-                    icon.classList.toggle('filled', isWishlisted(movie));
-                    icon.classList.toggle('outline', !isWishlisted(movie));
-                    icon.title=isWishlisted(movie) ? 'Remove from wishlist' : 'Add to wishlist';
-                });
-            card.style.position='relative';
-            card.appendChild(icon);
-            return card;
-        }
-
-        ;
-        // Update wishlist panel on load
-        updateWishlistList();
     </style>
 </head>
 
@@ -2330,7 +2378,8 @@
                 <img src="logo.png" alt="StreamSage Logo" class="logo">
                 StreamSage
             </h1>
-            <p>Watch, Rate & Download Movies in HD, FHD & 4K</p>
+            <p><strong>Stream, Rate & Download</strong> Movies in <span style="color:#4ecdc4;">HD</span>, <span
+                    style="color:#45b7d1;">Full HD</span> & <span style="color:#1fafed;">4K Ultra</span> Quality</p>
         </div>
 
 
@@ -2400,6 +2449,72 @@
         <button class="pagination-btn" id="nextBtn">Next »</button>
     </div>
     </div>
+
+    <div class="notification-container">
+        <button class="notification-toggle" aria-label="Toggle notifications">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">10</span>
+        </button>
+
+        <div class="notification-panel">
+            <div class="notification-header">
+                <h3>Notifications</h3>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="notification-list">
+                <div class="notification-item">
+                    <p>Welcome to <strong>StreamSage</strong>! Here are some helpful keyboard shortcuts to get started.
+                    </p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>D</kbd> to open the <strong>Download Panel</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>L</kbd> to open the <strong>Wishlist Panel</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>O</kbd> to open the <strong>Notification Panel</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Esc</kbd> to close any <strong>Panel or Modal</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>P</kbd> to <strong>Pause All Downloads</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>R</kbd> to <strong>Resume All Downloads</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>I</kbd> to <strong>Enable or Disable Auto Scroll</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>&gt;</kbd> for <strong>Next Page</strong> and <kbd>&lt;</kbd> for <strong>Previous
+                            Page</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Alt</kbd> + <kbd>1</kbd> to <kbd>0</kbd> to <strong>Switch Categories</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+                <div class="notification-item">
+                    <p>Press <kbd>Ctrl</kbd> + <kbd>M</kbd> to <strong>Scroll to Top</strong>.</p>
+                    <span class="time">Just now</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <!-- Downloads Toggle Button -->
     <button class="downloads-toggle" id="downloadsToggle">
@@ -2603,23 +2718,23 @@
         infiniteScrollToggle.textContent = '🔄 Enable Auto-Load';
 
         infiniteScrollToggle.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    z-index: 1000;
-    padding: 12px 20px;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #667eea, #764ba2, #ff6b6b);
-    color: white;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    backdrop-filter: blur(5px);
-    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+position: fixed;
+bottom: 16px;
+left: 16px;
+z-index: 1000;
+padding: 6px 14px;
+border-radius: 24px;
+background: linear-gradient(135deg, #1fafed, #1c87d4, #1ce7eb);
+color: white;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 0.4px;
+border: none;
+cursor: pointer;
+box-shadow: 0 4px 15px rgba(31, 175, 237, 0.4);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+backdrop-filter: blur(6px);
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
         infiniteScrollToggle.title = "Toggle Infinite Scroll";
@@ -2627,12 +2742,14 @@
         // Hover animation
         infiniteScrollToggle.addEventListener('mouseenter', () => {
             infiniteScrollToggle.style.transform = 'scale(1.07)';
-            infiniteScrollToggle.style.boxShadow = '0 10px 30px rgba(0,0,0,0.4)';
+            infiniteScrollToggle.style.boxShadow = '0 10px 25px rgba(31, 175, 237, 0.45)';
         });
+
         infiniteScrollToggle.addEventListener('mouseleave', () => {
             infiniteScrollToggle.style.transform = 'scale(1)';
-            infiniteScrollToggle.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)';
+            infiniteScrollToggle.style.boxShadow = '0 6px 18px rgba(31, 175, 237, 0.3)';
         });
+
 
         // Append to body
         document.body.appendChild(infiniteScrollToggle);
@@ -2650,6 +2767,62 @@
         // Toggle Infinite Scroll (keep this logic)
         infiniteScrollToggle.addEventListener('click', toggleInfiniteScroll);
 
+        // Notification System
+        const notificationToggle = document.querySelector('.notification-toggle');
+        const notificationPanel = document.querySelector('.notification-panel');
+        const notificationClose = document.querySelector('.notification-close');
+        const notificationBadge = document.querySelector('.notification-badge');
+        let isNotificationPanelOpen = false;
+
+        function toggleNotificationPanel() {
+            isNotificationPanelOpen = !isNotificationPanelOpen;
+            notificationPanel.classList.toggle('active');
+
+            if (isNotificationPanelOpen) {
+                notificationBadge.style.display = 'none';
+                notificationPanel.style.transform = 'translateY(0) scale(1)';
+                notificationPanel.style.opacity = '1';
+                notificationPanel.style.visibility = 'visible';
+            } else {
+                notificationPanel.style.transform = 'translateY(-20px) scale(0.95)';
+                notificationPanel.style.opacity = '0';
+                notificationPanel.style.visibility = 'hidden';
+            }
+        }
+
+        notificationToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleNotificationPanel();
+        });
+
+        notificationClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleNotificationPanel();
+        });
+
+        document.addEventListener('click', (event) => {
+            if (isNotificationPanelOpen &&
+                !event.target.closest('.notification-panel') &&
+                !event.target.closest('.notification-toggle')) {
+                toggleNotificationPanel();
+            }
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && isNotificationPanelOpen) {
+                toggleNotificationPanel();
+            }
+        });
+
+        const notificationItems = document.querySelectorAll('.notification-item');
+        notificationItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.backgroundColor = 'var(--light-gray)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.backgroundColor = '';
+            });
+        });
 
         // Category buttons
         categoryBtns.forEach(btn => {
@@ -2683,13 +2856,19 @@
             infiniteScrollEnabled = !infiniteScrollEnabled;
 
             if (infiniteScrollEnabled) {
-                infiniteScrollToggle.textContent = '⏸️ Disable Auto-Load';
-                infiniteScrollToggle.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
-                showSuccessMessage('Auto-load enabled! Scroll down to load more movies automatically.');
+                infiniteScrollToggle.textContent = '⏸️ Auto-Load On';
+                infiniteScrollToggle.style.background = 'linear-gradient(135deg, #1fafed, #20c997)';
+                infiniteScrollToggle.style.color = '#ffffff';
+                infiniteScrollToggle.style.boxShadow = '0 8px 20px rgba(31, 175, 237, 0.3)';
+                infiniteScrollToggle.style.backdropFilter = 'blur(10px)';
+                showSuccessMessage('✨ Auto-load enabled! Scroll to load more movies.');
             } else {
-                infiniteScrollToggle.textContent = '🔄 Enable Auto-Load';
-                infiniteScrollToggle.style.background = 'linear-gradient(45deg, #667eea, #764ba2)';
-                showSuccessMessage('Auto-load disabled. Use pagination buttons to navigate.');
+                infiniteScrollToggle.textContent = '🔄 Auto-Load Off';
+                infiniteScrollToggle.style.background = 'linear-gradient(135deg, #3f51b5, #5f2c82)';
+                infiniteScrollToggle.style.color = '#ffffff';
+                infiniteScrollToggle.style.boxShadow = '0 6px 18px rgba(95, 44, 130, 0.3)';
+                infiniteScrollToggle.style.backdropFilter = 'blur(8px)';
+                showSuccessMessage('⚠️ Auto-load disabled. Use pagination buttons.');
             }
         }
 
@@ -2705,6 +2884,11 @@
             } catch (error) {
                 console.error('Error fetching movies:', error);
                 showError('Failed to fetch movies. Please try again.');
+
+                setTimeout(() => {
+                    showError('Check your internet connection.');
+                }, 4000);
+
                 return null;
             } finally {
                 showLoading(false);
@@ -2741,23 +2925,23 @@
             switch (category) {
                 case 'trending':
                     url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '🔥 Trending Movies This Week';
+                    categoryTitle = 'Trending Movies This Week';
                     break;
                 case 'popular':
                     url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '⭐ Popular Movies';
+                    categoryTitle = 'Popular Movies';
                     break;
                 case 'top_rated':
                     url = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '🏆 Top Rated Movies';
+                    categoryTitle = 'Top Rated Movies';
                     break;
                 case 'now_playing':
                     url = `${BASE_URL}/movie/now_playing?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '🎬 Now Playing';
+                    categoryTitle = 'Now Playing';
                     break;
                 case 'upcoming':
                     url = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '🔜 Upcoming Movies';
+                    categoryTitle = 'Upcoming Movies';
                     break;
                 case 'action':
                 case 'comedy':
@@ -2770,7 +2954,7 @@
                     break;
                 default:
                     url = `${BASE_URL}/trending/movie/week?api_key=${API_KEY}&page=${page}`;
-                    categoryTitle = '🔥 Trending Movies This Week';
+                    categoryTitle = 'Trending Movies This Week';
             }
 
             const data = await fetchMovies(url);
@@ -2834,6 +3018,7 @@
         function createMovieCard(movie) {
             const card = document.createElement('div');
             card.className = 'movie-card';
+            card.setAttribute('data-id', movie.id); // Add this line
 
             const posterUrl = movie.poster_path
                 ? `${IMAGE_BASE_URL}${movie.poster_path}`
@@ -2844,16 +3029,16 @@
                 : 'No overview available.';
 
             card.innerHTML = `
-                <img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
-                <div class="movie-info">
-                    <h3 class="movie-title">${movie.title}</h3>
-                    <div class="movie-rating">
-                        <span class="star"><i class="fa-solid fa-star"></i></span>
-                        <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
-                    </div>
-                    <p class="movie-overview">${overview}</p>
-                </div>
-            `;
+        <img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
+        <div class="movie-info">
+            <h3 class="movie-title">${movie.title}</h3>
+            <div class="movie-rating">
+                <span class="star"><i class="fa-solid fa-star"></i></span>
+                <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
+            </div>
+            <p class="movie-overview">${overview}</p>
+        </div>
+    `;
 
             card.addEventListener('click', () => openMovieModal(movie));
             return card;
@@ -2868,6 +3053,10 @@
             const modalVotes = document.getElementById('modalVotes');
             const modalOverview = document.getElementById('modalOverview');
             const trailerContent = document.getElementById('trailerContent');
+
+            // Hide notification toggle when modal opens
+            const notificationToggle = document.querySelector('.notification-toggle');
+            if (notificationToggle) notificationToggle.style.display = 'none';
 
             // Set modal content
             modalTitle.textContent = movie.title;
@@ -2884,11 +3073,11 @@
             const trailerKey = await getMovieTrailer(movie.id);
             if (trailerKey) {
                 trailerContent.innerHTML = `
-                    <iframe class="trailer-iframe" 
-                            src="https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&rel=0" 
-                            allowfullscreen>
-                    </iframe>
-                `;
+            <iframe class="trailer-iframe" 
+                    src="https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1&rel=0" 
+                    allowfullscreen>
+            </iframe>
+        `;
             } else {
                 trailerContent.innerHTML = '<div class="no-trailer"><i class="fa-solid fa-clapperboard">Trailer not available.</div>';
             }
@@ -2900,6 +3089,10 @@
         function closeMovieModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
+
+            // Show notification toggle when modal closes
+            const notificationToggle = document.querySelector('.notification-toggle');
+            if (notificationToggle) notificationToggle.style.display = '';
 
             // Stop any playing videos
             const trailerContent = document.getElementById('trailerContent');
@@ -2978,13 +3171,13 @@
 
         function getCategoryEmoji(category) {
             const emojis = {
-                'action': '💥',
-                'comedy': '😂',
-                'horror': '😱',
-                'romance': '💕',
-                'sci-fi': '🚀'
+                'action': '',
+                'comedy': '',
+                'horror': '',
+                'romance': '',
+                'sci-fi': ''
             };
-            return emojis[category] || '🎬';
+            return emojis[category] || '';
         }
 
         // Keyboard shortcuts
@@ -3090,13 +3283,13 @@
                 const shimmer = document.createElement('div');
                 shimmer.className = 'movie-card';
                 shimmer.innerHTML = `
-                    <div style="background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%); animation: shimmer 1.5s infinite; height: 400px;"></div>
-                    <div style="padding: 20px;">
-                        <div style="height: 20px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px;"></div>
-                        <div style="height: 14px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px; width: 60%;"></div>
-                        <div style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
-                    </div>
-                `;
+            <div style="background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%); animation: shimmer 1.5s infinite; height: 400px;"></div>
+            <div style="padding: 20px;">
+                <div style="height: 20px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px;"></div>
+                <div style="height: 14px; background: rgba(255,255,255,0.1); margin-bottom: 10px; border-radius: 4px; width: 60%;"></div>
+                <div style="height: 12px; background: rgba(255,255,255,0.1); border-radius: 4px;"></div>
+            </div>
+        `;
                 return shimmer;
             });
 
@@ -3106,11 +3299,11 @@
         // Add shimmer animation CSS
         const shimmerStyle = document.createElement('style');
         shimmerStyle.textContent = `
-            @keyframes shimmer {
-                0% { background-position: -200px 0; }
-                100% { background-position: calc(200px + 100%) 0; }
-            }
-        `;
+    @keyframes shimmer {
+        0% { background-position: -200px 0; }
+        100% { background-position: calc(200px + 100%) 0; }
+    }
+`;
         document.head.appendChild(shimmerStyle);
 
         // Downloads Management
@@ -3173,6 +3366,12 @@
                 downloadsToggle.innerHTML = isOpen
                     ? '<i class="fas fa-times"></i>'       // ✕ icon
                     : '<i class="fas fa-download"></i>';   // 📥 icon
+                // Move toggle button to bottom when panel is open
+                if (isOpen) {
+                    downloadsToggle.classList.add('downloads-toggle-bottom');
+                } else {
+                    downloadsToggle.classList.remove('downloads-toggle-bottom');
+                }
             }
         }
 
@@ -3181,30 +3380,30 @@
 
             if (downloads.length === 0) {
                 downloadsList.innerHTML = `
-            <p style="text-align: center; color: #888; font-style: italic;">
-                No downloads yet
-            </p>
-        `;
+    <p style="text-align: center; color: #888; font-style: italic;">
+        No downloads yet
+    </p>
+`;
                 return;
             }
 
             // Add header with controls
             const headerHTML = `
-        <div class="downloads-header" style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
-            <span style="color: #4ecdc4; font-weight: bold;">${downloads.length} Download${downloads.length !== 1 ? 's' : ''}</span>
-            <div class="downloads-controls">
-                <button onclick="pauseAllDownloads()" class="control-btn pause-all" title="Pause All">
-                    <i class="fas fa-pause"></i>
-                </button>
-                <button onclick="resumeAllDownloads()" class="control-btn resume-all" title="Resume All">
-                    <i class="fas fa-play"></i>
-                </button>
-                <button onclick="removeAllDownloads()" class="control-btn remove-all" title="Remove All">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        </div>
-    `;
+<div class="downloads-header" style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+    <span style="color: #4ecdc4; font-weight: bold;">${downloads.length} Download${downloads.length !== 1 ? 's' : ''}</span>
+    <div class="downloads-controls">
+        <button onclick="pauseAllDownloads()" class="control-btn pause-all" title="Pause All">
+            <i class="fas fa-pause"></i>
+        </button>
+        <button onclick="resumeAllDownloads()" class="control-btn resume-all" title="Resume All">
+            <i class="fas fa-play"></i>
+        </button>
+        <button onclick="removeAllDownloads()" class="control-btn remove-all" title="Remove All">
+            <i class="fas fa-trash"></i>
+        </button>
+    </div>
+</div>
+`;
 
             const downloadsHTML = downloads.map(download => {
                 const statusColor = getStatusColor(download.status);
@@ -3213,33 +3412,33 @@
                 const canRemove = download.status !== 'Downloading';
 
                 return `
-            <div class="download-item" data-id="${download.id}">
-                <div class="download-item-header">
-                    <div class="download-item-title">${download.title}</div>
-                    <div class="download-item-controls">
-                        ${canPause ? `<button onclick="pauseDownload(${download.id})" class="control-btn pause" title="Pause">
-                            <i class="fas fa-pause"></i>
-                        </button>` : ''}
-                        ${canResume ? `<button onclick="resumeDownload(${download.id})" class="control-btn resume" title="Resume">
-                            <i class="fas fa-play"></i>
-                        </button>` : ''}
-                        ${canRemove ? `<button onclick="removeDownload(${download.id})" class="control-btn remove" title="Remove">
-                            <i class="fas fa-trash"></i>
-                        </button>` : ''}
-                    </div>
-                </div>
-                <div class="download-item-info">
-                    ${download.quality} • ${download.size} • <span style="color: ${statusColor};">${download.status}</span>
-                </div>
-                <div class="progress-bar" style="margin-top: 10px;">
-                    <div class="progress-fill" style="width: ${download.progress}%; transition: width 0.3s ease; background: ${getProgressColor(download.status)};"></div>
-                </div>
-                <div style="text-align: center; margin-top: 5px; font-size: 12px; color: #4ecdc4;">
-                    ${download.progress}% Complete
-                    ${download.status === 'Downloading' ? `<span style="margin-left: 10px; color: #28a745;">⬇️ ${getRandomSpeed()} MB/s</span>` : ''}
-                </div>
+    <div class="download-item" data-id="${download.id}">
+        <div class="download-item-header">
+            <div class="download-item-title">${download.title}</div>
+            <div class="download-item-controls">
+                ${canPause ? `<button onclick="event.stopPropagation(); pauseDownload(${download.id})" class="control-btn pause" title="Pause">
+                    <i class="fas fa-pause"></i>
+                </button>` : ''}
+                ${canResume ? `<button onclick="event.stopPropagation(); resumeDownload(${download.id})" class="control-btn resume" title="Resume">
+                    <i class="fas fa-play"></i>
+                </button>` : ''}
+                ${canRemove ? `<button onclick="event.stopPropagation(); removeDownload(${download.id})" class="control-btn remove" title="Remove">
+                    <i class="fas fa-trash"></i>
+                </button>` : ''}
             </div>
-        `;
+        </div>
+        <div class="download-item-info">
+            ${download.quality} • ${download.size} • <span style="color: ${statusColor};">${download.status}</span>
+        </div>
+        <div class="progress-bar" style="margin-top: 10px;">
+            <div class="progress-fill" style="width: ${download.progress}%; transition: width 0.3s ease; background: ${getProgressColor(download.status)};"></div>
+        </div>
+        <div style="text-align: center; margin-top: 5px; font-size: 12px; color: #4ecdc4;">
+            ${download.progress}% Complete
+            ${download.status === 'Downloading' ? `<span style="margin-left: 10px; color: #28a745;">⬇️ ${getRandomSpeed()} MB/s</span>` : ''}
+        </div>
+    </div>
+`;
             }).join('');
 
             downloadsList.innerHTML = headerHTML + downloadsHTML;
@@ -3550,6 +3749,7 @@
         function createMovieCard(movie) {
             const card = document.createElement('div');
             card.className = 'movie-card';
+            card.setAttribute('data-id', movie.id); // Add this line
 
             const posterUrl = movie.poster_path
                 ? `${IMAGE_BASE_URL}${movie.poster_path}`
@@ -3565,25 +3765,25 @@
                 `<div class="download-status ${downloadStatus.status.toLowerCase()}">${downloadStatus.status}</div>` : '';
 
             card.innerHTML = `
-        ${statusElement}
-        <img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
-        <div class="movie-info">
-            <h3 class="movie-title">${movie.title}</h3>
-            <div class="movie-rating">
-                <span class="star"><i class="fa-solid fa-star"></i></span>
-                <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
-            </div>
-            <p class="movie-overview">${overview}</p>
-            <div class="movie-actions">
-                <button class="btn-download" onclick="quickDownload('${movie.title}', event)">
-                    <i class="fas fa-download"></i>  Download
-                </button>
-                <button class="btn-info" onclick="openMovieModal(${JSON.stringify(movie).replace(/"/g, '&quot;')}, event)">
-                    <i class="fa-solid fa-circle-info"></i> Info
-                </button>
-            </div>
-        </div>
-    `;
+${statusElement}
+<img class="movie-poster" src="${posterUrl}" alt="${movie.title}" loading="lazy">
+<div class="movie-info">
+    <h3 class="movie-title">${movie.title}</h3>
+    <div class="movie-rating">
+        <span class="star"><i class="fa-solid fa-star"></i></span>
+        <span>${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</span>
+    </div>
+    <p class="movie-overview">${overview}</p>
+    <div class="movie-actions">
+        <button class="btn-download" onclick="quickDownload('${movie.title}', event)">
+            <i class="fas fa-download"></i>  Download
+        </button>
+        <button class="btn-info" onclick="openMovieModal(${JSON.stringify(movie).replace(/"/g, '&quot;')}, event)">
+            <i class="fa-solid fa-circle-info"></i> Info
+        </button>
+    </div>
+</div>
+`;
 
             return card;
         }
@@ -3644,6 +3844,10 @@
             const modalOverview = document.getElementById('modalOverview');
             const trailerContent = document.getElementById('trailerContent');
 
+            // Hide notification toggle when modal opens
+            const notificationToggle = document.querySelector('.notification-toggle');
+            if (notificationToggle) notificationToggle.style.display = 'none';
+
             // Set modal content
             modalTitle.textContent = movie.title;
             modalPoster.src = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
@@ -3682,11 +3886,11 @@
             const trailerKey = await getMovieTrailer(movie.id);
             if (trailerKey) {
                 trailerContent.innerHTML = `
-            <iframe class="trailer-iframe" 
-                    src="https://www.youtube.com/embed/${trailerKey}?autoplay=0&mute=1&rel=0" 
-                    allowfullscreen>
-            </iframe>
-        `;
+    <iframe class="trailer-iframe" 
+            src="https://www.youtube.com/embed/${trailerKey}?autoplay=0&mute=1&rel=0" 
+            allowfullscreen>
+    </iframe>
+`;
             } else {
                 trailerContent.innerHTML = '<div class="no-trailer">🎬 Trailer not available.</div>';
             }
@@ -3700,20 +3904,24 @@
             // Create success toast
             const toast = document.createElement('div');
             toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(45deg, #28a745, #20c997);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        font-weight: bold;
-        z-index: 2000;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        animation: slideInRight 0.3s ease;
-        max-width: 300px;
-        word-wrap: break-word;
-    `;
+position: fixed;
+top: 15px;
+left: 15px;
+background: rgba(40, 167, 69, 0.08); /* transparent green tint */
+color: #28a745;
+padding: 10px 16px;
+border-radius: 8px;
+font-weight: 600;
+font-size: 13px;
+z-index: 2000;
+max-width: 260px;
+word-wrap: break-word;
+box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+backdrop-filter: blur(6px);
+-webkit-backdrop-filter: blur(6px);
+border: 1px solid rgba(40, 167, 69, 0.2);
+animation: slideInRight 0.3s ease;
+`;
 
             toast.textContent = message;
             document.body.appendChild(toast);
@@ -3733,20 +3941,24 @@
             // Create error toast
             const toast = document.createElement('div');
             toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: linear-gradient(45deg, #dc3545, #c82333);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        font-weight: bold;
-        z-index: 2000;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        animation: slideInRight 0.3s ease;
-        max-width: 300px;
-        word-wrap: break-word;
-    `;
+ position: fixed;
+top: 15px;
+left: 15px;
+background: rgba(255, 255, 255, 0.05); 
+color: #ed0e1d;
+padding: 8px 14px;
+border-radius: 8px;
+font-weight: 500;
+font-size: 0.85rem;
+z-index: 2000;
+box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1), 0 0 10px rgba(0, 255, 255, 0.05);
+backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+animation: slideInRight 0.3s ease;
+max-width: 260px;
+word-wrap: break-word;
+border: 1px solid rgba(0, 255, 255, 0.2);
+`;
 
             toast.textContent = message;
             document.body.appendChild(toast);
@@ -3765,147 +3977,147 @@
         // Add enhanced styles
         const enhancedStyles = document.createElement('style');
         enhancedStyles.textContent = `
-    @keyframes slideInRight {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOutRight {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
+@keyframes slideInRight {
+from {
+    transform: translateX(0);
+    opacity: 0;
+}
+to {
+    transform: translateX(100%);
+    opacity: 1;
+}
+}
 
-    .downloads-header {
-        padding: 10px;
-        background: rgba(78, 205, 196, 0.1);
-        border-radius: 8px;
-        border: 1px solid rgba(78, 205, 196, 0.3);
-    }
+@keyframes slideOutRight {
+from {
+    transform: translateX(100%);
+    opacity: 1;
+}
+to {
+    transform: translateX(0);
+    opacity: 0;
+}
+}
 
-    .downloads-controls {
-        display: flex;
-        gap: 8px;
-    }
+.downloads-header {
+padding: 10px;
+background: rgba(78, 205, 196, 0.1);
+border-radius: 8px;
+border: 1px solid rgba(78, 205, 196, 0.3);
+}
 
-    .download-item-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 8px;
-    }
+.downloads-controls {
+display: flex;
+gap: 8px;
+}
 
-    .download-item-controls {
-        display: flex;
-        gap: 5px;
-        flex-shrink: 0;
-    }
+.download-item-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 8px;
+}
 
-    .control-btn {
-        background: rgba(78, 205, 196, 0.2);
-        border: 1px solid rgba(78, 205, 196, 0.5);
-        color: #4ecdc4;
-        padding: 4px 8px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 12px;
-        transition: all 0.3s ease;
-        min-width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+.download-item-controls {
+display: flex;
+gap: 5px;
+flex-shrink: 0;
+}
 
-    .control-btn:hover {
-        background: rgba(78, 205, 196, 0.3);
-        transform: translateY(-1px);
-    }
+.control-btn {
+background: rgba(78, 205, 196, 0.2);
+border: 1px solid rgba(78, 205, 196, 0.5);
+color: #4ecdc4;
+padding: 4px 8px;
+border-radius: 4px;
+cursor: pointer;
+font-size: 12px;
+transition: all 0.3s ease;
+min-width: 30px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
 
-    .control-btn.pause:hover {
-        background: rgba(255, 193, 7, 0.3);
-        color: #ffc107;
-        border-color: #ffc107;
-    }
+.control-btn:hover {
+background: rgba(78, 205, 196, 0.3);
+transform: translateY(-1px);
+}
 
-    .control-btn.resume:hover {
-        background: rgba(40, 167, 69, 0.3);
-        color: #28a745;
-        border-color: #28a745;
-    }
+.control-btn.pause:hover {
+background: rgba(255, 193, 7, 0.3);
+color: #ffc107;
+border-color: #ffc107;
+}
 
-    .control-btn.remove:hover,
-    .control-btn.remove-all:hover {
-        background: rgba(220, 53, 69, 0.3);
-        color: #dc3545;
-        border-color: #dc3545;
-    }
+.control-btn.resume:hover {
+background: rgba(40, 167, 69, 0.3);
+color: #28a745;
+border-color: #28a745;
+}
 
-    .control-btn.pause-all:hover {
-        background: rgba(255, 193, 7, 0.3);
-        color: #ffc107;
-        border-color: #ffc107;
-    }
+.control-btn.remove:hover,
+.control-btn.remove-all:hover {
+background: rgba(220, 53, 69, 0.3);
+color: #dc3545;
+border-color: #dc3545;
+}
 
-    .control-btn.resume-all:hover {
-        background: rgba(40, 167, 69, 0.3);
-        color: #28a745;
-        border-color: #28a745;
-    }
+.control-btn.pause-all:hover {
+background: rgba(255, 193, 7, 0.3);
+color: #ffc107;
+border-color: #ffc107;
+}
 
-    .download-item {
-        margin-bottom: 15px;
-        padding: 15px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: all 0.3s ease;
-    }
+.control-btn.resume-all:hover {
+background: rgba(40, 167, 69, 0.3);
+color: #28a745;
+border-color: #28a745;
+}
 
-    .download-item:hover {
-        background: rgba(255, 255, 255, 0.08);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
+.download-item {
+margin-bottom: 15px;
+padding: 15px;
+background: rgba(255, 255, 255, 0.05);
+border-radius: 8px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: all 0.3s ease;
+}
 
-    .download-item-title {
-        font-weight: bold;
-        color: #fff;
-        margin-bottom: 5px;
-        flex: 1;
-        margin-right: 10px;
-    }
+.download-item:hover {
+background: rgba(255, 255, 255, 0.08);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-    .download-item-info {
-        font-size: 12px;
-        color: #ccc;
-        margin-bottom: 5px;
-    }
+.download-item-title {
+font-weight: bold;
+color: #fff;
+margin-bottom: 5px;
+flex: 1;
+margin-right: 10px;
+}
 
-    .progress-bar {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 4px;
-        height: 8px;
-        overflow: hidden;
-    }
+.download-item-info {
+font-size: 12px;
+color: #ccc;
+margin-bottom: 5px;
+}
 
-    .progress-fill {
-        height: 100%;
-        background: #4ecdc4;
-        border-radius: 4px;
-        transition: width 0.3s ease;
-    }
+.progress-bar {
+background: rgba(255, 255, 255, 0.1);
+border-radius: 4px;
+height: 8px;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+background: #4ecdc4;
+border-radius: 4px;
+transition: width 0.3s ease;
+}
 `;
         document.head.appendChild(enhancedStyles);
 
@@ -4126,26 +4338,29 @@
         function showFooterNavigationMessage(categoryName) {
             const toast = document.createElement('div');
             toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, #4ecdc4 0%, #45b7d1 100%);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 25px;
-        font-weight: 600;
-        z-index: 2000;
-        box-shadow: 0 8px 25px rgba(78, 205, 196, 0.4);
-        animation: footerToastSlide 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    `;
+position: fixed;
+top: 15px;
+left: 50%;
+transform: translateX(-50%);
+background: rgba(255, 255, 255, 0.05); /* Transparent + glass effect */
+color: #ffffff;
+padding: 10px 20px;
+border-radius: 20px;
+font-weight: 500;
+font-size: 0.85rem;
+z-index: 2000;
+box-shadow: 0 6px 20px rgba(78, 205, 196, 0.2), 0 0 10px rgba(69, 183, 209, 0.1);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+animation: footerToastSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+border: 1px solid rgba(255, 255, 255, 0.15);
+
+`;
 
             toast.innerHTML = `
-        <i class="fas fa-film" style="margin-right: 8px;"></i>
-        Loading ${categoryName} movies...
-    `;
+<i class="fas fa-film" style="margin-right: 8px;"></i>
+Loading ${categoryName} movies...
+`;
 
             document.body.appendChild(toast);
 
@@ -4163,43 +4378,43 @@
         // Add CSS animations for footer toast
         const footerToastStyle = document.createElement('style');
         footerToastStyle.textContent = `
-    @keyframes footerToastSlide {
-        from {
-            transform: translateX(-50%) translateY(-100px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes footerToastSlideOut {
-        from {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(-50%) translateY(-100px);
-            opacity: 0;
-        }
-    }
+@keyframes footerToastSlide {
+from {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+}
+to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+}
 
-    /* Enhanced footer link hover effects */
-    .footer-links a:hover {
-        color: #4ecdc4 !important;
-        transform: translateX(8px);
-        text-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
-    }
+@keyframes footerToastSlideOut {
+from {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+to {
+    transform: translateX(-50%) translateY(-100px);
+    opacity: 0;
+}
+}
 
-    .footer-links a:active {
-        transform: translateX(8px) scale(0.98);
-    }
+/* Enhanced footer link hover effects */
+.footer-links a:hover {
+color: #4ecdc4 !important;
+transform: translateX(8px);
+text-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
+}
 
-    /* Loading state for footer links */
-    .footer-links a .fa-spinner {
-        margin-right: 5px;
-    }
+.footer-links a:active {
+transform: translateX(8px) scale(0.98);
+}
+
+/* Loading state for footer links */
+.footer-links a .fa-spinner {
+margin-right: 5px;
+}
 `;
         document.head.appendChild(footerToastStyle);
 
@@ -4352,109 +4567,167 @@
         // Wishlist Panel Styles
         const wishlistPanelStyle = document.createElement('style');
         wishlistPanelStyle.textContent = `
-        /* Wishlist Toggle Button */
+/* Wishlist Toggle Button */
 .wishlist-toggle {
-    position: fixed;
-    bottom: 90px;
-    left: 25px;
-    background: linear-gradient(135deg, #6e00ff 0%, #29006b 100%);
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 20px;
-    z-index: 1600;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(110, 0, 255, 0.6);
-    backdrop-filter: blur(10px);
+position: fixed;
+bottom: 90px;
+left: 25px;
+background: linear-gradient(135deg, #1c87d4 0%, #1fafed 100%);
+color: #ffffff;
+border: none;
+padding: 16px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 17px;
+z-index: 1600;
+transition: all 0.4s ease;
+box-shadow: 0 10px 30px rgba(31, 175, 237, 0.4);
+backdrop-filter: blur(12px);
 }
 
 .wishlist-toggle:hover {
-    transform: scale(1.15);
-    box-shadow: 0 10px 30px rgba(110, 0, 255, 0.8);
+transform: scale(1.08);
+box-shadow: 0 12px 35px rgba(31, 175, 237, 0.5);
 }
+
 
 /* Wishlist Panel */
 .wishlist-panel {
-    position: fixed;
-    top: 0;
-    left: -450px;
-    width: 450px;
-    height: 100vh;
-    background: linear-gradient(135deg, #29006b 0%, #6e00ff 100%);
-    border-right: 2px solid rgba(110, 0, 255, 0.3);
-    padding: 25px;
-    overflow-y: auto;
-    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1550;
-    backdrop-filter: blur(20px);
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+position: fixed;
+top: 0;
+left: -450px;
+width: 450px;
+height: 100vh;
+background: linear-gradient(135deg, #1a1a35 0%, #2d1b69 100%);
+border-right: 2px solid rgba(110, 0, 255, 0.3);
+padding: 25px;
+overflow-y: auto;
+transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+z-index: 1550;
+backdrop-filter: blur(20px);
+box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .wishlist-panel.open {
-    left: 0;
+left: 0;
 }
 
 /* Wishlist Item */
 .wishlist-item {
-    background: rgba(255, 255, 255, 0.06);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 18px;
+background: rgba(255, 255, 255, 0.06);
+border-radius: 15px;
+padding: 20px;
+margin-bottom: 18px;
+border: 1px solid rgba(255, 255, 255, 0.1);
+backdrop-filter: blur(15px);
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 18px;
+position: relative;
+overflow: hidden;
+}
+
+.wishlist-item::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: linear-gradient(135deg, rgba(31, 175, 237, 0.1), rgba(31, 38, 237, 0.1));
+opacity: 0;
+transition: opacity 0.3s ease;
+border-radius: 15px;
+z-index: 1;
+}
+
+.wishlist-item:hover::before {
+opacity: 1;
 }
 
 .wishlist-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(-5px);
+background: rgba(255, 255, 255, 0.08);
+transform: translateX(-5px);
+border-color: rgba(31, 175, 237, 0.3);
+box-shadow: 0 8px 25px rgba(31, 175, 237, 0.2);
 }
 
-/* Poster Image */
+/* Poster */
 .wishlist-item-poster {
-    width: 60px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+width: 60px;
+height: 90px;
+object-fit: cover;
+border-radius: 8px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+transition: transform 0.3s ease;
+position: relative;
+z-index: 2;
 }
 
-/* Movie Info */
+.wishlist-item:hover .wishlist-item-poster {
+transform: scale(1.05);
+}
+
+/* Info */
 .wishlist-item-info {
-    flex: 1;
+flex: 1;
+position: relative;
+z-index: 2;
 }
 
 .wishlist-item-title {
-    font-weight: 700;
-    color: #ff6b6b;
-    margin-bottom: 4px;
-    font-size: 1.05rem;
+font-weight: 600;
+color: #ffffff;
+margin-bottom: 6px;
+font-size: 1rem;
+text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+line-height: 1.4;
 }
 
 .wishlist-item-meta {
-    font-size: 12px;
-    color: #fff;
-    opacity: 0.7;
+font-size: 12px;
+color: rgba(255, 255, 255, 0.8);
+display: flex;
+gap: 8px;
+margin-bottom: 4px;
+}
+
+.wishlist-item-rating {
+font-size: 11px;
+color: #ffd700;
+display: flex;
+gap: 4px;
+align-items: center;
 }
 
 /* Remove Button */
 .wishlist-remove-btn {
-    background: none;
-    border: none;
-    color: #ff6b6b;
-    font-size: 20px;
-    cursor: pointer;
-    transition: color 0.2s;
+background: rgba(237, 31, 31, 0.15); /* light red background */
+border: 2px solid rgba(237, 31, 31, 0.3); /* soft red border */
+color: #ed1f1f; /* red text */
+font-size: 18px;
+cursor: pointer;
+transition: all 0.3s ease;
+border-radius: 50%;
+width: 35px;
+height: 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+backdrop-filter: blur(10px);
+z-index: 2;
 }
 
 .wishlist-remove-btn:hover {
-    color: #fff;
+color: #fff;
+background: linear-gradient(135deg, #ed1f1f, #a70000); /* strong red gradient */
+border-color: transparent;
+transform: scale(1.1);
+box-shadow: 0 4px 15px rgba(237, 31, 31, 0.4);
 }
+
+
 
 /* Heart Icon on Movie Card */
 .movie-card .wishlist-icon {
@@ -4462,69 +4735,97 @@
     top: 18px;
     right: 18px;
     font-size: 1.5rem;
-    color: #ff6b6b;
-    background: rgba(255, 255, 255, 0.12);
+    color: #1f26ed;
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 50%;
-    padding: 7px;
+    padding: 8px;
     z-index: 3;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(31, 38, 237, 0.12);
+  border: 1px solid rgba(31, 38, 237, 0.15);
 }
 
 .movie-card .wishlist-icon.filled {
-    color: #ff6b6b;
-    background: rgba(255, 107, 107, 0.18);
-    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
-}
-
-.movie-card .wishlist-icon.outline {
-    color: #fff;
-    background: rgba(255, 255, 255, 0.12);
+    background: rgba(31, 175, 237, 0.12);
+    color: #1f26ed;
 }
 
 .movie-card .wishlist-icon:hover {
-    color: #fff;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ff4757 100%);
-    transform: scale(1.1);
+    color: #1f26ed;
+    background: rgba(31, 175, 237, 0.18);
+    box-shadow: 0 5px 14px rgba(31, 175, 237, 0.25);
 }
 
+ 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .wishlist-panel {
-        width: 100%;
-        left: -100%;
-    }
+.wishlist-panel {
+width: 100%;
+left: -100%;
+}
 
-    .wishlist-toggle {
-        padding: 12px;
-        font-size: 12px;
-        bottom: 80px;
-        left: 15px;
+.wishlist-toggle {
+bottom: 60px;
+left: 15px;
+padding: 12px;
+font-size: 15px;
+}
+}
+
+.wishlist-item {
+padding: 15px;
+gap: 12px;
+}
+
+.wishlist-item-poster {
+width: 50px;
+height: 75px;
+}
+
+.wishlist-item-title {
+font-size: 0.95rem;
+}
+
+.movie-card .wishlist-icon {
+top: 12px;
+right: 12px;
+padding: 15px;
+font-size: 1.5rem;
+}
+}
+@media (max-width: 480px) {
+.wishlist-toggle {
+bottom: 40px;
+left: 10px;
+padding: 10px;
+font-size: 13px;
+}
+    .wishlist-panel {
+        padding: 20px;
     }
 
     .wishlist-item {
-        padding: 15px;
-        gap: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .wishlist-item-poster {
-        width: 50px;
-        height: 75px;
+        width: 100%;
+        height: 200px;
     }
 
-    .wishlist-item-title {
-        font-size: 0.95rem;
-    }
-
-    .movie-card .wishlist-icon {
-        top: 12px;
-        right: 12px;
-        padding: 6px;
-        font-size: 1.2rem;
+    .wishlist-remove-btn {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        width: 20px;
+    height: 20px;
+    font-size: 10px;
     }
 }
-
-        `;
+`;
         document.head.appendChild(wishlistPanelStyle);
 
         // Wishlist Panel Toggle
@@ -4611,15 +4912,15 @@
                     ? `${IMAGE_BASE_URL}${movie.poster_path}`
                     : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
                 return `
-                <div class="wishlist-item" data-id="${movie.id}">
-                    <img class="wishlist-item-poster" src="${posterUrl}" alt="${movie.title}">
-                    <div class="wishlist-item-info">
-                        <div class="wishlist-item-title">${movie.title}</div>
-                        <div class="wishlist-item-meta">${movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown'} • ${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</div>
-                    </div>
-                    <button class="wishlist-remove-btn" title="Remove from wishlist" onclick="removeFromWishlist(${movie.id})"><i class="fas fa-trash"></i></button>
-                </div>
-                `;
+        <div class="wishlist-item" data-id="${movie.id}">
+            <img class="wishlist-item-poster" src="${posterUrl}" alt="${movie.title}">
+            <div class="wishlist-item-info">
+                <div class="wishlist-item-title">${movie.title}</div>
+                <div class="wishlist-item-meta">${movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown'} • ${movie.vote_average ? movie.vote_average.toFixed(1) : 'N/A'}/10</div>
+            </div>
+            <button class="wishlist-remove-btn" title="Remove from wishlist" onclick="event.stopPropagation(); removeFromWishlist(${movie.id})"><i class="fas fa-trash"></i></button>
+        </div>
+        `;
             }).join('');
         }
         // Remove from wishlist (for panel button)
@@ -4631,6 +4932,17 @@
                 saveWishlist();
                 updateWishlistList();
                 updateAllMovieCardWishlistIcons();
+                // Directly update the icon on the corresponding movie card
+                const card = document.querySelector(`.movie-card[data-id='${movieId}']`);
+                if (card) {
+                    const icon = card.querySelector('.wishlist-icon');
+                    if (icon) {
+                        icon.innerHTML = '<i class="far fa-bookmark"></i>';
+                        icon.classList.remove('filled');
+                        icon.classList.add('outline');
+                        icon.title = 'Add to wishlist';
+                    }
+                }
                 showSuccessMessage(`Removed from wishlist: ${title}`);
             }
         };
@@ -4757,15 +5069,66 @@
                 e.preventDefault();
                 const searchInput = document.querySelector('#searchInput');
                 if (searchInput) {
-                    searchInput.focus();
+                    searchInput.focus(); atio
                 }
             }
         });
 
+        // Add scroll-based visibility control
+        let lastScrollTop = 0;
+        let scrollTimeout;
+        const toggles = [
+            document.querySelector('.notification-toggle'),
+            document.querySelector('.downloads-toggle'),
+            document.querySelector('.wishlist-toggle'),
+            document.querySelector('.infinite-scroll-toggle')
+        ];
+
+        function handleScroll() {
+            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Clear any existing timeout
+            clearTimeout(scrollTimeout);
+
+            // Hide toggles while scrolling
+            toggles.forEach(toggle => {
+                if (toggle) {
+                    toggle.style.opacity = '0';
+                    toggle.style.transform = 'translateY(20px)';
+                    toggle.style.pointerEvents = 'none';
+                }
+            });
+
+            // Set a timeout to show toggles when scrolling stops
+            scrollTimeout = setTimeout(() => {
+                toggles.forEach(toggle => {
+                    if (toggle) {
+                        toggle.style.opacity = '1';
+                        toggle.style.transform = 'translateY(0)';
+                        toggle.style.pointerEvents = 'auto';
+                    }
+                });
+            }, 150); // Show after 150ms of no scrolling
+
+            lastScrollTop = currentScroll;
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Add initial styles for smooth transitions
+        const toggleStyles = document.createElement('style');
+        toggleStyles.textContent = `
+    .notification-toggle,
+    .downloads-toggle,
+    .wishlist-toggle,
+    .infinite-scroll-toggle {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+`;
+        document.head.appendChild(toggleStyles);
+
     </script>
 </body>
-
-
-
 
 </html>
