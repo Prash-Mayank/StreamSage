@@ -4555,16 +4555,10 @@ margin-right: 5px;
             addFooterSectionNavigation,
             addFooterKeyboardNavigation
         };
-
-        // Wishlist State
         let wishlist = [];
-
-        // Wishlist DOM Elements
         const wishlistToggle = document.getElementById('wishlistToggle');
         const wishlistPanel = document.getElementById('wishlistPanel');
         const wishlistList = document.getElementById('wishlistList');
-
-        // Wishlist Panel Styles
         const wishlistPanelStyle = document.createElement('style');
         wishlistPanelStyle.textContent = `
 /* Wishlist Toggle Button */
@@ -4827,8 +4821,6 @@ font-size: 13px;
 }
 `;
         document.head.appendChild(wishlistPanelStyle);
-
-        // Wishlist Panel Toggle
         if (wishlistToggle) {
             wishlistToggle.addEventListener('click', toggleWishlistPanel);
         }
@@ -4842,7 +4834,6 @@ font-size: 13px;
                     : '<i class="fas fa-bookmark"></i>';
             }
         }
-        // Close wishlist panel when clicking outside
         document.addEventListener('click', (e) => {
             if (wishlistPanel.classList.contains('open') &&
                 !wishlistPanel.contains(e.target) &&
@@ -4850,19 +4841,16 @@ font-size: 13px;
                 toggleWishlistPanel();
             }
         });
-        // Keyboard shortcut: Ctrl/Cmd + W
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'w') {
                 e.preventDefault();
                 toggleWishlistPanel();
             }
         });
-        // Wishlist Local Storage
         function saveWishlist() {
             try {
                 localStorage.setItem('movieAppWishlist', JSON.stringify(wishlist));
             } catch (error) {
-                // ignore
             }
         }
         function loadWishlist() {
@@ -4872,12 +4860,9 @@ font-size: 13px;
                     wishlist = JSON.parse(saved);
                 }
             } catch (error) {
-                // ignore
             }
         }
-        // Call on page load
         loadWishlist();
-        // Wishlist helpers
         function isWishlisted(movie) {
             return wishlist.some(w => w.id === movie.id);
         }
@@ -4898,7 +4883,6 @@ font-size: 13px;
             }
             saveWishlist();
             updateWishlistList();
-            // Update all movie cards
             updateAllMovieCardWishlistIcons();
         }
         function updateWishlistList() {
@@ -4923,7 +4907,6 @@ font-size: 13px;
         `;
             }).join('');
         }
-        // Remove from wishlist (for panel button)
         window.removeFromWishlist = function (movieId) {
             const idx = wishlist.findIndex(w => w.id === movieId);
             if (idx > -1) {
@@ -4932,7 +4915,6 @@ font-size: 13px;
                 saveWishlist();
                 updateWishlistList();
                 updateAllMovieCardWishlistIcons();
-                // Directly update the icon on the corresponding movie card
                 const card = document.querySelector(`.movie-card[data-id='${movieId}']`);
                 if (card) {
                     const icon = card.querySelector('.wishlist-icon');
@@ -4947,8 +4929,6 @@ font-size: 13px;
             }
         };
 
-
-        // Update all movie card wishlist icons
         function updateAllMovieCardWishlistIcons() {
             document.querySelectorAll('.movie-card').forEach(card => {
                 const titleElem = card.querySelector('.movie-title');
@@ -4966,19 +4946,16 @@ font-size: 13px;
                 }
             });
         }
-        // Helper to get movie object by title from last loaded movies
         let lastLoadedMovies = [];
         function getMovieByTitle(title) {
             return lastLoadedMovies.find(m => m.title === title);
         }
-        // Patch displayMovies to store last loaded movies
         const originalDisplayMovies = displayMovies;
         displayMovies = function (movies, title) {
             lastLoadedMovies = movies;
             originalDisplayMovies(movies, title);
             setTimeout(updateAllMovieCardWishlistIcons, 0);
         };
-        // Patch loadMoreMovies to update lastLoadedMovies
         const originalLoadMoreMovies = loadMoreMovies;
         loadMoreMovies = async function () {
             let url;
@@ -5030,11 +5007,11 @@ font-size: 13px;
                 isLoadingMore = false;
             }
         };
-        // Patch createMovieCard to add wishlist icon
+
         const originalCreateMovieCard = createMovieCard;
         createMovieCard = function (movie) {
             const card = originalCreateMovieCard(movie);
-            // Add wishlist icon
+
             const icon = document.createElement('span');
             icon.className = 'wishlist-icon fa-solid';
             icon.innerHTML = isWishlisted(movie) ? '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>';
@@ -5054,7 +5031,6 @@ font-size: 13px;
         };
         updateWishlistList();
 
-        // Wishlist keyboard shortcut
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'l') {
                 e.preventDefault();
@@ -5073,8 +5049,7 @@ font-size: 13px;
                 }
             }
         });
-
-        // Add scroll-based visibility control
+        
         let lastScrollTop = 0;
         let scrollTimeout;
         const toggles = [
@@ -5087,10 +5062,8 @@ font-size: 13px;
         function handleScroll() {
             const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-            // Clear any existing timeout
             clearTimeout(scrollTimeout);
 
-            // Hide toggles while scrolling
             toggles.forEach(toggle => {
                 if (toggle) {
                     toggle.style.opacity = '0';
@@ -5099,7 +5072,6 @@ font-size: 13px;
                 }
             });
 
-            // Set a timeout to show toggles when scrolling stops
             scrollTimeout = setTimeout(() => {
                 toggles.forEach(toggle => {
                     if (toggle) {
@@ -5108,15 +5080,13 @@ font-size: 13px;
                         toggle.style.pointerEvents = 'auto';
                     }
                 });
-            }, 150); // Show after 150ms of no scrolling
+            }, 150); 
 
             lastScrollTop = currentScroll;
         }
 
-        // Add scroll event listener
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        // Add initial styles for smooth transitions
         const toggleStyles = document.createElement('style');
         toggleStyles.textContent = `
     .notification-toggle,
