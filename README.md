@@ -197,4 +197,4 @@ This project is open source and available under the [MIT License](LICENSE).
 ---
 
 <p align="center">Crafted with love for movie lovers by <strong>Dhruv Tripathi</strong></p>
-<p align="center">© 2025 StreamSage. All rights reserved.</p>
+<p align="center">© 2024 StreamSage. All rights reserved.</p>
