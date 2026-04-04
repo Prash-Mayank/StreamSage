@@ -16,7 +16,6 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <meta name="language" content="en-US">
 
-    <!-- Enhanced Open Graph (for social sharing) -->
     <meta property="og:title" content="StreamSage - Watch Movies Online & Download HD Films">
     <meta property="og:description"
         content="Discover and stream the latest movies, watch trailers, and download films in HD/4K quality. Your ultimate movie destination with trending, popular, and top-rated cinema.">
@@ -26,8 +25,6 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="StreamSage">
     <meta property="og:locale" content="en_US">
-
-    <!-- Enhanced Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@StreamSage">
     <meta name="twitter:title" content="StreamSage - Watch Movies Online & Download HD Films">
@@ -35,8 +32,6 @@
         content="Stream movies, watch trailers, and download films in HD/4K. Discover trending, popular, and top-rated movies all in one place.">
     <meta name="twitter:image" content="https://streamsage.netlify.app/logo.png">
     <meta name="twitter:image:alt" content="StreamSage Movie Platform">
-
-    <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#1a1a1a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -44,8 +39,6 @@
     <meta name="application-name" content="StreamSage">
     <meta name="msapplication-TileColor" content="#1a1a1a">
     <meta name="format-detection" content="telephone=no">
-
-    <!-- Structured Data for Rich Snippets -->
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -72,34 +65,22 @@
   "softwareVersion": "1.0"
 }
 </script>
-
-    <!-- Favicon and App Icons -->
     <link rel="icon" href="logo.png" type="image/png">
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="shortcut icon" href="logo.png">
-
-    <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://streamsage.netlify.app">
-
-    <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
         as="style">
     <link rel="dns-prefetch" href="//api.themoviedb.org">
-
-    <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-
-    <!-- <link rel="stylesheet" href="test.css"> -->
     <style>
         * {
             margin: 0 0px;
@@ -2514,15 +2495,9 @@
 
         </div>
     </div>
-
-
-    <!-- Downloads Toggle Button -->
     <button class="downloads-toggle" id="downloadsToggle">
         <i class="fas fa-download"></i>
     </button>
-
-
-    <!-- Downloads Panel -->
     <div class="downloads-panel" id="downloadsPanel">
         <h3 style="color: #4ecdc4; margin-bottom: 20px;">
             <i class="fas fa-download"></i> Downloads
@@ -2533,9 +2508,6 @@
             </p>
         </div>
     </div>
-
-
-    <!-- Modal -->
     <div id="movieModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closeModal">
@@ -2652,13 +2624,9 @@
         </div>
 
     </footer>
-
-    <!-- Wishlist Toggle Button -->
     <button class="wishlist-toggle" id="wishlistToggle" title="Wishlist">
         <i class="fas fa-bookmark"></i>
     </button>
-
-    <!-- Wishlist Panel -->
     <div class="wishlist-panel" id="wishlistPanel">
         <h3 style="color: #ff6b6b; margin-bottom: 20px;">
             <i class="fas fa-bookmark"></i> Wishlist
@@ -2675,8 +2643,6 @@
         const BASE_URL = 'https://api.themoviedb.org/3';
         const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
         const BACKDROP_BASE_URL = 'https://image.tmdb.org/t/p/w1280';
-
-        // Genre IDs mapping
         const GENRE_IDS = {
             'action': 28,
             'comedy': 35,
@@ -2684,17 +2650,13 @@
             'romance': 10749,
             'sci-fi': 878
         };
-
-        // App State
         let currentPage = 1;
         let totalPages = 1;
         let currentCategory = 'trending';
         let currentQuery = '';
         let isSearchMode = false;
-        let infiniteScrollEnabled = false; // NEW: Control infinite scroll
+        let infiniteScrollEnabled = false;
         let isLoadingMore = false;
-
-        // DOM Elements
         const searchInput = document.getElementById('searchInput');
         const searchBtn = document.getElementById('searchBtn');
         const moviesGrid = document.getElementById('moviesGrid');
@@ -2710,8 +2672,6 @@
         const totalPagesSpan = document.getElementById('totalPages');
         const sectionTitleContainer = document.getElementById('sectionTitleContainer');
         const sectionTitle = document.getElementById('sectionTitle');
-
-        // NEW: Add infinite scroll toggle
         const infiniteScrollToggle = document.createElement('button');
         infiniteScrollToggle.id = 'infiniteScrollToggle';
         infiniteScrollToggle.className = 'btn btn-secondary';
@@ -2738,23 +2698,15 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `;
 
         infiniteScrollToggle.title = "Toggle Infinite Scroll";
-
-        // Hover animation
         infiniteScrollToggle.addEventListener('mouseenter', () => {
             infiniteScrollToggle.style.transform = 'scale(1.07)';
             infiniteScrollToggle.style.boxShadow = '0 10px 25px rgba(31, 175, 237, 0.45)';
         });
-
         infiniteScrollToggle.addEventListener('mouseleave', () => {
             infiniteScrollToggle.style.transform = 'scale(1)';
             infiniteScrollToggle.style.boxShadow = '0 6px 18px rgba(31, 175, 237, 0.3)';
         });
-
-
-        // Append to body
         document.body.appendChild(infiniteScrollToggle);
-
-        // Existing event listeners (keep unchanged)
         searchBtn.addEventListener('click', handleSearch);
         searchInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') handleSearch();
@@ -2763,11 +2715,7 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         window.addEventListener('click', (e) => {
             if (e.target === modal) closeMovieModal();
         });
-
-        // Toggle Infinite Scroll (keep this logic)
         infiniteScrollToggle.addEventListener('click', toggleInfiniteScroll);
-
-        // Notification System
         const notificationToggle = document.querySelector('.notification-toggle');
         const notificationPanel = document.querySelector('.notification-panel');
         const notificationClose = document.querySelector('.notification-close');
@@ -2823,8 +2771,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 item.style.backgroundColor = '';
             });
         });
-
-        // Category buttons
         categoryBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const category = btn.dataset.category;
@@ -2832,47 +2778,38 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 loadCategoryMovies(category, 1);
             });
         });
-
-        // Pagination buttons
         prevBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
                 loadCurrentContent();
             }
         });
-
         nextBtn.addEventListener('click', () => {
             if (currentPage < totalPages) {
                 currentPage++;
                 loadCurrentContent();
             }
         });
-
-        // Initialize app
         loadCategoryMovies('trending', 1);
-
-        // NEW: Toggle infinite scroll function
         function toggleInfiniteScroll() {
             infiniteScrollEnabled = !infiniteScrollEnabled;
 
             if (infiniteScrollEnabled) {
-                infiniteScrollToggle.textContent = '⏸️ Auto-Load On';
+                infiniteScrollToggle.textContent = 'Auto-Load On';
                 infiniteScrollToggle.style.background = 'linear-gradient(135deg, #1fafed, #20c997)';
                 infiniteScrollToggle.style.color = '#ffffff';
                 infiniteScrollToggle.style.boxShadow = '0 8px 20px rgba(31, 175, 237, 0.3)';
                 infiniteScrollToggle.style.backdropFilter = 'blur(10px)';
-                showSuccessMessage('✨ Auto-load enabled! Scroll to load more movies.');
+                showSuccessMessage('Auto-load enabled! Scroll to load more movies.');
             } else {
-                infiniteScrollToggle.textContent = '🔄 Auto-Load Off';
+                infiniteScrollToggle.textContent = 'Auto-Load Off';
                 infiniteScrollToggle.style.background = 'linear-gradient(135deg, #3f51b5, #5f2c82)';
                 infiniteScrollToggle.style.color = '#ffffff';
                 infiniteScrollToggle.style.boxShadow = '0 6px 18px rgba(95, 44, 130, 0.3)';
                 infiniteScrollToggle.style.backdropFilter = 'blur(8px)';
-                showSuccessMessage('⚠️ Auto-load disabled. Use pagination buttons.');
+                showSuccessMessage('Auto-load disabled. Use pagination buttons.');
             }
         }
-
-        // API Functions
         async function fetchMovies(url) {
             try {
                 showLoading(true);
@@ -2908,8 +2845,8 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(query)}&page=${page}`;
             const data = await fetchMovies(url);
             if (data && data.results) {
-                totalPages = Math.min(data.total_pages, 500); // API limit
-                displayMovies(data.results, `🔍 Search results for "${query}"`);
+                totalPages = Math.min(data.total_pages, 500);
+                displayMovies(data.results, `Search results for "${query}"`);
                 updatePagination();
             }
         }
@@ -2959,7 +2896,7 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             const data = await fetchMovies(url);
             if (data && data.results) {
-                totalPages = Math.min(data.total_pages, 500); // API limit
+                totalPages = Math.min(data.total_pages, 500);
                 displayMovies(data.results, categoryTitle);
                 updatePagination();
             }
@@ -2984,20 +2921,14 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 return null;
             }
         }
-
-        // Display Functions
         function displayMovies(movies, title) {
             if (!movies || movies.length === 0) {
                 showError('No movies found. Try a different search term or category.');
                 hidePagination();
                 return;
             }
-
-            // Show section title
             sectionTitle.textContent = title;
             sectionTitleContainer.style.display = 'block';
-
-            // Clear and populate movies grid (FIXED: Only clear when not appending)
             if (!infiniteScrollEnabled || currentPage === 1) {
                 moviesGrid.innerHTML = '';
             }
@@ -3008,8 +2939,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 movieCard.style.animation = 'fadeInUp 0.6s ease forwards';
                 moviesGrid.appendChild(movieCard);
             });
-
-            // Scroll to top smoothly only for new searches/categories
             if (!infiniteScrollEnabled || currentPage === 1) {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -3018,7 +2947,7 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         function createMovieCard(movie) {
             const card = document.createElement('div');
             card.className = 'movie-card';
-            card.setAttribute('data-id', movie.id); // Add this line
+            card.setAttribute('data-id', movie.id);
 
             const posterUrl = movie.poster_path
                 ? `${IMAGE_BASE_URL}${movie.poster_path}`
@@ -3053,12 +2982,8 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             const modalVotes = document.getElementById('modalVotes');
             const modalOverview = document.getElementById('modalOverview');
             const trailerContent = document.getElementById('trailerContent');
-
-            // Hide notification toggle when modal opens
             const notificationToggle = document.querySelector('.notification-toggle');
             if (notificationToggle) notificationToggle.style.display = 'none';
-
-            // Set modal content
             modalTitle.textContent = movie.title;
             modalPoster.src = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
             modalBackdrop.src = movie.backdrop_path ? `${BACKDROP_BASE_URL}${movie.backdrop_path}` : modalPoster.src;
@@ -3066,8 +2991,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             modalDate.textContent = movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown';
             modalVotes.textContent = movie.vote_count ? movie.vote_count.toLocaleString() : '0';
             modalOverview.textContent = movie.overview || 'No overview available.';
-
-            // Load trailer
             trailerContent.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading trailer...</p></div>';
 
             const trailerKey = await getMovieTrailer(movie.id);
@@ -3089,33 +3012,23 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         function closeMovieModal() {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-
-            // Show notification toggle when modal closes
             const notificationToggle = document.querySelector('.notification-toggle');
             if (notificationToggle) notificationToggle.style.display = '';
-
-            // Stop any playing videos
             const trailerContent = document.getElementById('trailerContent');
             trailerContent.innerHTML = '';
         }
-
-        // Event Handlers
         function handleSearch() {
             const query = searchInput.value.trim();
             if (query) {
                 searchMovies(query, 1);
-                // Clear active category
                 categoryBtns.forEach(btn => btn.classList.remove('active'));
             }
         }
 
         function selectCategory(category) {
-            // Update active category button
             categoryBtns.forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.category === category);
             });
-
-            // Clear search input
             searchInput.value = '';
         }
 
@@ -3126,8 +3039,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 loadCategoryMovies(currentCategory, currentPage);
             }
         }
-
-        // Pagination Functions
         function updatePagination() {
             currentPageSpan.textContent = currentPage;
             totalPagesSpan.textContent = totalPages;
@@ -3141,8 +3052,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         function hidePagination() {
             paginationContainer.style.display = 'none';
         }
-
-        // Utility Functions
         function showLoading(show) {
             loadingSpinner.style.display = show ? 'block' : 'none';
             if (show) {
@@ -3179,14 +3088,10 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             };
             return emojis[category] || '';
         }
-
-        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.style.display === 'block') {
                 closeMovieModal();
             }
-
-            // Pagination shortcuts (only when infinite scroll is disabled)
             if (!infiniteScrollEnabled) {
                 if (e.key === 'ArrowLeft' && currentPage > 1) {
                     currentPage--;
@@ -3198,24 +3103,17 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                     loadCurrentContent();
                 }
             }
-
-            // Toggle infinite scroll with Ctrl/Cmd + I
             if ((e.ctrlKey || e.metaKey) && e.key === 'i') {
                 e.preventDefault();
                 toggleInfiniteScroll();
             }
         });
-
-        // FIXED: Improved infinite scroll with proper control
         window.addEventListener('scroll', () => {
-            // Only proceed if infinite scroll is enabled
             if (!infiniteScrollEnabled || isLoadingMore) return;
 
             const scrollHeight = document.documentElement.scrollHeight;
             const scrollTop = document.documentElement.scrollTop;
             const clientHeight = document.documentElement.clientHeight;
-
-            // Load more when user is near bottom and there are more pages
             if (scrollTop + clientHeight >= scrollHeight - 1000 && currentPage < totalPages) {
                 isLoadingMore = true;
                 currentPage++;
@@ -3260,7 +3158,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 const data = await response.json();
 
                 if (data && data.results && data.results.length > 0) {
-                    // Append new movies to existing grid
                     data.results.forEach((movie, index) => {
                         const movieCard = createMovieCard(movie);
                         movieCard.style.animationDelay = `${index * 0.05}s`;
@@ -3276,8 +3173,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 isLoadingMore = false;
             }
         }
-
-        // Add some visual feedback for loading states
         function addShimmerEffect() {
             const shimmerCards = Array.from({ length: 8 }, (_, i) => {
                 const shimmer = document.createElement('div');
@@ -3295,8 +3190,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             return shimmerCards;
         }
-
-        // Add shimmer animation CSS
         const shimmerStyle = document.createElement('style');
         shimmerStyle.textContent = `
     @keyframes shimmer {
@@ -3305,8 +3198,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     }
 `;
         document.head.appendChild(shimmerStyle);
-
-        // Downloads Management
         const downloadsToggle = document.getElementById('downloadsToggle');
         const downloadsPanel = document.getElementById('downloadsPanel');
         const downloadsList = document.getElementById('downloadsList');
@@ -3314,18 +3205,12 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         const progressContainer = document.getElementById('progressContainer');
         const progressFill = document.getElementById('progressFill');
         const progressText = document.getElementById('progressText');
-
-        // Quality selection elements
         const qualityBtns = document.querySelectorAll('.quality-btn');
         const selectedQualitySpan = document.getElementById('selectedQuality');
         const selectedSizeSpan = document.getElementById('selectedSize');
-
-        // Downloads state
         let downloads = [];
         let downloadCounter = 0;
-        let downloadIntervals = new Map(); // Store active download intervals
-
-        // Quality data
+        let downloadIntervals = new Map(); 
         const qualityData = {
             '720p': { label: '720p HD', size: '1.2GB' },
             '1080p': { label: '1080p FHD', size: '2.8GB' },
@@ -3333,13 +3218,9 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         };
 
         let selectedQuality = '720p';
-
-        // Downloads Panel Event Listeners
         if (downloadsToggle) {
             downloadsToggle.addEventListener('click', toggleDownloadsPanel);
         }
-
-        // Quality selection event listeners
         if (qualityBtns) {
             qualityBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
@@ -3348,13 +3229,9 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 });
             });
         }
-
-        // Modal download button event listener
         if (modalDownloadBtn) {
             modalDownloadBtn.addEventListener('click', startDownload);
         }
-
-        // Downloads Panel Functions
         function toggleDownloadsPanel() {
             if (!downloadsPanel) return;
 
@@ -3364,9 +3241,8 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             if (downloadsToggle) {
                 downloadsToggle.innerHTML = isOpen
-                    ? '<i class="fas fa-times"></i>'       // ✕ icon
-                    : '<i class="fas fa-download"></i>';   // 📥 icon
-                // Move toggle button to bottom when panel is open
+                    ? '<i class="fas fa-times"></i>'     
+                    : '<i class="fas fa-download"></i>';  
                 if (isOpen) {
                     downloadsToggle.classList.add('downloads-toggle-bottom');
                 } else {
@@ -3386,8 +3262,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 `;
                 return;
             }
-
-            // Add header with controls
             const headerHTML = `
 <div class="downloads-header" style="margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
     <span style="color: #4ecdc4; font-weight: bold;">${downloads.length} Download${downloads.length !== 1 ? 's' : ''}</span>
@@ -3404,7 +3278,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     </div>
 </div>
 `;
-
             const downloadsHTML = downloads.map(download => {
                 const statusColor = getStatusColor(download.status);
                 const canPause = download.status === 'Downloading';
@@ -3443,8 +3316,6 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             downloadsList.innerHTML = headerHTML + downloadsHTML;
         }
-
-        // Helper functions for styling
         function getStatusColor(status) {
             const colors = {
                 'Starting...': '#ffc107',
@@ -3468,27 +3339,19 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         function getRandomSpeed() {
-            return (Math.random() * 15 + 5).toFixed(1); // Random speed between 5-20 MB/s
+            return (Math.random() * 15 + 5).toFixed(1);
         }
-
-        // Quality Selection Functions
         function selectQuality(quality) {
             selectedQuality = quality;
-
-            // Update active quality button
             if (qualityBtns) {
                 qualityBtns.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.quality === quality);
                 });
             }
-
-            // Update quality display
             const qualityInfo = qualityData[quality];
             if (selectedQualitySpan) selectedQualitySpan.textContent = qualityInfo.label;
             if (selectedSizeSpan) selectedSizeSpan.textContent = qualityInfo.size;
         }
-
-        // Download Functions
         function startDownload() {
             const modalTitle = document.getElementById('modalTitle');
             const movieTitle = modalTitle ? modalTitle.textContent : '';
@@ -3497,15 +3360,11 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 showError('Movie information not available');
                 return;
             }
-
-            // Check if movie is already downloading
             const existingDownload = downloads.find(d => d.title === movieTitle && d.quality === selectedQuality);
             if (existingDownload && existingDownload.status === 'Downloading') {
                 showError('This movie is already being downloaded');
                 return;
             }
-
-            // Create download object
             const download = {
                 id: ++downloadCounter,
                 title: movieTitle,
@@ -3517,39 +3376,28 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             downloads.unshift(download);
             updateDownloadsList();
-
-            // Show progress container
             if (progressContainer) {
                 progressContainer.style.display = 'block';
                 if (progressFill) progressFill.style.width = '0%';
                 if (progressText) progressText.textContent = 'Starting download...';
             }
-
-            // Disable download button
             if (modalDownloadBtn) {
                 modalDownloadBtn.disabled = true;
-                modalDownloadBtn.textContent = '📥 Downloading...';
+                modalDownloadBtn.textContent = 'Downloading...';
             }
-
-            // Start download simulation
             simulateDownload(download);
-
-            // Show downloads panel
             if (downloadsPanel && !downloadsPanel.classList.contains('open')) {
                 toggleDownloadsPanel();
             }
-
-            // Show success message
             showSuccessMessage(`Started downloading ${movieTitle} in ${qualityData[selectedQuality].label}`);
         }
 
         function simulateDownload(download) {
             let progress = download.progress || 0;
-            const downloadSpeed = Math.random() * 3 + 1; // Random speed between 1-4% per interval
-            const interval = 500; // Update every 500ms
+            const downloadSpeed = Math.random() * 3 + 1;
+            const interval = 500;
 
             download.status = 'Downloading';
-
             const downloadInterval = setInterval(() => {
                 progress += downloadSpeed;
 
@@ -3559,61 +3407,40 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                     downloadIntervals.delete(download.id);
                     completeDownload(download);
                 }
-
-                // Update download progress
                 download.progress = Math.round(progress);
                 updateDownloadsList();
-
-                // Update modal progress if it's for the same movie
                 const modalTitle = document.getElementById('modalTitle');
                 if (modalTitle && modalTitle.textContent === download.title) {
                     updateModalProgress(progress);
                 }
 
             }, interval);
-
-            // Store interval reference
             downloadIntervals.set(download.id, downloadInterval);
         }
 
         function completeDownload(download) {
             download.status = 'Completed';
             download.progress = 100;
-
-            // Update downloads list
             updateDownloadsList();
-
-            // Update modal if it's for the same movie
             const modalTitle = document.getElementById('modalTitle');
             if (modalTitle && modalTitle.textContent === download.title) {
-                // Reset modal download button
                 if (modalDownloadBtn) {
                     modalDownloadBtn.disabled = false;
-                    modalDownloadBtn.textContent = '📥 Download Complete';
+                    modalDownloadBtn.textContent = 'Download Complete';
                     modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
                 }
-
-                // Hide progress container after a delay
                 if (progressContainer) {
                     setTimeout(() => {
                         progressContainer.style.display = 'none';
                     }, 2000);
                 }
             }
-
-            // Show completion notification
-            showSuccessMessage(`✅ ${download.title} download completed!`);
-
-            // Add download status to movie cards
+            showSuccessMessage(`${download.title} download completed!`);
             updateMovieCardStatus(download.title, 'completed');
         }
-
-        // Enhanced Download Control Functions
         function pauseDownload(downloadId) {
             const download = downloads.find(d => d.id === downloadId);
             if (!download || download.status !== 'Downloading') return;
-
-            // Clear the interval
             const interval = downloadIntervals.get(downloadId);
             if (interval) {
                 clearInterval(interval);
@@ -3622,54 +3449,42 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 
             download.status = 'Paused';
             updateDownloadsList();
-            showSuccessMessage(`⏸️ ${download.title} download paused`);
+            showSuccessMessage(`${download.title} download paused`);
         }
 
         function resumeDownload(downloadId) {
             const download = downloads.find(d => d.id === downloadId);
             if (!download || download.status !== 'Paused') return;
-
-            // Resume the download simulation
             simulateDownload(download);
-            showSuccessMessage(`▶️ ${download.title} download resumed`);
+            showSuccessMessage(`${download.title} download resumed`);
         }
 
         function removeDownload(downloadId) {
             const download = downloads.find(d => d.id === downloadId);
             if (!download) return;
-
-            // Clear interval if downloading
             const interval = downloadIntervals.get(downloadId);
             if (interval) {
                 clearInterval(interval);
                 downloadIntervals.delete(downloadId);
             }
-
-            // Remove from downloads array
             const index = downloads.findIndex(d => d.id === downloadId);
             if (index > -1) {
                 downloads.splice(index, 1);
             }
-
             updateDownloadsList();
-            showSuccessMessage(`🗑️ ${download.title} removed from downloads`);
-
-            // Update movie card status
+            showSuccessMessage(` ${download.title} removed from downloads`);
             updateMovieCardStatus(download.title, 'removed');
         }
-
         function pauseAllDownloads() {
             const activeDownloads = downloads.filter(d => d.status === 'Downloading');
             if (activeDownloads.length === 0) {
                 showError('No active downloads to pause');
                 return;
             }
-
             activeDownloads.forEach(download => {
                 pauseDownload(download.id);
             });
-
-            showSuccessMessage(`⏸️ Paused ${activeDownloads.length} download${activeDownloads.length !== 1 ? 's' : ''}`);
+            showSuccessMessage(`Paused ${activeDownloads.length} download${activeDownloads.length !== 1 ? 's' : ''}`);
         }
 
         function resumeAllDownloads() {
@@ -3683,30 +3498,21 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 resumeDownload(download.id);
             });
 
-            showSuccessMessage(`▶️ Resumed ${pausedDownloads.length} download${pausedDownloads.length !== 1 ? 's' : ''}`);
+            showSuccessMessage(`Resumed ${pausedDownloads.length} download${pausedDownloads.length !== 1 ? 's' : ''}`);
         }
-
         function removeAllDownloads() {
             if (downloads.length === 0) {
                 showError('No downloads to remove');
                 return;
             }
-
-            // Show confirmation dialog
             const confirmRemove = confirm(`Are you sure you want to remove all ${downloads.length} downloads?`);
             if (!confirmRemove) return;
-
             const downloadCount = downloads.length;
-
-            // Clear all intervals
             downloadIntervals.forEach(interval => clearInterval(interval));
             downloadIntervals.clear();
-
-            // Clear downloads array
             downloads = [];
             updateDownloadsList();
-
-            showSuccessMessage(`🗑️ Removed all ${downloadCount} downloads`);
+            showSuccessMessage(`Removed all ${downloadCount} downloads`);
         }
 
         function updateModalProgress(progress) {
@@ -3714,26 +3520,21 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
             if (progressFill) progressFill.style.width = `${roundedProgress}%`;
             if (progressText) {
                 progressText.textContent = `Downloading... ${roundedProgress}%`;
-
                 if (progress >= 100) {
                     progressText.textContent = 'Download Complete!';
                     progressText.style.color = '#28a745';
                 }
             }
         }
-
         function updateMovieCardStatus(movieTitle, status) {
             const movieCards = document.querySelectorAll('.movie-card');
             movieCards.forEach(card => {
                 const titleElement = card.querySelector('.movie-title');
                 if (titleElement && titleElement.textContent === movieTitle) {
-                    // Remove existing status
                     const existingStatus = card.querySelector('.download-status');
                     if (existingStatus) {
                         existingStatus.remove();
                     }
-
-                    // Add new status (except for removed)
                     if (status !== 'removed') {
                         const statusElement = document.createElement('div');
                         statusElement.className = `download-status ${status}`;
@@ -3744,22 +3545,16 @@ text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
                 }
             });
         }
-
-        // Enhanced Movie Card Creation (Override existing function)
         function createMovieCard(movie) {
             const card = document.createElement('div');
             card.className = 'movie-card';
-            card.setAttribute('data-id', movie.id); // Add this line
-
+            card.setAttribute('data-id', movie.id); 
             const posterUrl = movie.poster_path
                 ? `${IMAGE_BASE_URL}${movie.poster_path}`
                 : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
-
             const overview = movie.overview
                 ? (movie.overview.length > 100 ? movie.overview.substring(0, 100) + '...' : movie.overview)
                 : 'No overview available.';
-
-            // Check if movie is downloaded
             const downloadStatus = downloads.find(d => d.title === movie.title);
             const statusElement = downloadStatus ?
                 `<div class="download-status ${downloadStatus.status.toLowerCase()}">${downloadStatus.status}</div>` : '';
@@ -3787,12 +3582,8 @@ ${statusElement}
 
             return card;
         }
-
-        // Quick download function for movie cards
         function quickDownload(movieTitle, event) {
             event.stopPropagation();
-
-            // Check if already downloading
             const existingDownload = downloads.find(d => d.title === movieTitle);
             if (existingDownload) {
                 if (existingDownload.status === 'Downloading') {
@@ -3803,8 +3594,6 @@ ${statusElement}
                     return;
                 }
             }
-
-            // Start download with default quality (720p)
             const download = {
                 id: ++downloadCounter,
                 title: movieTitle,
@@ -3817,19 +3606,13 @@ ${statusElement}
             downloads.unshift(download);
             updateDownloadsList();
             simulateDownload(download);
-
-            // Update movie card status
             updateMovieCardStatus(movieTitle, 'downloading');
 
             showSuccessMessage(`Started downloading ${movieTitle} in 720p HD`);
-
-            // Show downloads panel
             if (!downloadsPanel.classList.contains('open')) {
                 toggleDownloadsPanel();
             }
         }
-
-        // Enhanced modal opening (Override existing function)
         async function openMovieModal(movie, event) {
             if (event) {
                 event.stopPropagation();
@@ -3843,12 +3626,8 @@ ${statusElement}
             const modalVotes = document.getElementById('modalVotes');
             const modalOverview = document.getElementById('modalOverview');
             const trailerContent = document.getElementById('trailerContent');
-
-            // Hide notification toggle when modal opens
             const notificationToggle = document.querySelector('.notification-toggle');
             if (notificationToggle) notificationToggle.style.display = 'none';
-
-            // Set modal content
             modalTitle.textContent = movie.title;
             modalPoster.src = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : 'https://via.placeholder.com/500x750/333/fff?text=No+Image';
             modalBackdrop.src = movie.backdrop_path ? `${BACKDROP_BASE_URL}${movie.backdrop_path}` : modalPoster.src;
@@ -3856,33 +3635,27 @@ ${statusElement}
             modalDate.textContent = movie.release_date ? new Date(movie.release_date).getFullYear() : 'Unknown';
             modalVotes.textContent = movie.vote_count ? movie.vote_count.toLocaleString() : '0';
             modalOverview.textContent = movie.overview || 'No overview available.';
-
-            // Reset download button state
             const existingDownload = downloads.find(d => d.title === movie.title);
             if (existingDownload) {
-                if (existingDownload.status === 'Completed') {
-                    modalDownloadBtn.textContent = '✅ Already Downloaded';
-                    modalDownloadBtn.disabled = true;
-                    modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
-                } else if (existingDownload.status === 'Downloading') {
-                    modalDownloadBtn.textContent = '📥 Downloading...';
-                    modalDownloadBtn.disabled = true;
-                    progressContainer.style.display = 'block';
-                    updateModalProgress(existingDownload.progress);
-                }
-            } else {
-                modalDownloadBtn.textContent = '📥 Start Download';
+              if (existingDownload.status === 'Completed') {
+                      modalDownloadBtn.textContent = 'Already Downloaded';
+                      modalDownloadBtn.disabled = true;
+                      modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
+             } else if (existingDownload.status === 'Downloading') {
+                      modalDownloadBtn.textContent = 'Downloading...';
+                      modalDownloadBtn.disabled = true;
+                      progressContainer.style.display = 'block';
+                      updateModalProgress(existingDownload.progress);
+    }
+}
+            else {
+                modalDownloadBtn.textContent = 'Start Download';
                 modalDownloadBtn.disabled = false;
                 modalDownloadBtn.style.background = 'linear-gradient(45deg, #28a745, #20c997)';
                 progressContainer.style.display = 'none';
             }
-
-            // Reset quality selection
             selectQuality('720p');
-
-            // Load trailer
             trailerContent.innerHTML = '<div class="loading-spinner"><div class="spinner"></div><p>Loading trailer...</p></div>';
-
             const trailerKey = await getMovieTrailer(movie.id);
             if (trailerKey) {
                 trailerContent.innerHTML = `
@@ -3892,16 +3665,13 @@ ${statusElement}
     </iframe>
 `;
             } else {
-                trailerContent.innerHTML = '<div class="no-trailer">🎬 Trailer not available.</div>';
+                trailerContent.innerHTML = '<div class="no-trailer">Trailer not available.</div>';
             }
 
             modal.style.display = 'block';
             document.body.style.overflow = 'hidden';
         }
-
-        // Utility Functions
         function showSuccessMessage(message) {
-            // Create success toast
             const toast = document.createElement('div');
             toast.style.cssText = `
 position: fixed;
@@ -3925,8 +3695,6 @@ animation: slideInRight 0.3s ease;
 
             toast.textContent = message;
             document.body.appendChild(toast);
-
-            // Auto remove after 4 seconds
             setTimeout(() => {
                 toast.style.animation = 'slideOutRight 0.3s ease';
                 setTimeout(() => {
@@ -3936,9 +3704,7 @@ animation: slideInRight 0.3s ease;
                 }, 300);
             }, 4000);
         }
-
         function showError(message) {
-            // Create error toast
             const toast = document.createElement('div');
             toast.style.cssText = `
  position: fixed;
@@ -3962,8 +3728,6 @@ border: 1px solid rgba(0, 255, 255, 0.2);
 
             toast.textContent = message;
             document.body.appendChild(toast);
-
-            // Auto remove after 4 seconds
             setTimeout(() => {
                 toast.style.animation = 'slideOutRight 0.3s ease';
                 setTimeout(() => {
@@ -3973,8 +3737,6 @@ border: 1px solid rgba(0, 255, 255, 0.2);
                 }, 300);
             }, 4000);
         }
-
-        // Add enhanced styles
         const enhancedStyles = document.createElement('style');
         enhancedStyles.textContent = `
 @keyframes slideInRight {
@@ -4120,8 +3882,6 @@ transition: width 0.3s ease;
 }
 `;
         document.head.appendChild(enhancedStyles);
-
-        // Close downloads panel when clicking outside
         document.addEventListener('click', (e) => {
             if (downloadsPanel.classList.contains('open') &&
                 !downloadsPanel.contains(e.target) &&
@@ -4129,8 +3889,6 @@ transition: width 0.3s ease;
                 toggleDownloadsPanel();
             }
         });
-
-        // Enhanced keyboard shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (modal.style.display === 'block') {
@@ -4139,27 +3897,19 @@ transition: width 0.3s ease;
                     toggleDownloadsPanel();
                 }
             }
-
-            // Downloads panel shortcut (Ctrl/Cmd + D)
             if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
                 e.preventDefault();
                 toggleDownloadsPanel();
             }
-
-            // Pause all downloads (Ctrl/Cmd + P)
             if ((e.ctrlKey || e.metaKey) && e.key === 'p' && downloadsPanel.classList.contains('open')) {
                 e.preventDefault();
                 pauseAllDownloads();
             }
-
-            // Resume all downloads (Ctrl/Cmd + R)
             if ((e.ctrlKey || e.metaKey) && e.key === 'r' && downloadsPanel.classList.contains('open')) {
                 e.preventDefault();
                 resumeAllDownloads();
             }
         });
-
-        // Performance optimization: Debounce search
         function debounce(func, wait) {
             let timeout;
             return function executedFunction(...args) {
@@ -4171,15 +3921,11 @@ transition: width 0.3s ease;
                 timeout = setTimeout(later, wait);
             };
         }
-
-        // Apply debounce to search
         const debouncedSearch = debounce((query) => {
             if (query.trim()) {
                 searchMovies(query, 1);
             }
         }, 300);
-
-        // Update search input to use debounced search
         if (typeof searchInput !== 'undefined') {
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value;
@@ -4188,34 +3934,26 @@ transition: width 0.3s ease;
                 }
             });
         }
-
-        // Add loading state to download buttons
         function setDownloadButtonState(button, state) {
             const states = {
-                default: { text: '📥 Download', disabled: false },
-                downloading: { text: '📥 Downloading...', disabled: true },
-                completed: { text: '✅ Downloaded', disabled: true }
+                default: { text: 'Download', disabled: false },
+                downloading: { text: 'Downloading...', disabled: true },
+                completed: { text: 'Downloaded', disabled: true }
             };
 
             const config = states[state] || states.default;
             button.textContent = config.text;
             button.disabled = config.disabled;
         }
-
-        // Auto-save downloads to localStorage (if available)
         function saveDownloads() {
             try {
-                // Note: localStorage is not available in Claude artifacts
-                // This is just for reference if the code is used elsewhere
                 localStorage.setItem('movieAppDownloads', JSON.stringify(downloads));
             } catch (error) {
                 console.log('localStorage not available');
             }
         }
-
         function loadDownloads() {
             try {
-                // Note: localStorage is not available in Claude artifacts
                 const saved = localStorage.getItem('movieAppDownloads');
                 if (saved) {
                     downloads = JSON.parse(saved);
@@ -4225,11 +3963,6 @@ transition: width 0.3s ease;
                 console.log('localStorage not available');
             }
         }
-
-        // Initialize downloads on page load
-        // loadDownloads(); // Commented out as localStorage is not available in artifacts
-
-        // Cleanup function for intervals when page unloads
         window.addEventListener('beforeunload', () => {
             downloadIntervals.forEach(interval => clearInterval(interval));
             downloadIntervals.clear();
@@ -4246,12 +3979,7 @@ transition: width 0.3s ease;
         console.log('- Download speed indicators');
         console.log('- Keyboard shortcuts: Ctrl+P (Pause All), Ctrl+R (Resume All)');
         console.log('- Improved download status tracking');
-
-        // Footer Quick Links Functionality
-
-        // Footer Quick Links Event Handlers
         function initializeFooterQuickLinks() {
-            // Get all footer quick links
             const footerLinks = document.querySelectorAll('.footer-links a');
 
             if (footerLinks.length === 0) {
@@ -4259,8 +3987,6 @@ transition: width 0.3s ease;
                 setTimeout(initializeFooterQuickLinks, 1000);
                 return;
             }
-
-            // Map of footer link text to corresponding category
             const linkCategoryMap = {
                 'trending': 'trending',
                 'popular': 'popular',
@@ -4280,50 +4006,29 @@ transition: width 0.3s ease;
                 const category = linkCategoryMap[linkText];
 
                 if (category) {
-                    // Update the href to make it more semantic
                     link.href = `#${category}`;
-
-                    // Add click event listener
                     link.addEventListener('click', function (e) {
                         e.preventDefault();
-
-                        // Add loading state to the clicked link
                         const originalText = this.textContent;
                         this.style.color = '#4ecdc4';
                         this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${originalText}`;
-
-                        // Reset link after a short delay
                         setTimeout(() => {
                             this.innerHTML = originalText;
                             this.style.color = '';
                         }, 1500);
-
-                        // Clear search input
                         if (searchInput) {
                             searchInput.value = '';
                         }
-
-                        // Select the appropriate category
                         selectCategory(category);
-
-                        // Load the category movies
                         loadCategoryMovies(category, 1);
-
-                        // Smooth scroll to the top of the page
                         window.scrollTo({
                             top: 0,
                             behavior: 'smooth'
                         });
-
-                        // Show success message
                         showFooterNavigationMessage(originalText);
-
-                        // Close downloads panel if open
                         if (downloadsPanel && downloadsPanel.classList.contains('open')) {
                             toggleDownloadsPanel();
                         }
-
-                        // Close modal if open
                         if (modal && modal.style.display === 'block') {
                             closeMovieModal();
                         }
@@ -4333,8 +4038,6 @@ transition: width 0.3s ease;
 
             console.log('Footer quick links initialized successfully!');
         }
-
-        // Show navigation message for footer links
         function showFooterNavigationMessage(categoryName) {
             const toast = document.createElement('div');
             toast.style.cssText = `
@@ -4363,8 +4066,6 @@ Loading ${categoryName} movies...
 `;
 
             document.body.appendChild(toast);
-
-            // Auto remove after 3 seconds
             setTimeout(() => {
                 toast.style.animation = 'footerToastSlideOut 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
                 setTimeout(() => {
@@ -4374,8 +4075,6 @@ Loading ${categoryName} movies...
                 }, 500);
             }, 3000);
         }
-
-        // Add CSS animations for footer toast
         const footerToastStyle = document.createElement('style');
         footerToastStyle.textContent = `
 @keyframes footerToastSlide {
@@ -4417,10 +4116,7 @@ margin-right: 5px;
 }
 `;
         document.head.appendChild(footerToastStyle);
-
-        // Enhanced footer functionality with section navigation
         function addFooterSectionNavigation() {
-            // Add smooth scrolling for any anchor links in the footer except the category quick links
             const allFooterLinks = document.querySelectorAll('.footer a[href^="#"]');
 
             const excludedCategories = ['trending', 'popular', 'top_rated', 'upcoming', 'now_playing', 'action', 'comedy', 'horror', 'romance', 'sci-fi'];
@@ -4429,8 +4125,6 @@ margin-right: 5px;
             allFooterLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
                     const href = this.getAttribute('href');
-
-                    // If href is not just '#' and does not match any excluded category
                     if (href !== '#' && !excludeRegex.test(href)) {
                         e.preventDefault();
 
@@ -4445,12 +4139,8 @@ margin-right: 5px;
                 });
             });
         }
-
-
-        // Add keyboard navigation for footer
         function addFooterKeyboardNavigation() {
             document.addEventListener('keydown', (e) => {
-                // Quick category navigation with number keys (1-10)
                 if (e.altKey) {
                     switch (e.key) {
                         case '1':
@@ -4507,7 +4197,7 @@ margin-right: 5px;
                             loadCategoryMovies('romance', 1);
                             showFooterNavigationMessage('Romance');
                             break;
-                        case '0': // 10th category
+                        case '0':
                             e.preventDefault();
                             selectCategory('sci-fi');
                             loadCategoryMovies('sci-fi', 1);
@@ -4517,10 +4207,7 @@ margin-right: 5px;
                 }
             });
         }
-
-        // Initialize all footer functionality
         function initializeFooter() {
-            // Wait for DOM to be ready
             if (document.readyState === 'loading') {
                 document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
@@ -4530,7 +4217,6 @@ margin-right: 5px;
                     }, 500);
                 });
             } else {
-                // DOM is already ready
                 setTimeout(() => {
                     initializeFooterQuickLinks();
                     addFooterSectionNavigation();
@@ -4538,17 +4224,11 @@ margin-right: 5px;
                 }, 500);
             }
         }
-
-        // Call initialization
         initializeFooter();
-
-        // Add to existing console.log at the end of your main script
         console.log('Footer functionality initialized:');
         console.log('- Quick links for category navigation');
         console.log('- Keyboard shortcuts (Alt + 1-4 for categories)');
         console.log('- Smooth scrolling and toast notifications');
-
-        // Export functions for potential external use
         window.StreamSageFooter = {
             initializeFooterQuickLinks,
             showFooterNavigationMessage,
@@ -5045,7 +4725,7 @@ font-size: 13px;
                 e.preventDefault();
                 const searchInput = document.querySelector('#searchInput');
                 if (searchInput) {
-                    searchInput.focus(); atio
+                    searchInput.focus(); 
                 }
             }
         });
