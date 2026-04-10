@@ -8,6 +8,8 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TMDB](https://img.shields.io/badge/TMDB%20API-01D277?style=for-the-badge&logo=themoviedatabase&logoColor=white)](https://www.themoviedb.org/documentation/api)
 
+![StreamSage Banner](./streamsage.png)
+
 StreamSage is a feature-rich, client-side movie discovery platform that lets users browse trending films, watch trailers, manage a wishlist, and simulate downloads — all powered by the TMDB API.
 
 ---
