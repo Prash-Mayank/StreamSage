@@ -69,8 +69,11 @@ StreamSage is a feature-rich, client-side movie discovery platform that lets use
 
 ```
 streamsage/
-├── index.html       # All HTML, CSS, and JavaScript in a single file
-└── logo.png         # App logo (favicon + header)
+├── index.html  
+├── logo.png
+├── streamsage.png
+├── LICENSE
+└── README.md
 ```
 
 StreamSage is a **single-file application** — all styles and scripts are embedded directly in `index.html`.
