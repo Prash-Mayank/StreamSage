@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StreamSage - Watch Movies Online, Download HD Films & Movie Trailers</title>
+    <title>StreamSage : Watch Movies Online, Download HD Films & Movie Trailers</title>
 
     <meta name="description"
         content="StreamSage is your ultimate movie platform - watch movie trailers online, discover trending films, download movies in HD/4K quality, and explore top-rated cinema. Stream movies free with our comprehensive movie database.">
@@ -98,8 +98,6 @@
             overflow-x: hidden;
         }
 
-
-        /* Animated background particles */
         body::before {
             content: '';
             position: fixed;
@@ -175,6 +173,7 @@
             letter-spacing: -0.5px;
             background: linear-gradient(90deg, #00d2ff, #3a7bd5);
             background-size: 200% auto;
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: shimmer 5s ease-in-out infinite;
@@ -198,7 +197,6 @@
             font-weight: 500;
         }
 
-        /* Animations */
         @keyframes shimmer {
             0% {
                 background-position: 0% center;
@@ -373,7 +371,6 @@
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
-        /* Keyframes */
         @keyframes move-bg {
             0% {
                 background-position: 0% 50%;
@@ -500,7 +497,6 @@
             width: 60px;
             height: 60px;
             border: 4px solid rgba(255, 255, 255, 0.1);
-            /* border-left: 4px solid #4ecdc4; */
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto;
@@ -574,14 +570,12 @@
             transform: scale(1.08);
         }
 
-        /* Medium Devices (Tablets, 768px and down) */
         @media (max-width: 768px) {
             .movie-poster {
                 height: 320px;
             }
         }
 
-        /* Small Devices (Large phones, 576px and down) */
         @media (max-width: 576px) {
             .movie-poster {
                 height: 250px;
@@ -589,11 +583,9 @@
 
             .movie-card:hover .movie-poster {
                 transform: scale(1.04);
-                /* less aggressive zoom on small screens */
             }
         }
 
-        /* Extra Small Devices (like very small phones) */
         @media (max-width: 400px) {
             .movie-poster {
                 height: 200px;
@@ -778,7 +770,6 @@
             box-shadow: inset 0 0 6px rgba(78, 205, 196, 0.1);
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -1004,7 +995,6 @@
             box-shadow: none;
         }
 
-        /* Progress Bar */
         .progress-container {
             margin-top: 20px;
             display: none;
@@ -1066,7 +1056,6 @@
             background-color: transparent;
         }
 
-        /* Download Status */
         .download-status {
             position: absolute;
             top: 15px;
@@ -1103,7 +1092,6 @@
                 0 0 25px rgba(0, 201, 255, 0.25);
         }
 
-        /* Optional animated glow for downloading */
         @keyframes pulse-download {
 
             0%,
@@ -1122,7 +1110,6 @@
             }
         }
 
-        /* Downloads Panel */
         .downloads-panel {
             position: fixed;
             top: 0;
@@ -1486,7 +1473,6 @@
             background: rgba(31, 175, 237, 0.1);
         }
 
-        /* Brand-specific hover effects */
         .social-link.facebook:hover {
             color: #1877f2;
             border-color: #1877f2;
@@ -1661,7 +1647,6 @@
             }
         }
 
-        /* Wishlist Toggle Button */
         .wishlist-toggle {
             position: fixed;
             bottom: 90px;
@@ -1684,8 +1669,6 @@
             box-shadow: 0 12px 35px rgba(31, 175, 237, 0.5);
         }
 
-
-        /* Wishlist Panel */
         .wishlist-panel {
             position: fixed;
             top: 0;
@@ -1706,7 +1689,6 @@
             left: 0;
         }
 
-        /* Wishlist Title */
         .wishlist-panel h3 {
             font-size: 1.5rem;
             font-weight: 700;
@@ -1719,7 +1701,6 @@
             background-clip: text;
         }
 
-        /* Wishlist Item */
         .wishlist-item {
             background: rgba(255, 255, 255, 0.06);
             border-radius: 15px;
@@ -1760,7 +1741,6 @@
             box-shadow: 0 8px 25px rgba(31, 175, 237, 0.2);
         }
 
-        /* Poster */
         .wishlist-item-poster {
             width: 60px;
             height: 90px;
@@ -1772,7 +1752,6 @@
             z-index: 2;
         }
 
-        /* Tablets and below (768px) */
         @media (max-width: 768px) {
             .wishlist-item-poster {
                 width: 50px;
@@ -1780,7 +1759,6 @@
             }
         }
 
-        /* Mobile phones (576px and below) */
         @media (max-width: 576px) {
             .wishlist-item-poster {
                 width: 45px;
@@ -1788,7 +1766,6 @@
             }
         }
 
-        /* Very small devices (400px and below) */
         @media (max-width: 400px) {
             .wishlist-item-poster {
                 width: 40px;
@@ -1800,7 +1777,6 @@
             transform: scale(1.05);
         }
 
-        /* Info */
         .wishlist-item-info {
             flex: 1;
             position: relative;
@@ -1832,7 +1808,6 @@
             align-items: center;
         }
 
-        /* Remove Button */
         .wishlist-remove-btn {
             background: rgba(237, 31, 31, 0.15);
             border: 2px solid rgba(237, 31, 31, 0.3);
@@ -1858,7 +1833,6 @@
             box-shadow: 0 4px 15px rgba(237, 31, 31, 0.4);
         }
 
-        /* Heart Bookmark */
         .movie-card .wishlist-icon {
             position: absolute;
             top: 18px;
@@ -1886,7 +1860,6 @@
             box-shadow: 0 5px 14px rgba(31, 175, 237, 0.25);
         }
 
-        /* Heart Pulse */
         @keyframes heartPulse {
 
             0%,
@@ -1899,7 +1872,6 @@
             }
         }
 
-        /* Empty State */
         .wishlist-empty {
             text-align: center;
             padding: 60px 20px;
@@ -1926,7 +1898,6 @@
             opacity: 0.8;
         }
 
-        /* Counter Badge */
         .wishlist-counter {
             position: absolute;
             top: -8px;
@@ -1965,7 +1936,6 @@
             }
         }
 
-        /* Media Queries */
         @media (max-width: 768px) {
             .wishlist-panel {
                 width: 100%;
@@ -2041,7 +2011,6 @@
             }
         }
 
-        /* Notification System Styles */
         .notification-container {
             position: fixed;
             top: 40px;
@@ -2191,7 +2160,6 @@
             color: #888;
         }
 
-        /* Shortcut key style */
         kbd {
             background: #1fafed;
             color: #ffffff;
@@ -2203,8 +2171,6 @@
             box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
         }
 
-
-        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .notification-container {
                 top: 80px;
@@ -2218,7 +2184,6 @@
             }
         }
 
-        /* Toggle Buttons Base Styles */
         .notification-toggle,
         .downloads-toggle,
         .wishlist-toggle,
@@ -2231,31 +2196,26 @@
             will-change: transform, opacity;
         }
 
-        /* Notification Toggle */
         .notification-toggle {
             top: 80px;
             right: 40px;
         }
 
-        /* Downloads Toggle */
         .downloads-toggle {
             top: 140px;
             right: 40px;
         }
 
-        /* Wishlist Toggle */
         .wishlist-toggle {
             bottom: 80px;
             left: 40px;
         }
 
-        /* Infinite Scroll Toggle */
         .infinite-scroll-toggle {
             bottom: 20px;
             left: 40px;
         }
 
-        /* Hide toggles when scrolling */
         .scrolling .notification-toggle,
         .scrolling .downloads-toggle,
         .scrolling .wishlist-toggle,
@@ -2265,7 +2225,6 @@
             pointer-events: none;
         }
 
-        /* Show toggles when not scrolling */
         .notification-toggle,
         .downloads-toggle,
         .wishlist-toggle,
@@ -2275,7 +2234,6 @@
             pointer-events: auto;
         }
 
-        /* Hover effects */
         .notification-toggle:hover,
         .downloads-toggle:hover,
         .wishlist-toggle:hover,
@@ -2283,7 +2241,6 @@
             transform: scale(1.1);
         }
 
-        /* Active state */
         .notification-toggle:active,
         .downloads-toggle:active,
         .wishlist-toggle:active,
@@ -2291,21 +2248,18 @@
             transform: scale(0.95);
         }
 
-        /* Panel transitions */
         .notification-panel,
         .downloads-panel,
         .wishlist-panel {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Ensure panels are above other content */
         .notification-panel,
         .downloads-panel,
         .wishlist-panel {
             z-index: 999;
         }
 
-        /* Mobile Responsive Adjustments */
         @media (max-width: 768px) {
 
             .notification-toggle,
@@ -2335,7 +2289,6 @@
             }
         }
 
-        /* Add this CSS near the other .downloads-toggle styles */
         .downloads-toggle-bottom {
             top: auto !important;
             bottom: 80px !important;
@@ -3677,7 +3630,7 @@ ${statusElement}
 position: fixed;
 top: 15px;
 left: 15px;
-background: rgba(40, 167, 69, 0.08); /* transparent green tint */
+background: rgba(40, 167, 69, 0.08);
 color: #28a745;
 padding: 10px 16px;
 border-radius: 8px;
@@ -4045,7 +3998,7 @@ position: fixed;
 top: 15px;
 left: 50%;
 transform: translateX(-50%);
-background: rgba(255, 255, 255, 0.05); /* Transparent + glass effect */
+background: rgba(255, 255, 255, 0.05);
 color: #ffffff;
 padding: 10px 20px;
 border-radius: 20px;
@@ -4098,8 +4051,6 @@ to {
     opacity: 0;
 }
 }
-
-/* Enhanced footer link hover effects */
 .footer-links a:hover {
 color: #4ecdc4 !important;
 transform: translateX(8px);
@@ -4109,8 +4060,6 @@ text-shadow: 0 2px 8px rgba(78, 205, 196, 0.4);
 .footer-links a:active {
 transform: translateX(8px) scale(0.98);
 }
-
-/* Loading state for footer links */
 .footer-links a .fa-spinner {
 margin-right: 5px;
 }
@@ -4241,7 +4190,6 @@ margin-right: 5px;
         const wishlistList = document.getElementById('wishlistList');
         const wishlistPanelStyle = document.createElement('style');
         wishlistPanelStyle.textContent = `
-/* Wishlist Toggle Button */
 .wishlist-toggle {
 position: fixed;
 bottom: 90px;
@@ -4263,9 +4211,6 @@ backdrop-filter: blur(12px);
 transform: scale(1.08);
 box-shadow: 0 12px 35px rgba(31, 175, 237, 0.5);
 }
-
-
-/* Wishlist Panel */
 .wishlist-panel {
 position: fixed;
 top: 0;
@@ -4285,8 +4230,6 @@ box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
 .wishlist-panel.open {
 left: 0;
 }
-
-/* Wishlist Item */
 .wishlist-item {
 background: rgba(255, 255, 255, 0.06);
 border-radius: 15px;
@@ -4326,8 +4269,6 @@ transform: translateX(-5px);
 border-color: rgba(31, 175, 237, 0.3);
 box-shadow: 0 8px 25px rgba(31, 175, 237, 0.2);
 }
-
-/* Poster */
 .wishlist-item-poster {
 width: 60px;
 height: 90px;
@@ -4342,8 +4283,6 @@ z-index: 2;
 .wishlist-item:hover .wishlist-item-poster {
 transform: scale(1.05);
 }
-
-/* Info */
 .wishlist-item-info {
 flex: 1;
 position: relative;
@@ -4375,11 +4314,10 @@ gap: 4px;
 align-items: center;
 }
 
-/* Remove Button */
 .wishlist-remove-btn {
-background: rgba(237, 31, 31, 0.15); /* light red background */
-border: 2px solid rgba(237, 31, 31, 0.3); /* soft red border */
-color: #ed1f1f; /* red text */
+background: rgba(237, 31, 31, 0.15);
+border: 2px solid rgba(237, 31, 31, 0.3); 
+color: #ed1f1f;
 font-size: 18px;
 cursor: pointer;
 transition: all 0.3s ease;
@@ -4395,15 +4333,11 @@ z-index: 2;
 
 .wishlist-remove-btn:hover {
 color: #fff;
-background: linear-gradient(135deg, #ed1f1f, #a70000); /* strong red gradient */
+background: linear-gradient(135deg, #ed1f1f, #a70000);
 border-color: transparent;
 transform: scale(1.1);
 box-shadow: 0 4px 15px rgba(237, 31, 31, 0.4);
 }
-
-
-
-/* Heart Icon on Movie Card */
 .movie-card .wishlist-icon {
     position: absolute;
     top: 18px;
@@ -4430,9 +4364,6 @@ box-shadow: 0 4px 15px rgba(237, 31, 31, 0.4);
     background: rgba(31, 175, 237, 0.18);
     box-shadow: 0 5px 14px rgba(31, 175, 237, 0.25);
 }
-
- 
-/* Mobile Responsive */
 @media (max-width: 768px) {
 .wishlist-panel {
 width: 100%;
