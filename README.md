@@ -196,10 +196,10 @@ This project is open source and available under the [MIT License](LICENSE).
 **Dhruv Tripathi**
 
 - Website: [streamsage.netlify.app](https://streamsage.netlify.app)
-- GitHub: [github.com/dhruv865](https://github.com/dhruv865)
-- LinkedIn: [linkedin.com/in/dhruvtripathi865](https://www.linkedin.com/in/dhruvtripathi865/)
+- GitHub: [github.com/dhruv865](https://github.com/Prash-Mayank)
+- LinkedIn: [linkedin.com/in/dhruvtripathi865](https://www.linkedin.com/in/prashmayank/)
 
 ---
 
-<p align="center">Crafted with love for movie lovers by <strong>Dhruv Tripathi</strong></p>
+<p align="center">Crafted with love for movie lovers by <strong>Mayank Prashar</strong></p>
 <p align="center">© 2024 StreamSage. All rights reserved.</p>
