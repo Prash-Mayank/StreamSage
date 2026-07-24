@@ -91,7 +91,7 @@ StreamSage is a **single-file application** — all styles and scripts are embed
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/dhruv865/StreamSage.git
+git clone https://github.com/Prash-Mayank/StreamSage.git
 
 # 2. Navigate into the project folder
 cd streamsage
@@ -193,11 +193,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Author
 
-**Dhruv Tripathi**
+**Mayank Prashar**
 
 - Website: [streamsage.netlify.app](https://streamsage.netlify.app)
-- GitHub: [github.com/dhruv865](https://github.com/Prash-Mayank)
-- LinkedIn: [linkedin.com/in/dhruvtripathi865](https://www.linkedin.com/in/prashmayank/)
+- GitHub: [github.com/Prash-Mayank](https://github.com/Prash-Mayank)
+- LinkedIn: [linkedin.com/in/prashmayank](https://www.linkedin.com/in/prashmayank/)
 
 ---
 
